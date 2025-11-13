@@ -1,67 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_booking/future/home/home_view.dart';
+import 'package:flutter_hotel_booking/future/splash/splash_view.dart';
+import 'package:flutter_hotel_booking/future/splash/version_update.dart';
+import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
+import 'package:flutter_hotel_booking/product/constant/app_routes.dart';
+import 'package:flutter_hotel_booking/product/init/app_initialize.dart';
+import 'package:flutter_hotel_booking/product/init/app_listiner_initialize.dart';
+import 'package:flutter_hotel_booking/product/init/app_state_initialize.dart';
+import 'package:go_router/go_router.dart';
 
-void main() {
-  runApp(const MyApp());
+part 'product/navigation/app_gorouter.dart';
+
+Future<void> main() async {
+  await AppInitialize().make();
+  runApp(const StateInitialize(child: _MyApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class _MyApp extends StatelessWidget {
+  const _MyApp();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'clear_architecture_base',
+      // theme: AppLightTheme().themeData,
+      // darkTheme: AppDarkTheme().themeData,
+      routerConfig: _router,
     );
   }
 }
