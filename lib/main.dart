@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/home/home_view.dart';
-import 'package:flutter_hotel_booking/future/splash/splash_view.dart';
-import 'package:flutter_hotel_booking/future/splash/version_update.dart';
+import 'package:flutter_hotel_booking/future/launch/splash/splash_view.dart';
 import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
-import 'package:flutter_hotel_booking/product/constant/app_routes.dart';
+import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/init/app_initialize.dart';
 import 'package:flutter_hotel_booking/product/init/app_listiner_initialize.dart';
 import 'package:flutter_hotel_booking/product/init/app_state_initialize.dart';
+import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart';
+
+import 'package:flutter_hotel_booking/product/theme/app_dark_theme.dart';
+import 'package:flutter_hotel_booking/product/theme/app_light_theme.dart';
 import 'package:go_router/go_router.dart';
 
 part 'product/navigation/app_gorouter.dart';
@@ -24,8 +28,11 @@ class _MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'clear_architecture_base',
-      // theme: AppLightTheme().themeData,
-      // darkTheme: AppDarkTheme().themeData,
+      theme: AppLightTheme().themeData,
+      darkTheme: AppDarkTheme().themeData,
+      themeMode: context.watch<ThemeCubit>().isDarkMode
+          ? ThemeMode.dark
+          : ThemeMode.light,
       routerConfig: _router,
     );
   }

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/version/cubit/version_control_cubit.dart';
+import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart';
 
-///[StateInitialize] app genelinde kullanılacak olan blocProviderlarımızı burada başlatıyoruz
 class StateInitialize extends StatelessWidget {
   const StateInitialize({required this.child, super.key});
   final Widget child;
@@ -19,10 +19,11 @@ class StateInitialize extends StatelessWidget {
         BlocProvider(
           create: (context) => NotificationBloc(),
         ),
+        BlocProvider(
+          create: (context) => ThemeCubit(),
+        ),
       ],
       child: child,
     );
   }
 }
-
-// VersionControlService tek bir service te kullanıldığı için getit eklemedim

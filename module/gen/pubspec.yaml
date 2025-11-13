@@ -1,0 +1,108 @@
+name: gen
+description: "gen"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=1.17.0"
+
+
+dependencies:
+  # Animasyonlu JSON dosyalarını (Lottie animasyonlarını) oynatmak için kullanılır.
+  lottie: ^3.3.2 
+
+  # Ortam değişkenlerini (.env dosyası gibi) güvenli bir şekilde yönetmek için kullanılır.
+  # Genellikle API key, base URL gibi gizli veriler için tercih edilir.
+  envied: ^1.3.1
+
+  # Nesneleri karşılaştırmak için eşitlik (==) işlemlerini kolaylaştırır.
+  # Özellikle Bloc/Cubit state sınıflarında çok kullanılır.
+  equatable: ^2.0.7
+
+  # SVG formatındaki görselleri Flutter içinde göstermek için kullanılır.
+  flutter_svg: ^2.2.1
+
+  # JSON verilerini Dart nesnelerine ve tersi yönde dönüştürmek için anotasyonlar sağlar.
+  # Freezed veya manuel model sınıflarıyla birlikte kullanılır.
+  json_annotation: ^4.9.0
+
+
+
+dev_dependencies:
+  # Flutter test altyapısı; widget, unit ve integration testleri için gereklidir.
+  flutter_test:
+    sdk: flutter
+
+  # Kod kalitesini artırmak için lint kuralları sağlar (very_good_analysis → Very Good Ventures’ın paketi).
+  # Otomatik kurallarla temiz ve tutarlı bir kod stili elde etmeye yardımcı olur.
+  very_good_analysis: ^10.0.0
+
+  # Kod üretimi için kullanılan araçtır.
+  # Örneğin Freezed, JSON Serializable, Envied gibi paketler için gereklidir.
+  build_runner: ^2.9.0
+
+  # Envied’in .env dosyasından veri üretmesini sağlayan generator paketi.
+  # build_runner ile birlikte çalışır.
+  envied_generator: ^1.3.1
+
+  # JSON verilerini otomatik olarak model sınıflarına dönüştürmek için kod üretimi sağlar.
+  # build_runner ile birlikte çalışır.
+  json_serializable: ^6.11.1
+
+ 
+ #Flutter Gen Configuration
+  flutter_gen_runner: ^5.12.0
+
+flutter_gen:
+  output: lib/src/assets/
+
+  colors:
+    inputs:
+      - assets/color/colors.xml
+ 
+  
+  integrations:
+    image: true
+    flutter_svg: true
+    lottie: true
+
+
+
+flutter:
+
+  assets:
+    - assets/image/
+    - assets/lottie/
+    - assets/color/colors.xml 
+    - assets/svg/
+    - assets/icon/
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

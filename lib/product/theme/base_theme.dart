@@ -1,24 +1,7 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class AppScreenContainerTheme {
-//   AppScreenContainerTheme._();
+abstract class BaseTheme {
+  ThemeData get themeData;
 
-//   static const BoxDecoration backgroundGradient = BoxDecoration(
-//     gradient: LinearGradient(
-//       colors: [
-//         Color(0xFF667eea),
-//         Color(0xFF764ba2),
-//         Color(0xFF6B73FF),
-//         Color(0xFF000DFF),
-//       ],
-//       begin: Alignment.topLeft,
-//       end: Alignment.bottomRight,
-//     ),
-//   );
-
-//   // Backward compatibility için
-//   static BoxDecoration buildBackgroundGradient() => backgroundGradient;
-// }
-// ignore_for_file: public_member_api_docs
-
-abstract class BaseTheme {}
+  ThemeData get elevatedButtonThemeData;
+}

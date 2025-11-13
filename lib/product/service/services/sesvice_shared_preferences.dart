@@ -17,11 +17,13 @@ class SharedPreferencesService {
   int getInt(String key, {int defaultValue = 0}) =>
       _prefs.getInt(key) ?? defaultValue;
 
-  // Future<bool> setBool(String key, {required bool value}) async =>
-  //     _prefs.setBool(key, value);
+  Future<bool> setBool({
+    required String key,
+    required bool value,
+  }) async => _prefs.setBool(key, value);
 
-  // bool getBool(String key, {bool defaultValue = false}) =>
-  //     _prefs.getBool(key) ?? defaultValue;
+  bool getBool(String key, {bool defaultValue = false}) =>
+      _prefs.getBool(key) ?? defaultValue;
 }
 
 /*

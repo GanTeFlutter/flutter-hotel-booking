@@ -6,37 +6,62 @@ version: 1.0.0+1
 environment:
   sdk: ^3.9.2
 
-
 dependencies:
+  # Flutter SDK
   flutter:
     sdk: flutter
-  
+
+  # Core UI
   cupertino_icons: ^1.0.8
-  
+  lottie: ^3.3.2
+  shimmer: ^3.0.0
+  flutter_native_splash: ^2.4.7
+
+  # Meta
   meta: ^1.16.0
-  
-  #state management
+
+  # State Management
   flutter_bloc: ^9.1.1
   bloc_concurrency: ^0.3.0
+  provider: ^6.1.5+1
 
-
-  #dependency injection
+  # Dependency Injection
   get_it: ^8.2.0
 
-  #navigation 
+  # Navigation
   go_router: ^16.2.4
 
-  #logging
+  # Logging
   logger: ^2.6.1
-  
-  #http 
+
+  # Networking / HTTP
   dio: ^5.9.0
 
-  #local storage
+  # Local Storage
   shared_preferences: ^2.5.3
 
-  #url launcher
+  # URL / External Launch
   url_launcher: ^6.3.2
+  share_plus: ^12.0.1
+
+  # Firebase
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
+  firebase_remote_config: ^6.1.1
+  firebase_messaging: ^16.0.4
+
+  # Local Notifications
+  # flutter_local_notifications: ^19.5.0
+
+
+
+
+  gen:
+    path: module/gen
+
+
+
 
 
 dev_dependencies:

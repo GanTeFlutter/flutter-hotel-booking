@@ -72,20 +72,16 @@ class UrlLauncherService {
   Future<bool> launchCall({required String phoneNumber}) async {
     try {
       locator.loggerService.d('Telefon araması başlatılıyor: $phoneNumber');
-
       final urlParsed = Uri.parse('tel:$phoneNumber');
       if (await canLaunchUrl(urlParsed)) {
         final result = await launchUrl(urlParsed);
-
         if (result) {
           locator.loggerService.i('Telefon uygulaması başarıyla açıldı');
         } else {
           locator.loggerService.w('Telefon uygulaması açılamadı');
         }
-
         return result;
       }
-
       locator.loggerService.w('Telefon araması desteklenmiyor');
       return false;
     } on Exception catch (e, stackTrace) {

@@ -1,0 +1,78 @@
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary_300">#99CDF7</color>
+    <color name="primary_400">#69B1F1</color>
+    <color name="primary_500">#4593EC</color>
+    <color name="primary_600">#3076E0</color>
+    <color name="primary_700">#2761CE</color>
+    <color name="primary_800">#2853AF</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary_50">#E8F2FF</color>
+    <color name="secondary_100">#DBEAFE</color>
+    <color name="secondary_200">#BFDBFE</color>
+    <color name="secondary_300">#93C5FD</color>
+    <color name="secondary_400">#60A5FA</color>
+    <color name="secondary_500">#3B81F6</color>
+
+    <!-- Greyscale Colors -->
+    <color name="greyscale_0">#FFFFFF</color>
+    <color name="greyscale_25">#F6F8FA</color>
+    <color name="greyscale_50">#ECEFF3</color>
+    <color name="greyscale_100">#DFE1E6</color>
+    <color name="greyscale_200">#C1C7CF</color>
+    <color name="greyscale_300">#A4ABB8</color>
+    <color name="greyscale_400">#808897</color>
+    <color name="greyscale_500">#666D80</color>
+    <color name="greyscale_600">#353849</color>
+    <color name="greyscale_700">#272835</color>
+    <color name="greyscale_800">#1A1B25</color>
+    <color name="greyscale_900">#141414</color>
+
+    <!-- Sky Colors -->
+    <color name="sky_0">#EFFBFF</color>
+    <color name="sky_25">#D1F0F9</color>
+    <color name="sky_50">#7EDCF1</color>
+    <color name="sky_100">#33CFFF</color>
+    <color name="sky_200">#106A97</color>
+    <color name="sky_300">#0C4D6E</color>
+
+    <!-- Success Colors -->
+    <color name="success_0">#EFFEFA</color>
+    <color name="success_25">#DDF2EE</color>
+    <color name="success_50">#9DE0D3</color>
+    <color name="success_100">#40C4AA</color>
+    <color name="success_200">#287F6E</color>
+    <color name="success_300">#174E43</color>
+
+    <!-- Warning Colors -->
+    <color name="warning_0">#FFF6E0</color>
+    <color name="warning_25">#F9ECCB</color>
+    <color name="warning_50">#FBD982</color>
+    <color name="warning_100">#FFBD4C</color>
+    <color name="warning_200">#956321</color>
+    <color name="warning_300">#5B3D1E</color>
+
+    <!-- Error Colors -->
+    <color name="error_0">#FEEFF2</color>
+    <color name="error_25">#FADAE1</color>
+    <color name="error_50">#ED8296</color>
+    <color name="error_100">#DF1C41</color>
+    <color name="error_200">#95122B</color>
+    <color name="error_300">#710E21</color>
+
+    <!-- Common Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="orange">#FFA500</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="brown">#A52A2A</color>
+    <color name="gray">#808080</color>
+</resources>
