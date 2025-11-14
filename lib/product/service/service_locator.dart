@@ -34,7 +34,7 @@ void _registerSingletons() {
 extension ServiceLocator on GetIt {
   LoggerService get loggerService => locator<LoggerService>();
 
-  SharedPreferencesService get sharedprefsService =>
+  SharedPreferencesService get spService =>
       locator<SharedPreferencesService>();
 
   UrlLauncherService get urlLauncherService => locator<UrlLauncherService>();

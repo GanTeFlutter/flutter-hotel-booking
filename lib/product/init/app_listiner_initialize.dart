@@ -29,7 +29,7 @@ class AppListenerNotification extends StatelessWidget {
   ) {
     if (state is NotificationReceivedState) {
       NotificationHelper.showTopSuccessSnackBar(
-        state.title,
+        state.title, 
       );
     }
   }

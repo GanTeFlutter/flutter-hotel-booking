@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/future/launch/widget/step_3text.dart';
+import 'package:flutter_hotel_booking/future/login_process/widget/onboard_text.dart';
+import 'package:flutter_hotel_booking/future/login_process/widget/register_button.dart';
+
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
 import 'package:flutter_hotel_booking/product/widget/app_elevated_custom_button.dart';
 import 'package:gen/gen.dart';
@@ -23,7 +25,7 @@ class OnboardingTemplate extends StatelessWidget {
   final AssetGenImage backgroundImage;
   final String title;
   final String description;
-  final VoidCallback onContinue;
+  final VoidCallback? onContinue;
   final VoidCallback? onRegister;
 
   @override
@@ -62,9 +64,9 @@ class OnboardingTemplate extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                OnboardingText(text: title, isTitle: true),
+                LaunchText(text: title, isTitle: true),
                 const SizedBox(height: 20),
-                OnboardingText(text: description),
+                LaunchText(text: description),
                 Text(
                   description,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -84,7 +86,7 @@ class OnboardingTemplate extends StatelessWidget {
                   height: 70,
                 ),
                 if (registerButton)
-                  LoginFooterButton(
+                  RegisterButton(
                     onRegisterTap: () {},
                   ),
                 const SizedBox(height: 40),
@@ -93,34 +95,6 @@ class OnboardingTemplate extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class OnboardingText extends StatelessWidget {
-  const OnboardingText({
-    required this.text,
-    this.isTitle = false,
-    super.key,
-  });
-
-  final String text;
-  final bool isTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      textAlign: TextAlign.center,
-      style: isTitle
-          ? Theme.of(context).textTheme.displaySmall?.copyWith(
-              fontWeight: FontWeight.w600,
-              height: 1.33,
-              color: ColorName.greyscale0,
-            )
-          : Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: ColorName.greyscale200,
-            ),
     );
   }
 }

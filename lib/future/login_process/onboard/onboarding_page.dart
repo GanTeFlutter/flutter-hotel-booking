@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/future/launch/onboard/onboarding_template.dart';
+import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_template.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:gen/gen.dart';
 
 import 'package:go_router/go_router.dart';
@@ -101,9 +102,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       title: AppStrings.onBoardingStep3Title,
       description: AppStrings.onBoardingStep3Description,
       buttonText: AppStrings.onBoardingButtonGetStarted,
-      onContinue: _nextPage,
+      onContinue: () {
+        // Onboarding tamamlandı olarak işaretle
+        //defaultu false
+        locator.spService.setBool(
+          key: AppStrings.spkOnboardCompleted,
+          value: true,
+        );
+        context.goNamed(AppStrings.routerHomeView);
+      },
       registerButton: true,
-      onRegister: () => context.goNamed('register'),
+      onRegister: () {},
     );
   }
 }

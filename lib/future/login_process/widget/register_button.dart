@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
 
-class LoginFooterButton extends StatelessWidget {
-  const LoginFooterButton({
+class RegisterButton extends StatelessWidget {
+  const RegisterButton({
     required this.onRegisterTap,
     super.key,
   });

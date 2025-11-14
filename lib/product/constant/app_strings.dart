@@ -8,6 +8,8 @@ class AppStrings {
 
   //Shared Preferences Keys
   static const String spkOnboardCompleted = 'is_first_launch';
+  static const String spkCacheThemeMode = 'cache_theme_mode';
+
 
   //Url
   static const String urlWebsite = 'https://akillisletme.com/';
