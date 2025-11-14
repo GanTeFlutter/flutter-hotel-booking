@@ -71,9 +71,11 @@ unlinked_spec.ds
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
 *.jks
-/android/app/src/debug
-/android/app/src/profile
-/android/app/src/main
+
+/android/app/src/
+/android/app/google-services.json
+/lib/firebase_options.dart
+
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
