@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/version/cubit/version_control_cubit.dart';
+import 'package:flutter_hotel_booking/product/state/cubit/onboard/onboarding_cubit.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart';
 
 class StateInitialize extends StatelessWidget {
@@ -21,6 +22,9 @@ class StateInitialize extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ThemeCubit(),
+        ),
+        BlocProvider(
+          create: (context) => OnboardingCubit(),
         ),
       ],
       child: child,

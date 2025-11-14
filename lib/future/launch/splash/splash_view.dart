@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/service/version/cubit/version_control_cubit.dart';
+import 'package:flutter_hotel_booking/product/widget/app_elevated_custom_button.dart';
 import 'package:gen/gen.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -49,14 +51,14 @@ class SplashView extends StatelessWidget {
           ),
           box(height: 10),
           Text(
-            AppStrings.obHotelName,
+            AppStrings.onBoardingHotelName,
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               color: ColorName.secondary50,
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
-            AppStrings.obHotelDescription,
+            AppStrings.onBoardingHotelDescription,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: ColorName.greyscale0,
             ),
@@ -64,6 +66,13 @@ class SplashView extends StatelessWidget {
           box(height: 25),
           const CircularProgressIndicator(
             color: ColorName.secondary50,
+          ),
+
+          AppCustomElevatedButton(
+            onPressed: () {
+              context.goNamed(AppStrings.routerOnBoardingStep1View);
+            },
+            text: 'Check Version',
           ),
         ],
       ),

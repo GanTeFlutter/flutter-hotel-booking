@@ -1,0 +1,109 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_hotel_booking/future/launch/onboard/onboarding_template.dart';
+import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:gen/gen.dart';
+
+import 'package:go_router/go_router.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
+  @override
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  late final PageController _pageController;
+  int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _nextPage() {
+    if (_currentPage < 2) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() => _currentPage = index);
+            },
+            children: [
+              _buildPage1(),
+              _buildPage2(),
+              _buildPage3(),
+            ],
+          ),
+          if (_currentPage < 2)
+            Positioned(
+              bottom: 180,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: SmoothPageIndicator(
+                  controller: _pageController,
+                  count: 3,
+                  effect: WormEffect(
+                    dotHeight: 8,
+                    dotWidth: 8,
+                    activeDotColor: Colors.blue,
+                    dotColor: Colors.grey.withValues(alpha: 0.5),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPage1() {
+    return OnboardingTemplate(
+      backgroundImage: Assets.image.obStep1,
+      title: AppStrings.onBoardingStep1Title,
+      description: AppStrings.onBoardingStep1Description,
+      onContinue: _nextPage,
+    );
+  }
+
+  Widget _buildPage2() {
+    return OnboardingTemplate(
+      backgroundImage: Assets.image.obStep2,
+      title: AppStrings.onBoardingStep2Title,
+      description: AppStrings.onBoardingStep2Description,
+      onContinue: _nextPage,
+    );
+  }
+
+  Widget _buildPage3() {
+    return OnboardingTemplate(
+      backgroundImage: Assets.image.obStep3,
+      title: AppStrings.onBoardingStep3Title,
+      description: AppStrings.onBoardingStep3Description,
+      buttonText: AppStrings.onBoardingButtonGetStarted,
+      onContinue: _nextPage,
+      registerButton: true,
+      onRegister: () => context.goNamed('register'),
+    );
+  }
+}

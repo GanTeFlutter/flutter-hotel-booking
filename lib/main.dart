@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/home/home_view.dart';
+import 'package:flutter_hotel_booking/future/launch/onboard/onboarding_page.dart';
 import 'package:flutter_hotel_booking/future/launch/splash/splash_view.dart';
 import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_hotel_booking/product/init/app_initialize.dart';
 import 'package:flutter_hotel_booking/product/init/app_listiner_initialize.dart';
 import 'package:flutter_hotel_booking/product/init/app_state_initialize.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart';
-
 import 'package:flutter_hotel_booking/product/theme/app_dark_theme.dart';
 import 'package:flutter_hotel_booking/product/theme/app_light_theme.dart';
 import 'package:go_router/go_router.dart';

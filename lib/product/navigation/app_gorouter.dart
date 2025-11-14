@@ -9,6 +9,13 @@ final GoRouter _router = GoRouter(
         return const SplashView();
       },
     ),
+    GoRoute(
+      path: '/${AppStrings.routerOnBoardingStep1View}',
+      name: AppStrings.routerOnBoardingStep1View,
+      builder: (BuildContext context, GoRouterState state) {
+        return const OnboardingScreen();
+      },
+    ),
     ShellRoute(
       builder: (context, state, child) {
         return AppListenerNotification(child: child);

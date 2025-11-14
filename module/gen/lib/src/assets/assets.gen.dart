@@ -28,14 +28,20 @@ class $AssetsColorGen {
 class $AssetsImageGen {
   const $AssetsImageGen();
 
+  /// File path: assets/image/ob_step1.png
+  AssetGenImage get obStep1 => const AssetGenImage('assets/image/ob_step1.png');
+
+  /// File path: assets/image/ob_step2.png
+  AssetGenImage get obStep2 => const AssetGenImage('assets/image/ob_step2.png');
+
+  /// File path: assets/image/ob_step3.png
+  AssetGenImage get obStep3 => const AssetGenImage('assets/image/ob_step3.png');
+
   /// File path: assets/image/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/image/splash.png');
 
-  /// File path: assets/image/taslar.png
-  AssetGenImage get taslar => const AssetGenImage('assets/image/taslar.png');
-
   /// List of all assets
-  List<AssetGenImage> get values => [splash, taslar];
+  List<AssetGenImage> get values => [obStep1, obStep2, obStep3, splash];
 }
 
 class $AssetsLottieGen {
