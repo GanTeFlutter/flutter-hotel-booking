@@ -62,6 +62,14 @@ dependencies:
 
   gen:
     path: module/gen
+
+  common:
+    path: module/common  
+
+  widgets:
+    path: module/widgets
+
+
   package_info_plus: ^9.0.0
 
 

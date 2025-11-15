@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/future/login_process/widget/onboard_text.dart';
 import 'package:flutter_hotel_booking/future/login_process/widget/register_button.dart';
 
-import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
-import 'package:flutter_hotel_booking/product/widget/app_elevated_custom_button.dart';
 import 'package:gen/gen.dart';
 
 // Onboarding Template Widget
@@ -74,17 +72,17 @@ class OnboardingTemplate extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                AppCustomElevatedButton(
-                  padding: const EdgeInsets.only(
-                    top: ProjectPadding.xLarge,
-                    left: ProjectPadding.large,
-                    right: ProjectPadding.large,
-                    bottom: ProjectPadding.large,
-                  ),
-                  onPressed: onContinue,
-                  text: buttonText,
-                  height: 70,
-                ),
+                // AppCustomElevatedButton(
+                //   padding: const EdgeInsets.only(
+                //     top: ProjectPadding.xLarge,
+                //     left: ProjectPadding.large,
+                //     right: ProjectPadding.large,
+                //     bottom: ProjectPadding.large,
+                //   ),
+                //   onPressed: onContinue,
+                //   text: buttonText,
+                //   height: 70,
+                // ),
                 if (registerButton)
                   RegisterButton(
                     onRegisterTap: () {},

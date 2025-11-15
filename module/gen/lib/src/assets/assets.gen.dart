@@ -47,12 +47,24 @@ class $AssetsImageGen {
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
+  /// File path: assets/lottie/payment_success.json
+  LottieGenImage get paymentSuccess =>
+      const LottieGenImage('assets/lottie/payment_success.json');
+
   /// File path: assets/lottie/premium_animation.json
   LottieGenImage get premiumAnimation =>
       const LottieGenImage('assets/lottie/premium_animation.json');
 
+  /// File path: assets/lottie/successful_check_circle.json
+  LottieGenImage get successfulCheckCircle =>
+      const LottieGenImage('assets/lottie/successful_check_circle.json');
+
   /// List of all assets
-  List<LottieGenImage> get values => [premiumAnimation];
+  List<LottieGenImage> get values => [
+    paymentSuccess,
+    premiumAnimation,
+    successfulCheckCircle,
+  ];
 }
 
 class $AssetsSvgGen {

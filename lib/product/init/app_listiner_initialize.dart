@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
-import 'package:flutter_hotel_booking/product/service/notification/service_notification_helper.dart';
 
 class AppListenerNotification extends StatelessWidget {
   const AppListenerNotification({
@@ -28,9 +27,9 @@ class AppListenerNotification extends StatelessWidget {
     NotificationState state,
   ) {
     if (state is NotificationReceivedState) {
-      NotificationHelper.showTopSuccessSnackBar(
-        state.title, 
-      );
+      // NotificationHelper.showTopSuccessSnackBar(
+      //   state.title, 
+      // );
     }
   }
 }

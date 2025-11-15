@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/widget/onboard_text.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
-import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
 
 import 'package:flutter_hotel_booking/product/state/cubit/version/version_comparetor_cubit.dart';
-import 'package:flutter_hotel_booking/product/widget/app_elevated_custom_button.dart';
+
 import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -68,12 +67,12 @@ class SplashView extends StatelessWidget {
           const CircularProgressIndicator(
             color: ColorName.secondary50,
           ),
-          AppCustomElevatedButton(
-            onPressed: () {
-              context.goNamed(AppStrings.routerOnBoardingStep1View);
-            },
-            text: 'Check Version',
-          ),
+          // AppCustomElevatedButton(
+          //   onPressed: () {
+          //     context.goNamed(AppStrings.routerOnBoardingStep1View);
+          //   },
+          //   text: 'Check Version',
+          // ),
         ],
       ),
     );
