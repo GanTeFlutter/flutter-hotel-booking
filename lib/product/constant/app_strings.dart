@@ -14,15 +14,42 @@ class AppStrings {
   // -------------------- URLS --------------------
   static const String urlWebsite = 'https://akillisletme.com/';
 
+
+
+
+
+
   // -------------------- ROUTES --------------------
   static const String routerHomeView = 'homeView';
   static const String routerVersionUpdateView = 'versionUpdateView';
   static const String routerRegisterView = 'registerView';
-  static const String routerLoginView = 'loginView';
 
+  // OnBoarding
   static const String routerOnBoardingStep1View = 'onBoardingStep1View';
   static const String routerOnBoardingStep2View = 'onBoardingStep2View';
   static const String routerOnBoardingStep3View = 'onBoardingStep3View';
+
+  // Login Process
+  static const String routerSignUpView = 'signUpView';
+  static const String routerSignInView = 'signInView';
+  static const String routerEnterOtpView = 'enterOtpView';
+  static const String routerForgotPasswordView = 'forgotPasswordView';
+  static const String routerCreateNewPasswordView = 'createNewPasswordView';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // -------------------- SPLASH SCREEN --------------------
   static const String splashLoading = 'Yükleniyor...';
@@ -70,7 +97,7 @@ class AppStrings {
   static const String orSignInWith = 'Or Sign In with';
   static const String termsAgreement = 'By signing up you agree to our ';
   static const String termsAgreement2 = 'Terms and Conditions of Use';
-  
+
   static const String createAccount = 'Create An Account';
   static const String enterOtp = 'Enter OTP';
   static const String otpSentMessage =
@@ -80,12 +107,11 @@ class AppStrings {
   static const String recoverPasswordSubtitle = 'Recover your account password';
   static const String next = 'Next';
 
-
-  //   Sign Up
+  //Sign Up
 
   static const String fullName = 'Full Name';
   static const String enterYourName = 'Enter your name';
-    static const String signUpTitle = 'Create Account';
-    static const String signUpTitleDescription = 'Lorem ipsum dolor sit amet, consectetur';
-
+  static const String signUpTitle = 'Create Account';
+  static const String signUpTitleDescription =
+      'Lorem ipsum dolor sit amet, consectetur';
 }
