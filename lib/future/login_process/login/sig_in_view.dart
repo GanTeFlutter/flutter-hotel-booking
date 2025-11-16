@@ -50,7 +50,7 @@ class _SignViewState extends State<SignView> {
                   suffixIcon: const Icon(Icons.visibility),
                 ),
               ),
-              
+
               RememberMeForgotPassword(
                 rememberMe: true,
                 onRememberMeChanged: (value) {},

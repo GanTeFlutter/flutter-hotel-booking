@@ -29,30 +29,30 @@ class _HomeViewState extends State<HomeView> {
               descriptionColor: ColorName.greyscale4,
               description: 'Lorem ipsum dolor sit amet, consectetur',
             ),
-            AppMultiTextfield(
-              title: 'Email Address',
-              textField: CustomTextField(
-                labelText: 'Enter your email address',
-                onChanged: (value) {},
-                keyboardType: TextInputType.emailAddress,
-              ),
-            ),
-            AppMultiTextfield(
-              title: 'Email Address',
-              textField: CustomTextField(
-                labelText: 'Enter your email address',
-                onChanged: (value) {},
-                keyboardType: TextInputType.emailAddress,
-              ),
-            ),
-            AppMultiTextfield(
-              title: 'Email Address',
-              textField: CustomTextField(
-                labelText: 'Enter your email address',
-                onChanged: (value) {},
-                keyboardType: TextInputType.emailAddress,
-              ),
-            ),
+            // AppMultiTextfield(
+            //   title: 'Email Address',
+            //   textField: CustomTextField(
+            //     labelText: 'Enter your email address',
+            //     onChanged: (value) {},
+            //     keyboardType: TextInputType.emailAddress,
+            //   ),
+            // ),
+            // AppMultiTextfield(
+            //   title: 'Email Address',
+            //   textField: CustomTextField(
+            //     labelText: 'Enter your email address',
+            //     onChanged: (value) {},
+            //     keyboardType: TextInputType.emailAddress,
+            //   ),
+            // ),
+            // AppMultiTextfield(
+            //   title: 'Email Address',
+            //   textField: CustomTextField(
+            //     labelText: 'Enter your email address',
+            //     onChanged: (value) {},
+            //     keyboardType: TextInputType.emailAddress,
+            //   ),
+            // ),
 
             
           ],

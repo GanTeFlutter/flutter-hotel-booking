@@ -88,7 +88,9 @@ class OnBoardinEndView extends StatelessWidget {
                   fontWeight2: FontWeight.w600,
                   color1: ColorName.greyscale0,
                   color2: ColorName.primary800,
-                  onTap: () {},
+                  onTap: () {
+                    
+                  },
                 ),
 
                 const SizedBox(height: 30),

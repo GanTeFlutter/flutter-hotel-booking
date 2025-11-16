@@ -65,12 +65,12 @@ class AppStrings {
   static const String forgotPassword = 'Forgot Password';
   static const String signIn = 'Sign In';
   static const String noAccount1 = 'Don’t have an account? ';
-    static const String noAccount2 = 'Register';
+  static const String noAccount2 = 'Register';
   static const String noAccount3 = 'Sign Up';
   static const String orSignInWith = 'Or Sign In with';
   static const String termsAgreement = 'By signing up you agree to our ';
   static const String termsAgreement2 = 'Terms and Conditions of Use';
-
+  
   static const String createAccount = 'Create An Account';
   static const String enterOtp = 'Enter OTP';
   static const String otpSentMessage =
@@ -79,4 +79,13 @@ class AppStrings {
   static const String forgotPasswordTitle = 'Forgot Password';
   static const String recoverPasswordSubtitle = 'Recover your account password';
   static const String next = 'Next';
+
+
+  //   Sign Up
+
+  static const String fullName = 'Full Name';
+  static const String enterYourName = 'Enter your name';
+    static const String signUpTitle = 'Create Account';
+    static const String signUpTitleDescription = 'Lorem ipsum dolor sit amet, consectetur';
+
 }

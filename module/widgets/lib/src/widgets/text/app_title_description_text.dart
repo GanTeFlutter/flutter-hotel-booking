@@ -24,7 +24,7 @@ final class AppTitleDescriptionText extends StatelessWidget {
           text,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             color: titleColor,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
           ),
           textAlign: TextAlign.center,
         ),

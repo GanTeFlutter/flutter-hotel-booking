@@ -24,21 +24,23 @@ class _SignUpViewState extends State<SignUpView> {
             spacing: 30,
             children: [
               SizedBox(height: size.height * 0.1),
+
               const AppTitleDescriptionText(
-                text: AppStrings.loginTitle,
+                text: AppStrings.signUpTitle,
                 titleColor: ColorName.greyscale4,
                 descriptionColor: ColorName.greyscale4,
-                description: AppStrings.loginSubtitle,
+                description: AppStrings.signUpTitleDescription,
               ),
 
               AppMultiTextfield(
-                title: AppStrings.emailLabel,
+                title: AppStrings.fullName,
                 textField: CustomTextField(
-                  labelText: AppStrings.emailHint,
+                  labelText: AppStrings.enterYourName,
                   onChanged: (value) {},
                   keyboardType: TextInputType.emailAddress,
                 ),
               ),
+
               AppMultiTextfield(
                 title: AppStrings.emailLabel,
                 textField: CustomTextField(
@@ -57,7 +59,6 @@ class _SignUpViewState extends State<SignUpView> {
                   suffixIcon: const Icon(Icons.visibility),
                 ),
               ),
-
               AppCustomElevatedButton(
                 text: AppStrings.signIn,
                 onPressed: () {},

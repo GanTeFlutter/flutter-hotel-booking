@@ -16,19 +16,10 @@ final class AppLightTheme implements BaseTheme {
 
   InputDecorationTheme get _inputDecorationTheme => InputDecorationTheme(
     labelStyle: GoogleFonts.jost(
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w600,
       color: ColorName.greyscale2,
-      letterSpacing: 0,
-      height: 1.16,
     ),
-    hintStyle: GoogleFonts.jost(
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
-      color: ColorName.greyscale2,
-      letterSpacing: 0,
-      height: 1.16,
-    ),
+
     prefixIconColor: ColorName.greyscale4,
     suffixIconColor: ColorName.greyscale4,
     contentPadding: const EdgeInsets.symmetric(
