@@ -8,16 +8,11 @@ class AppStrings {
   static const String appName = 'Hotel Booking';
 
   // -------------------- SHARED PREF KEYS --------------------
-  static const String spkOnboardCompleted = 'is_first_launch';
+  static const String spkOnboardCompleted = 'onboard_completed';
   static const String spkCacheThemeMode = 'cache_theme_mode';
 
   // -------------------- URLS --------------------
   static const String urlWebsite = 'https://akillisletme.com/';
-
-
-
-
-
 
   // -------------------- ROUTES --------------------
   static const String routerHomeView = 'homeView';
@@ -35,21 +30,6 @@ class AppStrings {
   static const String routerEnterOtpView = 'enterOtpView';
   static const String routerForgotPasswordView = 'forgotPasswordView';
   static const String routerCreateNewPasswordView = 'createNewPasswordView';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // -------------------- SPLASH SCREEN --------------------
   static const String splashLoading = 'Yükleniyor...';

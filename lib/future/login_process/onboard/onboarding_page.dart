@@ -117,11 +117,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  void _shortening(String path) {
-    locator<SharedPreferencesService>().setBool(
-      key: AppStrings.spkOnboardCompleted,
-      value: true,
-    );
+  Future<void> _shortening(String path) async {
+    await locator.spService.setOnboardingCompleted(isCompleted: true);
+    if (!mounted) return; 
     context.goNamed(path);
   }
 }

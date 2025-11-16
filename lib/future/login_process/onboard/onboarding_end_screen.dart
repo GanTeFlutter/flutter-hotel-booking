@@ -80,7 +80,6 @@ class OnBoardinEndView extends StatelessWidget {
                 RegisterButton(
                   onRegisterTap: () {},
                 ),
-
                 CustomRichText(
                   text1: AppStrings.noAccount1,
                   text2: AppStrings.noAccount2,

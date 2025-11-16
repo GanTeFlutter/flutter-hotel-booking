@@ -12,8 +12,6 @@ import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/init/app_listiner_initialize.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 final GoRouter router = GoRouter(
   navigatorKey: AppKeys.navigatorKey,
   routes: <RouteBase>[
@@ -57,14 +55,14 @@ final GoRouter router = GoRouter(
                 return const ForgotPasswordView();
               },
             ),
-             GoRoute(
+            GoRoute(
               path: '/${AppStrings.routerEnterOtpView}',
               name: AppStrings.routerEnterOtpView,
               builder: (BuildContext context, GoRouterState state) {
                 return const EnterOtpView();
               },
             ),
-             GoRoute(
+            GoRoute(
               path: '/${AppStrings.routerCreateNewPasswordView}',
               name: AppStrings.routerCreateNewPasswordView,
               builder: (BuildContext context, GoRouterState state) {
