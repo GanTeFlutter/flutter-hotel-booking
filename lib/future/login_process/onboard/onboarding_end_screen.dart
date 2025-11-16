@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_booking/future/login_process/widget/register_button.dart';
 
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
+import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:gen/gen.dart';
 import 'package:widgets/widgets.dart';
 
-// Onboarding Template Widget
-// Üç farklı onboarding ekranı için ortak şablon
-class OnboardingTemplate extends StatelessWidget {
-  const OnboardingTemplate({
+class OnBoardinEndView extends StatelessWidget {
+  const OnBoardinEndView({
     required this.backgroundImage,
+    required this.buttonText,
     required this.title,
     required this.description,
     required this.onContinue,
-    required this.buttonText,
-    this.showPageIndicator = false,
-    this.pageIndicator,
+    required this.onRegister,
     super.key,
   });
 
-  final String buttonText;
   final AssetGenImage backgroundImage;
+  final String buttonText;
   final String title;
   final String description;
   final VoidCallback? onContinue;
-
-  final bool showPageIndicator;
-  final Widget? pageIndicator;
-
+  final VoidCallback? onRegister;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +65,7 @@ class OnboardingTemplate extends StatelessWidget {
                   descriptionColor: ColorName.greyscale200,
                   description: description,
                 ),
-                if (showPageIndicator && pageIndicator != null) ...[
-                  pageIndicator!,
-                ],
+
                 AppCustomElevatedButton(
                   onPressed: onContinue,
                   text: buttonText,
@@ -79,9 +73,25 @@ class OnboardingTemplate extends StatelessWidget {
                     left: ProjectPadding.medium,
                     right: ProjectPadding.medium,
                     top: ProjectPadding.medium,
-                    bottom: ProjectPadding.xLarge,
+                    bottom: ProjectPadding.small,
                   ),
                 ),
+
+                RegisterButton(
+                  onRegisterTap: () {},
+                ),
+
+                CustomRichText(
+                  text1: AppStrings.noAccount1,
+                  text2: AppStrings.noAccount2,
+                  fontWeight1: FontWeight.w400,
+                  fontWeight2: FontWeight.w600,
+                  color1: ColorName.greyscale0,
+                  color2: ColorName.primary800,
+                  onTap: () {},
+                ),
+
+                const SizedBox(height: 30),
               ],
             ),
           ),

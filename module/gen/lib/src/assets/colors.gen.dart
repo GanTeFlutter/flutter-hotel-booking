@@ -29,6 +29,9 @@ class ColorName {
   /// Color: #FEEFF2
   static const Color error0 = Color(0xFFFEEFF2);
 
+  /// Color: #F41F52
+  static const Color error1 = Color(0xFFF41F52);
+
   /// Color: #DF1C41
   static const Color error100 = Color(0xFFDF1C41);
 
@@ -53,8 +56,14 @@ class ColorName {
   /// Color: #FFFFFF
   static const Color greyscale0 = Color(0xFFFFFFFF);
 
+  /// Color: #F6F6F6
+  static const Color greyscale1 = Color(0xFFF6F6F6);
+
   /// Color: #DFE1E6
   static const Color greyscale100 = Color(0xFFDFE1E6);
+
+  /// Color: #9CA4AB
+  static const Color greyscale2 = Color(0xFF9CA4AB);
 
   /// Color: #C1C7CF
   static const Color greyscale200 = Color(0xFFC1C7CF);
@@ -62,8 +71,14 @@ class ColorName {
   /// Color: #F6F8FA
   static const Color greyscale25 = Color(0xFFF6F8FA);
 
+  /// Color: #78828A
+  static const Color greyscale3 = Color(0xFF78828A);
+
   /// Color: #A4ABB8
   static const Color greyscale300 = Color(0xFFA4ABB8);
+
+  /// Color: #171725
+  static const Color greyscale4 = Color(0xFF171725);
 
   /// Color: #808897
   static const Color greyscale400 = Color(0xFF808897);

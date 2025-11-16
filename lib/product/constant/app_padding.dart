@@ -7,7 +7,7 @@ final class ProjectPadding {
   static const double small = 8;
   static const double medium = 16;
   static const double large = 32;
-  static const double xLarge = 82;
+  static const double xLarge = 64;
 
   static const EdgeInsets allSmall = EdgeInsets.all(small);
   static const EdgeInsets allMedium = EdgeInsets.all(medium);

@@ -37,11 +37,32 @@ class $AssetsImageGen {
   /// File path: assets/image/ob_step3.png
   AssetGenImage get obStep3 => const AssetGenImage('assets/image/ob_step3.png');
 
-  /// File path: assets/image/splash.png
-  AssetGenImage get splash => const AssetGenImage('assets/image/splash.png');
+  /// File path: assets/image/smb_apple.png
+  AssetGenImage get smbApple =>
+      const AssetGenImage('assets/image/smb_apple.png');
+
+  /// File path: assets/image/smb_facebook.png
+  AssetGenImage get smbFacebook =>
+      const AssetGenImage('assets/image/smb_facebook.png');
+
+  /// File path: assets/image/smb_google.png
+  AssetGenImage get smbGoogle =>
+      const AssetGenImage('assets/image/smb_google.png');
+
+  /// File path: assets/image/splash_logo.png
+  AssetGenImage get splashLogo =>
+      const AssetGenImage('assets/image/splash_logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [obStep1, obStep2, obStep3, splash];
+  List<AssetGenImage> get values => [
+    obStep1,
+    obStep2,
+    obStep3,
+    smbApple,
+    smbFacebook,
+    smbGoogle,
+    splashLogo,
+  ];
 }
 
 class $AssetsLottieGen {

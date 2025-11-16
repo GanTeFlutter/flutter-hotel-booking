@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
+import 'package:gen/gen.dart';
 
-class HomeView extends StatelessWidget {
+import 'package:widgets/widgets.dart';
+
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  bool isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,28 +20,41 @@ class HomeView extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          spacing: 20,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Welcome to the Home View!'),
+            const AppTitleDescriptionText(
+              text: 'Let’s Sign you in',
+              titleColor: ColorName.greyscale4,
+              descriptionColor: ColorName.greyscale4,
+              description: 'Lorem ipsum dolor sit amet, consectetur',
+            ),
+            AppMultiTextfield(
+              title: 'Email Address',
+              textField: CustomTextField(
+                labelText: 'Enter your email address',
+                onChanged: (value) {},
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ),
+            AppMultiTextfield(
+              title: 'Email Address',
+              textField: CustomTextField(
+                labelText: 'Enter your email address',
+                onChanged: (value) {},
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ),
+            AppMultiTextfield(
+              title: 'Email Address',
+              textField: CustomTextField(
+                labelText: 'Enter your email address',
+                onChanged: (value) {},
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ),
 
-            ElevatedButton(
-              onPressed: () {
-                context.read<NotificationBloc>().add(
-                  NotificationReceivedEvent(
-                    'New Notification from Home View',
-                    'This is the body of the notification.',
-                  ),
-                );
-              },
-              child: const Text('  Go to Details'),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                // Dialog kapandıktan sonra başka bir işlem
-                Navigator.pop(context);
-              },
-              child: const Text('Kaydet'),
-            ),
-            // Kullanım 3: Button'da
+            
           ],
         ),
       ),

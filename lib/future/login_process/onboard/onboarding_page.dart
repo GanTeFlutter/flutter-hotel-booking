@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_end_screen.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_template.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
+import 'package:flutter_hotel_booking/product/service/services/sesvice_shared_preferences.dart';
 import 'package:gen/gen.dart';
-
 import 'package:go_router/go_router.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -55,24 +57,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               _buildPage3(),
             ],
           ),
-          if (_currentPage < 2)
-            Positioned(
-              bottom: 180,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: SmoothPageIndicator(
-                  controller: _pageController,
-                  count: 3,
-                  effect: WormEffect(
-                    dotHeight: 8,
-                    dotWidth: 8,
-                    activeDotColor: Colors.blue,
-                    dotColor: Colors.grey.withValues(alpha: 0.5),
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );
@@ -80,39 +64,64 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Widget _buildPage1() {
     return OnboardingTemplate(
+      buttonText: AppStrings.onBoardingButtonContinue,
       backgroundImage: Assets.image.obStep1,
       title: AppStrings.onBoardingStep1Title,
       description: AppStrings.onBoardingStep1Description,
       onContinue: _nextPage,
+      showPageIndicator: true,
+      pageIndicator: SmoothPageIndicator(
+        controller: _pageController,
+        count: 2,
+        effect: WormEffect(
+          dotHeight: 8,
+          dotWidth: 8,
+          activeDotColor: Colors.blue,
+          dotColor: Colors.grey.withValues(alpha: 0.5),
+        ),
+      ),
     );
   }
 
   Widget _buildPage2() {
     return OnboardingTemplate(
+      buttonText: AppStrings.onBoardingButtonContinue,
       backgroundImage: Assets.image.obStep2,
       title: AppStrings.onBoardingStep2Title,
       description: AppStrings.onBoardingStep2Description,
       onContinue: _nextPage,
+      showPageIndicator: true,
+      pageIndicator: SmoothPageIndicator(
+        controller: _pageController,
+        count: 2,
+        effect: WormEffect(
+          dotHeight: 8,
+          dotWidth: 8,
+          activeDotColor: Colors.blue,
+          dotColor: Colors.grey.withValues(alpha: 0.5),
+        ),
+      ),
     );
   }
 
+  // OnboardingTemplate sayesinde tekrarlayan kodlardan kurtulduk. yeni ekranlar kolayca eklenebilir.
+
   Widget _buildPage3() {
-    return OnboardingTemplate(
+    return OnBoardinEndView(
       backgroundImage: Assets.image.obStep3,
+      buttonText: AppStrings.onBoardingButtonGetStarted,
       title: AppStrings.onBoardingStep3Title,
       description: AppStrings.onBoardingStep3Description,
-      buttonText: AppStrings.onBoardingButtonGetStarted,
-      onContinue: () {
-        // Onboarding tamamlandı olarak işaretle
-        //defaultu false
-        locator.spService.setBool(
-          key: AppStrings.spkOnboardCompleted,
-          value: true,
-        );
-        context.goNamed(AppStrings.routerHomeView);
-      },
-      registerButton: true,
-      onRegister: () {},
+      onContinue: () => _shortening(AppStrings.routerHomeView),
+      onRegister: () => _shortening(AppStrings.routerRegisterView),
     );
+  }
+
+  void _shortening(String path) {
+    locator<SharedPreferencesService>().setBool(
+      key: AppStrings.spkOnboardCompleted,
+      value: true,
+    );
+    context.goNamed(path);
   }
 }

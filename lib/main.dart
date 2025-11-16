@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/home/home_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/sig_in_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/sign_up_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_page.dart';
 import 'package:flutter_hotel_booking/future/login_process/splash/splash_view.dart';
 import 'package:flutter_hotel_booking/product/constant/app_keys.dart';

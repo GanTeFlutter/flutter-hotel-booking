@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/login_process/widget/onboard_text.dart';
+
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
-
 import 'package:flutter_hotel_booking/product/state/cubit/version/version_comparetor_cubit.dart';
-
 import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:widgets/widgets.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -49,19 +48,19 @@ class SplashView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Assets.image.splash.image(
+          Assets.image.splashLogo.image(
             width: 90,
             height: 125,
             fit: BoxFit.fill,
             package: 'gen',
           ),
           box(height: 10),
-          const LaunchText(
+
+          const AppTitleDescriptionText(
             text: AppStrings.onBoardingHotelName,
-            isTitle: true,
-          ),
-          const LaunchText(
-            text: AppStrings.onBoardingHotelDescription,
+            titleColor: ColorName.greyscale0,
+            descriptionColor: ColorName.greyscale200,
+            description: AppStrings.onBoardingHotelDescription,
           ),
           box(height: 25),
           const CircularProgressIndicator(

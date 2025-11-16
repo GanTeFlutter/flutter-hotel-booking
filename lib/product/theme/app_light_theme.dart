@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/product/theme/base_theme.dart';
+import 'package:gen/gen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final class AppLightTheme implements BaseTheme {
@@ -10,6 +11,35 @@ final class AppLightTheme implements BaseTheme {
     scaffoldBackgroundColor: Colors.white,
     textTheme: _textTheme,
     elevatedButtonTheme: elevatedButtonThemeData,
+    inputDecorationTheme: _inputDecorationTheme,
+  );
+
+  InputDecorationTheme get _inputDecorationTheme => InputDecorationTheme(
+    labelStyle: GoogleFonts.jost(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: ColorName.greyscale2,
+      letterSpacing: 0,
+      height: 1.16,
+    ),
+    hintStyle: GoogleFonts.jost(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: ColorName.greyscale2,
+      letterSpacing: 0,
+      height: 1.16,
+    ),
+    prefixIconColor: ColorName.greyscale4,
+    suffixIconColor: ColorName.greyscale4,
+    contentPadding: const EdgeInsets.symmetric(
+      //AppCustomElevatedButton aynı yüksekliğe getirmek için
+      vertical: 18,
+      horizontal: 20,
+    ),
+    focusedBorder: const OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+      borderSide: BorderSide(color: ColorName.greyscale4, width: 2),
+    ),
   );
 
   TextTheme get _textTheme => TextTheme(
@@ -20,7 +50,7 @@ final class AppLightTheme implements BaseTheme {
       letterSpacing: -0.25,
       height: 1.12,
     ),
-    displayMedium:GoogleFonts.jost(
+    displayMedium: GoogleFonts.jost(
       fontSize: 45,
       fontWeight: FontWeight.w400,
       letterSpacing: 0,
@@ -54,13 +84,13 @@ final class AppLightTheme implements BaseTheme {
     ),
 
     // Title styles (kartlarda başlıklar)
-    titleLarge: GoogleFonts.inter(
+    titleLarge: GoogleFonts.jost(
       fontSize: 22,
       fontWeight: FontWeight.w500,
       letterSpacing: 0,
       height: 1.27,
     ),
-    titleMedium: GoogleFonts.inter(
+    titleMedium: GoogleFonts.jost(
       fontSize: 16,
       fontWeight: FontWeight.w500,
       letterSpacing: 0.15,

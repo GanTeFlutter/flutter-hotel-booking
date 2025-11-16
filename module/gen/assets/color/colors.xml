@@ -16,6 +16,15 @@
     <color name="secondary_500">#3B81F6</color>
 
     <!-- Greyscale Colors -->
+
+    <color name="greyscale_1">#F6F6F6</color>
+    <color name="greyscale_2">#9CA4AB</color>
+    <color name="greyscale_3">#78828A</color>
+    <color name="greyscale_4">#171725</color>
+
+
+
+
     <color name="greyscale_0">#FFFFFF</color>
     <color name="greyscale_25">#F6F8FA</color>
     <color name="greyscale_50">#ECEFF3</color>
@@ -53,7 +62,11 @@
     <color name="warning_200">#956321</color>
     <color name="warning_300">#5B3D1E</color>
 
-    <!-- Error Colors -->
+    <!-- Error Colors -->F41F52
+    <color name="error_1">#F41F52</color>
+
+
+
     <color name="error_0">#FEEFF2</color>
     <color name="error_25">#FADAE1</color>
     <color name="error_50">#ED8296</color>
