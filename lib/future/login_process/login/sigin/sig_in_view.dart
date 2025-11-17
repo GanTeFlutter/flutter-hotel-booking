@@ -1,17 +1,19 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:gen/gen.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets/widgets.dart';
 
-class SignUpView extends StatefulWidget {
-  const SignUpView({super.key});
+class SignView extends StatefulWidget {
+  const SignView({super.key});
 
   @override
-  State<SignUpView> createState() => _SignUpViewState();
+  State<SignView> createState() => _SignViewState();
 }
 
-class _SignUpViewState extends State<SignUpView> {
+class _SignViewState extends State<SignView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -24,44 +26,55 @@ class _SignUpViewState extends State<SignUpView> {
             spacing: 30,
             children: [
               SizedBox(height: size.height * 0.1),
-
               const AppTitleDescriptionText(
-                text: AppStrings.signUpTitle,
+                text: AppStrings.loginTitle,
                 titleColor: ColorName.greyscale4,
                 descriptionColor: ColorName.greyscale4,
-                description: AppStrings.signUpTitleDescription,
-              ),
-
-              AppMultiTextfield(
-                title: AppStrings.fullName,
-                textField: CustomTextField(
-                  labelText: AppStrings.enterYourName,
-                  onChanged: (value) {},
-                  keyboardType: TextInputType.emailAddress,
-                ),
+                description: AppStrings.loginSubtitle,
               ),
 
               AppMultiTextfield(
                 title: AppStrings.emailLabel,
                 textField: CustomTextField(
-                  labelText: AppStrings.emailHint,
+                  hintText: AppStrings.emailHint,
                   onChanged: (value) {},
                   keyboardType: TextInputType.emailAddress,
                 ),
               ),
+
               AppMultiTextfield(
                 title: AppStrings.passwordLabel,
                 textField: CustomTextField(
-                  labelText: AppStrings.passwordHint,
+                  hintText: AppStrings.passwordHint,
                   onChanged: (value) {},
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   suffixIcon: const Icon(Icons.visibility),
                 ),
               ),
+
+              RememberMeForgotPassword(
+                onRememberMeChanged: (value) {},
+                onForgotPasswordTap: () {
+                  context.pushNamed(AppStrings.routerForgotPasswordView);
+                },
+                rememberMeText: AppStrings.rememberMe,
+                forgotPasswordText: AppStrings.forgotPassword,
+              ),
+
               AppCustomElevatedButton(
                 text: AppStrings.signIn,
                 onPressed: () {},
+              ),
+
+              //Go to -->SignUp
+              CustomRichText(
+                text1: AppStrings.noAccount1,
+                text2: AppStrings.noAccount3,
+                fontWeight2: FontWeight.w900,
+                onTap: () {
+                  context.pushNamed(AppStrings.routerSignUpView);
+                },
               ),
 
               const DividerWithText(
@@ -75,8 +88,12 @@ class _SignUpViewState extends State<SignUpView> {
               MultiSocialLoginButton(
                 width: MediaQuery.of(context).size.width,
                 onGoogleTap: () {},
-                onFacebookTap: () {},
-                onAppleTap: () {},
+                onFacebookTap: () {
+                  context.pushNamed(AppStrings.routerEnterOtpView);
+                },
+                onAppleTap: () {
+                  context.pushNamed(AppStrings.routerCreateNewPasswordView);
+                },
               ),
 
               CustomRichText(

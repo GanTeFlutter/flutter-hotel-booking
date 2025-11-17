@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/future/home/home_view.dart';
-import 'package:flutter_hotel_booking/future/login_process/login/create_new_password_view.dart';
-import 'package:flutter_hotel_booking/future/login_process/login/enter_otp_view.dart';
-import 'package:flutter_hotel_booking/future/login_process/login/forgot_password_view.dart';
-import 'package:flutter_hotel_booking/future/login_process/login/sig_in_view.dart';
-import 'package:flutter_hotel_booking/future/login_process/login/sign_up_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/password/create_new_password_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/otp/enter_otp_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/password/forgot_password_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/sigin/sig_in_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_page.dart';
 import 'package:flutter_hotel_booking/future/login_process/splash/splash_view.dart';
 import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
@@ -33,45 +33,41 @@ final GoRouter router = GoRouter(
         return AppListenerNotification(child: child);
       },
       routes: [
-        // Login Process
         GoRoute(
           path: '/${AppStrings.routerSignInView}',
           name: AppStrings.routerSignInView,
           builder: (BuildContext context, GoRouterState state) {
             return const SignView();
           },
-          routes: [
-            GoRoute(
-              path: '/${AppStrings.routerSignUpView}',
-              name: AppStrings.routerSignUpView,
-              builder: (BuildContext context, GoRouterState state) {
-                return const SignUpView();
-              },
-            ),
-            GoRoute(
-              path: '/${AppStrings.routerForgotPasswordView}',
-              name: AppStrings.routerForgotPasswordView,
-              builder: (BuildContext context, GoRouterState state) {
-                return const ForgotPasswordView();
-              },
-            ),
-            GoRoute(
-              path: '/${AppStrings.routerEnterOtpView}',
-              name: AppStrings.routerEnterOtpView,
-              builder: (BuildContext context, GoRouterState state) {
-                return const EnterOtpView();
-              },
-            ),
-            GoRoute(
-              path: '/${AppStrings.routerCreateNewPasswordView}',
-              name: AppStrings.routerCreateNewPasswordView,
-              builder: (BuildContext context, GoRouterState state) {
-                return const CreateNewPasswordView();
-              },
-            ),
-          ],
         ),
-
+        GoRoute(
+          path: '/${AppStrings.routerSignUpView}',
+          name: AppStrings.routerSignUpView,
+          builder: (BuildContext context, GoRouterState state) {
+            return const SignUpView();
+          },
+        ),
+        GoRoute(
+          path: '/${AppStrings.routerForgotPasswordView}',
+          name: AppStrings.routerForgotPasswordView,
+          builder: (BuildContext context, GoRouterState state) {
+            return const ForgotPasswordView();
+          },
+        ),
+        GoRoute(
+          path: '/${AppStrings.routerEnterOtpView}',
+          name: AppStrings.routerEnterOtpView,
+          builder: (BuildContext context, GoRouterState state) {
+            return const EnterOtpView();
+          },
+        ),
+        GoRoute(
+          path: '/${AppStrings.routerCreateNewPasswordView}',
+          name: AppStrings.routerCreateNewPasswordView,
+          builder: (BuildContext context, GoRouterState state) {
+            return const CreateNewPasswordView();
+          },
+        ),
         GoRoute(
           path: '/${AppStrings.routerHomeView}',
           name: AppStrings.routerHomeView,
@@ -79,28 +75,7 @@ final GoRouter router = GoRouter(
             return const HomeView();
           },
         ),
-        // GoRoute(
-        //   path: '/${AppStrings.routerVersionUpdateView}',
-        //   name: AppStrings.routerVersionUpdateView,
-        //   builder: (BuildContext context, GoRouterState state) {
-        //     return const VersionUpdateView();
-        //   },
-        // ),
       ],
     ),
   ],
 );
-
-// part of '../../main.dart';
-
-// final GoRouter _router = GoRouter(
-//   navigatorKey: AppKeys.navigatorKey,
-//   routes: <RouteBase>[
-//     GoRoute(
-//       path: '/',
-//       builder: (BuildContext context, GoRouterState state) {
-//         return const SignUpView();
-//       },
-//     ),
-//   ],
-// );

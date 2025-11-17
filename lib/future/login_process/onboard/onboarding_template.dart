@@ -61,7 +61,7 @@ class OnboardingTemplate extends StatelessWidget {
           SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              spacing: 30,
+              spacing: ProjectPadding.large,
               children: [
                 AppTitleDescriptionText(
                   text: title,

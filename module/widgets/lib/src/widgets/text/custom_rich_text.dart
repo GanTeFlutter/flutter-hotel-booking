@@ -41,7 +41,7 @@ final class CustomRichText extends StatelessWidget {
               text: text2,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: color2 ?? ColorName.primary800,
-                fontWeight: fontWeight2 ?? FontWeight.w900,
+                fontWeight: FontWeight.bold,
               ),
               recognizer: TapGestureRecognizer()..onTap = onTap,
             ),

@@ -4,18 +4,22 @@ import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:gen/gen.dart';
 import 'package:widgets/widgets.dart';
 
-class SignView extends StatefulWidget {
-  const SignView({super.key});
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<SignView> createState() => _SignViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _SignViewState extends State<SignView> {
+class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -23,51 +27,46 @@ class _SignViewState extends State<SignView> {
           child: Column(
             spacing: 30,
             children: [
-              SizedBox(height: size.height * 0.1),
+              //AbbBar yüksekliği için boşuğu düşürdük
+              SizedBox(height: size.height * 0.05),
+
               const AppTitleDescriptionText(
-                text: AppStrings.loginTitle,
+                text: AppStrings.signUpTitle,
                 titleColor: ColorName.greyscale4,
                 descriptionColor: ColorName.greyscale4,
-                description: AppStrings.loginSubtitle,
+                description: AppStrings.emailHint,
               ),
 
               AppMultiTextfield(
-                title: AppStrings.emailLabel,
+                title: AppStrings.fullName,
                 textField: CustomTextField(
-                  labelText: AppStrings.emailHint,
+                  hintText: AppStrings.enterYourName,
                   onChanged: (value) {},
                   keyboardType: TextInputType.emailAddress,
                 ),
               ),
 
               AppMultiTextfield(
+                title: AppStrings.emailLabel,
+                textField: CustomTextField(
+                  hintText: AppStrings.emailHint,
+                  onChanged: (value) {},
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ),
+              AppMultiTextfield(
                 title: AppStrings.passwordLabel,
                 textField: CustomTextField(
-                  labelText: AppStrings.passwordHint,
+                  hintText: AppStrings.passwordHint,
                   onChanged: (value) {},
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
                   suffixIcon: const Icon(Icons.visibility),
                 ),
               ),
-
-              RememberMeForgotPassword(
-                rememberMe: true,
-                onRememberMeChanged: (value) {},
-                onForgotPasswordTap: () {},
-                rememberMeText: AppStrings.rememberMe,
-                forgotPasswordText: AppStrings.forgotPassword,
-              ),
-
               AppCustomElevatedButton(
                 text: AppStrings.signIn,
                 onPressed: () {},
-              ),
-
-              CustomRichText(
-                text1: AppStrings.noAccount1,
-                text2: AppStrings.noAccount2,
-                onTap: () {},
               ),
 
               const DividerWithText(

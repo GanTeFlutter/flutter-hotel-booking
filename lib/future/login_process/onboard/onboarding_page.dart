@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_end_screen.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_template.dart';
+import 'package:flutter_hotel_booking/future/login_process/onboard/onboardingd_template_end_screen.dart';
+
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
-import 'package:flutter_hotel_booking/product/service/services/sesvice_shared_preferences.dart';
+
 import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -72,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       showPageIndicator: true,
       pageIndicator: SmoothPageIndicator(
         controller: _pageController,
-        count: 2,
+        count: 3,
         effect: WormEffect(
           dotHeight: 8,
           dotWidth: 8,
@@ -93,7 +94,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       showPageIndicator: true,
       pageIndicator: SmoothPageIndicator(
         controller: _pageController,
-        count: 2,
+        count: 3,
         effect: WormEffect(
           dotHeight: 8,
           dotWidth: 8,
@@ -113,13 +114,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       title: AppStrings.onBoardingStep3Title,
       description: AppStrings.onBoardingStep3Description,
       onContinue: () => _shortening(AppStrings.routerHomeView),
-      onRegister: () => _shortening(AppStrings.routerRegisterView),
+      onRegister: () => _shortening(AppStrings.routerSignInView),
     );
   }
 
   Future<void> _shortening(String path) async {
     await locator.spService.setOnboardingCompleted(isCompleted: true);
-    if (!mounted) return; 
+    if (!mounted) return;
     context.goNamed(path);
   }
 }

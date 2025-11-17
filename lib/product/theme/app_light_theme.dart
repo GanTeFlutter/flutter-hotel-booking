@@ -15,9 +15,13 @@ final class AppLightTheme implements BaseTheme {
   );
 
   InputDecorationTheme get _inputDecorationTheme => InputDecorationTheme(
-    labelStyle: GoogleFonts.jost(
-      fontWeight: FontWeight.w600,
-      color: ColorName.greyscale2,
+    // labelStyle: GoogleFonts.jost(
+    //   fontWeight: FontWeight.w600,
+    //   color: ColorName.greyscale2,
+    // ),
+    hintStyle: GoogleFonts.jost(
+      fontWeight: FontWeight.w500,
+      color: ColorName.greyscale200,
     ),
 
     prefixIconColor: ColorName.greyscale4,
@@ -95,21 +99,19 @@ final class AppLightTheme implements BaseTheme {
     ),
 
     // Body styles (normal metin)
-    bodyLarge: GoogleFonts.inter(
+    bodyLarge: GoogleFonts.jost(
       fontSize: 16,
-      fontWeight: FontWeight.w400,
       letterSpacing: 0.5,
       height: 1.5,
+
     ),
     bodyMedium: GoogleFonts.inter(
       fontSize: 14,
-      fontWeight: FontWeight.w400,
       letterSpacing: 0.25,
       height: 1.43,
     ),
     bodySmall: GoogleFonts.inter(
       fontSize: 12,
-      fontWeight: FontWeight.w400,
       letterSpacing: 0.4,
       height: 1.33,
     ),

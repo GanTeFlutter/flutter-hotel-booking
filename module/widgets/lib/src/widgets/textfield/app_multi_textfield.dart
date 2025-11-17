@@ -107,9 +107,7 @@ final class CustomTextField extends StatelessWidget {
       autofocus: autofocus,
       textCapitalization: textCapitalization,
       inputFormatters: inputFormatters,
-      
       decoration: InputDecoration(
-        labelText:labelText ,
         hintText: hintText,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,

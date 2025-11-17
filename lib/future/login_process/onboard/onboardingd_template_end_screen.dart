@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/future/login_process/widget/register_button.dart';
-
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:gen/gen.dart';
@@ -77,9 +75,6 @@ class OnBoardinEndView extends StatelessWidget {
                   ),
                 ),
 
-                RegisterButton(
-                  onRegisterTap: () {},
-                ),
                 CustomRichText(
                   text1: AppStrings.noAccount1,
                   text2: AppStrings.noAccount2,
@@ -87,9 +82,7 @@ class OnBoardinEndView extends StatelessWidget {
                   fontWeight2: FontWeight.w600,
                   color1: ColorName.greyscale0,
                   color2: ColorName.primary800,
-                  onTap: () {
-                    
-                  },
+                  onTap: () => onRegister!(),
                 ),
 
                 const SizedBox(height: 30),
