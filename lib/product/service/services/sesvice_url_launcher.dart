@@ -94,49 +94,6 @@ class UrlLauncherService {
     }
   }
 
-  /// SMS uygulamasını belirtilen numara ile açar
-  ///
-  /// [phoneNumber] - SMS gönderilecek telefon numarası
-  /// [message] - (Opsiyonel) Önceden yazılmış mesaj
-  ///
-  /// Returns true başarılı, false başarısız
-  Future<bool> launchSMS({
-    required String phoneNumber,
-    String? message,
-  }) async {
-    try {
-      locator.loggerService.d('SMS uygulaması açılıyor: $phoneNumber');
-
-      var smsUrl = 'sms:$phoneNumber';
-      if (message != null) {
-        final messageEncoded = Uri.encodeComponent(message);
-        smsUrl += '?body=$messageEncoded';
-      }
-
-      final urlParsed = Uri.parse(smsUrl);
-      if (await canLaunchUrl(urlParsed)) {
-        final result = await launchUrl(urlParsed);
-
-        if (result) {
-          locator.loggerService.i('SMS uygulaması başarıyla açıldı');
-        } else {
-          locator.loggerService.w('SMS uygulaması açılamadı');
-        }
-
-        return result;
-      }
-
-      locator.loggerService.w('SMS özelliği desteklenmiyor');
-      return false;
-    } on Exception catch (e, stackTrace) {
-      locator.loggerService.e(
-        'SMS açma hatası',
-        error: e,
-        stackTrace: stackTrace,
-      );
-      return false;
-    }
-  }
 
   /// Web sitesini uygulama içi tarayıcıda açar
   ///

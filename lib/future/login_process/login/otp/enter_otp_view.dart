@@ -21,14 +21,12 @@ class _EnterOtpViewState extends State<EnterOtpView> {
         elevation: 0,
       ),
       resizeToAvoidBottomInset: true,
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           padding: ProjectPadding.horizontalLarge,
           child: Column(
             spacing: 30,
-            children: [
-        bu cok zorlicakkkkkkkkkkkk
-            ],
+            children: [],
           ),
         ),
       ),

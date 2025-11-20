@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/future/home/home_view.dart';
-import 'package:flutter_hotel_booking/future/login_process/login/password/create_new_password_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/otp/enter_otp_view.dart';
+import 'package:flutter_hotel_booking/future/login_process/login/password/create_new_password_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/password/forgot_password_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/sigin/sig_in_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_view.dart';

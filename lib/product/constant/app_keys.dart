@@ -11,7 +11,8 @@ final class AppKeys {
   static final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
   // Form Keys
-  static final loginFormKey = GlobalKey<FormState>();
+  static final signInFormKey = GlobalKey<FormState>();
+  static final signUpFormKey = GlobalKey<FormState>(); 
 
   // Helper methods
   static BuildContext? get context => navigatorKey.currentContext;
@@ -20,9 +21,4 @@ final class AppKeys {
 
   static OverlayState? get overlay => navigatorKey.currentState?.overlay;
 
-  static void showSnackBar(String message) {
-    scaffoldKey.currentState?.showSnackBar(
-      SnackBar(content: Text(message)),
-    );
-  }
 }

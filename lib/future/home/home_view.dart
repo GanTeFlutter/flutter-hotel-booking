@@ -1,7 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:gen/gen.dart';
-
-import 'package:widgets/widgets.dart';
+// import 'package:gen/gen.dart';
+// import 'package:widgets/widgets.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -11,6 +12,31 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  String respnseText = '';
+  void savefirestore() {
+    final db = FirebaseFirestore.instance;
+
+    final city = <String, String>{
+      'name': 'Los Angeles',
+      'state': 'CA',
+      'country': 'USA',
+    };
+    db
+        .collection('cities')
+        .doc()
+        .set(city)
+        .then(
+          (_) => setState(() {
+            respnseText = 'Kayıt Başarılı';
+          }),
+        )
+        .onError((e, _) {
+          if (kDebugMode) {
+            print('--❌ Hata: $e');
+          }
+        });
+  }
+
   bool isObscure = true;
   @override
   Widget build(BuildContext context) {
@@ -23,38 +49,8 @@ class _HomeViewState extends State<HomeView> {
           spacing: 20,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const AppTitleDescriptionText(
-              text: 'Let’s Sign you in',
-              titleColor: ColorName.greyscale4,
-              descriptionColor: ColorName.greyscale4,
-              description: 'Lorem ipsum dolor sit amet, consectetur',
-            ),
-            // AppMultiTextfield(
-            //   title: 'Email Address',
-            //   textField: CustomTextField(
-            //     labelText: 'Enter your email address',
-            //     onChanged: (value) {},
-            //     keyboardType: TextInputType.emailAddress,
-            //   ),
-            // ),
-            // AppMultiTextfield(
-            //   title: 'Email Address',
-            //   textField: CustomTextField(
-            //     labelText: 'Enter your email address',
-            //     onChanged: (value) {},
-            //     keyboardType: TextInputType.emailAddress,
-            //   ),
-            // ),
-            // AppMultiTextfield(
-            //   title: 'Email Address',
-            //   textField: CustomTextField(
-            //     labelText: 'Enter your email address',
-            //     onChanged: (value) {},
-            //     keyboardType: TextInputType.emailAddress,
-            //   ),
-            // ),
-
-            
+            Text(respnseText),
+            ElevatedButton(onPressed: savefirestore, child: const Text('Save')),
           ],
         ),
       ),

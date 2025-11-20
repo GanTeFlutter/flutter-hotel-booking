@@ -4,6 +4,21 @@ import 'package:flutter/material.dart';
 class AppStrings {
   const AppStrings._();
 
+  // -------------------- AppValidators --------------------
+  static const String validatorUsernameEmpty = 'İsim boş olamaz';
+  static const String validatorUsernameMin = 'En az 4 karakter';
+  static const String validatorUsernameMax = 'En fazla 20 karakter';
+  static const String validatorUsernameInvalid =
+      'Sadece harf, rakam ve _ kullanın';
+
+  static const String validatorEmailEmpty = 'Email boş olamaz';
+  static const String validatorEmailInvalid = 'Geçerli bir email girin';
+  static const String validatorEmailSpace = 'Email boşluk içeremez';
+
+  static const String validatorPasswordEmpty = 'Şifre boş olamaz';
+  static const String validatorPasswordMin = 'En az 6 karakter';
+  static const String validatorPasswordMax = 'En fazla 20 karakter';
+
   // -------------------- APP INFO --------------------
   static const String appName = 'Hotel Booking';
 

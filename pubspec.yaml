@@ -37,7 +37,7 @@ dependencies:
   logger: ^2.6.1
 
   # Networking / HTTP
-  dio: ^5.9.0
+  http: ^1.6.0
 
   # Local Storage
   shared_preferences: ^2.5.3
