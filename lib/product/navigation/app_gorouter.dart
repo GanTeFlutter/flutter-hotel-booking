@@ -10,6 +10,7 @@ import 'package:flutter_hotel_booking/future/login_process/splash/splash_view.da
 import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/init/app_listiner_initialize.dart';
+import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
@@ -54,13 +55,16 @@ final GoRouter router = GoRouter(
             return const ForgotPasswordView();
           },
         ),
+
         GoRoute(
           path: '/${AppStrings.routerEnterOtpView}',
           name: AppStrings.routerEnterOtpView,
           builder: (BuildContext context, GoRouterState state) {
-            return const EnterOtpView();
+            final params = state.extra! as OtpParams;
+            return EnterOtpView(params: params);
           },
         ),
+
         GoRoute(
           path: '/${AppStrings.routerCreateNewPasswordView}',
           name: AppStrings.routerCreateNewPasswordView,

@@ -1,25 +1,23 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_booking/product/enum/firebase_endpoint.dart';
 import 'package:http/http.dart' as http;
 
 class FirebaseOtpService {
-  static const String _baseUrl =
-      'https://YOUR_REGION-YOUR_PROJECT_ID.cloudfunctions.net';
-
   static const Duration _timeout = Duration(seconds: 30);
 
   Future<bool> sendOtp({
     required String email,
-    required String userId,
+    required String tempUserId,
   }) async {
     try {
       final response = await http
           .post(
-            Uri.parse('$_baseUrl/sendOtp'),
+            Uri.parse(FirebaseEndpoint.sendOtp.url),
             headers: {'Content-Type': 'application/json'},
             body: jsonEncode({
               'email': email,
-              'userId': userId,
+              'userId': tempUserId,
             }),
           )
           .timeout(_timeout);
@@ -41,62 +39,16 @@ class FirebaseOtpService {
       // JSON parse hatası
       debugPrint('--❌ JSON parse hatası: $e');
       return false;
-    }on Exception catch (e) {
+    } on Exception catch (e) {
       // Diğer hatalar
       debugPrint('--❌ Beklenmeyen hata: $e');
       return false;
     }
   }
 
-  Future<Map<String, dynamic>> verifyOtp({
-    required String userId,
-    required String code,
-  }) async {
-    try {
-      final response = await http
-          .post(
-            Uri.parse('$_baseUrl/verifyOtp'),
-            headers: {'Content-Type': 'application/json'},
-            body: jsonEncode({
-              'userId': userId,
-              'code': code,
-            }),
-          )
-          .timeout(_timeout);
-
-      final data = jsonDecode(response.body) as Map<String, dynamic>;
-
-      if (response.statusCode == 200 && data['success'] == true) {
-        // ✅ Kod doğru
-        return {
-          'success': true,
-          'email': data['email'] ?? '',
-        };
-      } else {
-        // ❌ Kod yanlış veya hata
-        return {
-          'success': false,
-          'error': data['error'] ?? 'Doğrulama başarısız',
-        };
-      }
-    } on http.ClientException catch (e) {
-      debugPrint('--❌ Network hatası: $e');
-      return {
-        'success': false,
-        'error': 'İnternet bağlantınızı kontrol edin',
-      };
-    } on FormatException catch (e) {
-      debugPrint('--❌ JSON parse hatası: $e');
-      return {
-        'success': false,
-        'error': 'Sunucu hatası',
-      };
-    } catch (e) {
-      debugPrint('--❌ Beklenmeyen hata: $e');
-      return {
-        'success': false,
-        'error': 'Bir hata oluştu',
-      };
-    }
-  }
+  Future<void> verifyOtp({
+    required String email,
+    required String tempUserId,
+    required String otp,
+  }) async {}
 }

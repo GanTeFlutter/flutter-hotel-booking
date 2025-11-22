@@ -75,6 +75,9 @@ unlinked_spec.ds
 /android/app/src/
 /android/app/google-services.json
 /lib/firebase_options.dart
+module/gen/assets/
+module/gen/lib/src/environment/
+
 
 
 # iOS/XCode related

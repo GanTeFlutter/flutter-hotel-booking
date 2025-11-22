@@ -25,6 +25,5 @@ class _MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       routerConfig: router,
     );
-    ;
   }
 }

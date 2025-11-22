@@ -4,9 +4,12 @@ import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_
 import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/service/firebase/login/firebase_otp_service.dart';
+import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class SignUpViewModel extends State<SignUpView> {
+
+  //TODO: FirebaseOtpService locatora bagla
   late final FirebaseOtpService _firebaseOtpService;
 
   late TextEditingController usernameController;
@@ -37,7 +40,7 @@ abstract class SignUpViewModel extends State<SignUpView> {
 
       final response = await _firebaseOtpService.sendOtp(
         email: email,
-        userId: username,
+        tempUserId: username,
       );
       if (response) {
         if (!mounted) return;
