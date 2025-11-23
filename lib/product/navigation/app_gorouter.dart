@@ -5,7 +5,7 @@ import 'package:flutter_hotel_booking/future/login_process/login/password/create
 import 'package:flutter_hotel_booking/future/login_process/login/password/forgot_password_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/sigin/sig_in_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_view.dart';
-import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_page.dart';
+import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/splash/splash_view.dart';
 import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
@@ -26,7 +26,7 @@ final GoRouter router = GoRouter(
       path: '/${AppStrings.routerOnBoardingStep1View}',
       name: AppStrings.routerOnBoardingStep1View,
       builder: (BuildContext context, GoRouterState state) {
-        return const OnboardingScreen();
+        return const OnboardingView();
       },
     ),
     ShellRoute(

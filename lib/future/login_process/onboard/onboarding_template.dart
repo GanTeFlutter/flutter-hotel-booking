@@ -1,47 +1,40 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
 import 'package:gen/gen.dart';
 import 'package:widgets/widgets.dart';
 
-// Onboarding Template Widget
-// Üç farklı onboarding ekranı için ortak şablon
-class OnboardingTemplate extends StatelessWidget {
-  const OnboardingTemplate({
+class OnboardingViewTemplate extends StatelessWidget {
+  const OnboardingViewTemplate({
     required this.backgroundImage,
     required this.title,
     required this.description,
-    required this.onContinue,
     required this.buttonText,
-    this.showPageIndicator = false,
-    this.pageIndicator,
+    required this.onButtonPressed,
+    this.showIndicatorSpace = true,
+    this.bottomWidget,
     super.key,
   });
 
-  final String buttonText;
   final AssetGenImage backgroundImage;
   final String title;
   final String description;
-  final VoidCallback? onContinue;
-
-  final bool showPageIndicator;
-  final Widget? pageIndicator;
+  final String buttonText;
+  final VoidCallback? onButtonPressed;
+  final bool showIndicatorSpace;
+  final Widget? bottomWidget;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Positioned.fill(
-            child: Image.asset(
-              backgroundImage.path,
+            child: backgroundImage.image(
               fit: BoxFit.cover,
               package: 'gen',
             ),
           ),
 
-          // Background Gradient
           Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(
@@ -65,23 +58,29 @@ class OnboardingTemplate extends StatelessWidget {
               children: [
                 AppTitleDescriptionText(
                   text: title,
+                  description: description,
                   titleColor: ColorName.greyscale0,
                   descriptionColor: ColorName.greyscale200,
-                  description: description,
                 ),
-                if (showPageIndicator && pageIndicator != null) ...[
-                  pageIndicator!,
-                ],
+
+                if (showIndicatorSpace)
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+
                 AppCustomElevatedButton(
-                  onPressed: onContinue,
+                  onPressed: onButtonPressed,
                   text: buttonText,
-                  padding: const EdgeInsets.only(
-                    left: ProjectPadding.medium,
-                    right: ProjectPadding.medium,
-                    top: ProjectPadding.medium,
-                    bottom: ProjectPadding.xLarge,
+                  padding: EdgeInsets.only(
+                    left: ProjectPadding.large,
+                    right: ProjectPadding.large,
+                    bottom: showIndicatorSpace ? ProjectPadding.xLarge : 0,
                   ),
                 ),
+
+                if (bottomWidget != null) bottomWidget!,
+
+                if (!showIndicatorSpace) const SizedBox(height: 30),
               ],
             ),
           ),
