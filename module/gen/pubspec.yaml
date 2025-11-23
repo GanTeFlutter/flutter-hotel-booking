@@ -27,6 +27,7 @@ dependencies:
   # JSON verilerini Dart nesnelerine ve tersi yönde dönüştürmek için anotasyonlar sağlar.
   # Freezed veya manuel model sınıflarıyla birlikte kullanılır.
   json_annotation: ^4.9.0
+  freezed_annotation: ^3.1.0 
 
 
 
@@ -54,6 +55,7 @@ dev_dependencies:
  
  #Flutter Gen Configuration
   flutter_gen_runner: ^5.12.0
+  freezed: ^3.2.3     
 
 flutter_gen:
   output: lib/src/assets/

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/otp/enter_otp_view_model.dart';
 import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
+import 'package:flutter_hotel_booking/product/state/cubit/countdown/countdown_cubit.dart';
 import 'package:flutter_hotel_booking/product/theme/pin_theme.dart';
 import 'package:gen/gen.dart';
 import 'package:pinput/pinput.dart';
@@ -21,6 +24,7 @@ class EnterOtpView extends StatefulWidget {
 class _EnterOtpViewState extends EnterOtpViewModel {
   @override
   Widget build(BuildContext context) {
+    debugPrint('--✅ EnterOtpView Temp User ID: ${widget.params.tempUserId}');
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(
@@ -42,12 +46,13 @@ class _EnterOtpViewState extends EnterOtpViewModel {
                 description: AppStrings.emailHint,
               ),
               Text(widget.params.email),
+
               Pinput(
                 controller: pinController,
-                validator: validatePin,
-                onCompleted: print,
+                onCompleted: continueButton,
                 focusNode: FocusNode(),
-                enabled: enabledPinput,
+
+                forceErrorState: hasError,
                 defaultPinTheme: AppPinTheme.defaultPinTheme,
                 focusedPinTheme: AppPinTheme.focusedPinTheme,
                 submittedPinTheme: AppPinTheme.submittedPinTheme,
@@ -56,17 +61,42 @@ class _EnterOtpViewState extends EnterOtpViewModel {
               ),
 
               AppCustomElevatedButton(
-                text: AppStrings.signIn,
-                onPressed: continueButton,
+                text: AppStrings.onBoardingButtonContinue,
+                onPressed: () => continueButton(pinController.text),
               ),
 
-              CustomRichText(
-                text1: AppStrings.resendCode,
-                text2: AppStrings.resendCode2,
-                fontWeight1: FontWeight.w400,
-                fontWeight2: FontWeight.w600,
-                color2: ColorName.greyscale4,
-                onTap: resendCodeButton,
+              BlocConsumer<CountdownCubit, CountdownState>(
+                listener: (context, state) {
+                  if (state is CountdownFinished) {
+                    context.showSnackBar(
+                      'Kod süresi doldu, lütfen tekrar gönderin.',
+                      isError: true,
+                    );
+                    setState(() {
+                      codeSent = false;
+                    });
+                  }
+                },
+                builder: (context, state) {
+                  if (state is CountdownRunning) {
+                    return Text(state.time);
+                  }
+                  if (state is CountdownFinished) {
+                    return CustomRichText(
+                      text1: AppStrings.resendCode,
+                      text2: AppStrings.resendCode2,
+                      fontWeight1: FontWeight.w400,
+                      fontWeight2: FontWeight.w600,
+                      color2: ColorName.greyscale4,
+                      onTap: () {
+                        sendCode();
+                        context.read<CountdownCubit>().start();
+                      },
+                    );
+                  } else {
+                    return const SizedBox.shrink();
+                  }
+                },
               ),
             ],
           ),

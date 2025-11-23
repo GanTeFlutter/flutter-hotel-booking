@@ -21,5 +21,3 @@ class ThemeCubit extends Cubit<bool> {
     await locator.spService.setOnboardingCompleted(isCompleted: themeMode);
   }
 }
-
-// context.read<ThemeCubit>().toggleTheme();

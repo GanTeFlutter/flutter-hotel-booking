@@ -33,7 +33,7 @@ class _SignUpViewState extends SignUpViewModel {
               spacing: 30,
               children: [
                 SizedBox(height: size.height * 0.05),
-                
+
                 const AppTitleDescriptionText(
                   text: AppStrings.signUpTitle,
                   titleColor: ColorName.greyscale4,
@@ -44,7 +44,7 @@ class _SignUpViewState extends SignUpViewModel {
                 AppMultiTextfield(
                   title: AppStrings.fullName,
                   textField: CustomTextField(
-                    controller: usernameController,
+                    controller: fullNameController,
                     hintText: AppStrings.enterYourName,
                     validator: AppValidators.username,
                     onChanged: (value) {},
@@ -77,7 +77,7 @@ class _SignUpViewState extends SignUpViewModel {
                 ),
 
                 AppCustomElevatedButton(
-                  text: AppStrings.signIn,
+                  text: 'Create An Account',
                   onPressed: appCustomElevatedButtonOnPressed,
                 ),
 

@@ -1,10 +1,15 @@
 import 'package:gen/gen.dart';
 
 enum FirebaseEndpoint {
-  sendOtp('sendOtp');
+  sendOtp,
+  verifyOtp;
 
-  const FirebaseEndpoint(this.path);
-  final String path;
-
-  String get url => '${EnvDev.baseUrl}/$path';
+  String get url {
+    switch (this) {
+      case FirebaseEndpoint.sendOtp:
+        return EnvDev.sendOtpUrl;
+      case FirebaseEndpoint.verifyOtp:
+        return EnvDev.verifyOtpUrl;
+    }
+  }
 }

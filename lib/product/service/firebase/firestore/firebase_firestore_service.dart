@@ -10,6 +10,4 @@ class FirebaseFirestoreService {
   String generateTempUserId() {
     return _uuid.v4();
   }
-
-
 }

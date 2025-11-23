@@ -18,20 +18,3 @@ extension ContextExtension on BuildContext {
     );
   }
 }
-
-extension GlobalX on BuildContext {
-  void hideKeyboard() => FocusScope.of(this).unfocus();
-
-  void showSnackBar(String message) {
-    ScaffoldMessenger.of(this).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
-  }
-
-  Future<T?> showModal<T>(Widget dialog) {
-    return showDialog<T>(
-      context: this,
-      builder: (_) => dialog,
-    );
-  }
-}

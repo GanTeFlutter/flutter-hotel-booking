@@ -26,7 +26,6 @@ class FirebaseOtpService {
         final data = jsonDecode(response.body) as Map<String, dynamic>;
         return data['success'] == true;
       }
-
       // Hata durumu
       debugPrint('--❌ OTP gönderme hatası: ${response.statusCode}');
       debugPrint('--Response: ${response.body}');
@@ -46,9 +45,54 @@ class FirebaseOtpService {
     }
   }
 
-  Future<void> verifyOtp({
-    required String email,
+  Future<bool> verifyOtp({
     required String tempUserId,
     required String otp,
-  }) async {}
+  }) async {
+    try {
+      final response = await http
+          .post(
+            Uri.parse(FirebaseEndpoint.verifyOtp.url),
+            headers: {'Content-Type': 'application/json'},
+            body: jsonEncode({
+              'userId': tempUserId,
+              'code': otp,
+            }),
+          )
+          .timeout(_timeout);
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
+        return data['success'] == true;
+      }
+
+      // Hata durumları
+      if (response.statusCode == 404) {
+        debugPrint('--❌ OTP bulunamadı');
+      } else if (response.statusCode == 400) {
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
+        debugPrint('--❌ OTP doğrulama hatası: ${data['error']}');
+      } else {
+        debugPrint('--❌ OTP doğrulama hatası: ${response.statusCode}');
+        debugPrint('--Response: ${response.body}');
+      }
+      return false;
+    } on http.ClientException catch (e) {
+      debugPrint('--❌ Network hatası: $e');
+      return false;
+    } on FormatException catch (e) {
+      debugPrint('--❌ JSON parse hatası: $e');
+      return false;
+    } on Exception catch (e) {
+      debugPrint('--❌ Beklenmeyen hata: $e');
+      return false;
+    }
+  }
+
+  Future<void> resendOtp({
+    required String email,
+    required String tempUserId,
+  }) async {
+    await sendOtp(email: email, tempUserId: tempUserId);
+  }
 }

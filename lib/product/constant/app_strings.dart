@@ -97,7 +97,7 @@ class AppStrings {
   static const String enterOtp = 'Enter OTP';
   static const String otpSentMessage =
       'We have just sent you 4 digit code via your email example@gmail.com';
-  static const String resendCode = 'Didn’t receive code? Resend Code';
+  static const String resendCode = 'Didn’t receive code? Resend Code ';
     static const String resendCode2 = 'Resend Code';
   static const String forgotPasswordTitle = 'Forgot Password';
   static const String recoverPasswordSubtitle = 'Recover your account password';
