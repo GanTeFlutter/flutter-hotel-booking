@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_template.dart';
-
 import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/onboarding/onboarding_cubit.dart';
@@ -41,7 +40,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     context.read<OnboardingCubit>().setPage(index);
                   },
                   children: const [
-                    OnboardingView1(),
+                    _OnboardingView1(),
                     _OnboardingView2(),
                     _OnboardingView3(),
                   ],
@@ -78,8 +77,8 @@ class _OnboardingViewState extends State<OnboardingView> {
 
 //Sayfalar
 
-final class OnboardingView1 extends StatelessWidget {
-  const OnboardingView1({super.key});
+final class _OnboardingView1 extends StatelessWidget {
+  const _OnboardingView1({super.key});
 
   @override
   Widget build(BuildContext context) {
