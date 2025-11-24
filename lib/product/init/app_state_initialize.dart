@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
+import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/countdown/countdown_cubit.dart';
 
 import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart';
@@ -26,6 +27,9 @@ class StateInitialize extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CountdownCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AuthBloc(),
         ),
       ],
       child: child,

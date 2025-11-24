@@ -24,7 +24,6 @@ class EnterOtpView extends StatefulWidget {
 class _EnterOtpViewState extends EnterOtpViewModel {
   @override
   Widget build(BuildContext context) {
-    debugPrint('--✅ EnterOtpView Temp User ID: ${widget.params.tempUserId}');
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(
@@ -45,13 +44,14 @@ class _EnterOtpViewState extends EnterOtpViewModel {
                 descriptionColor: ColorName.greyscale4,
                 description: AppStrings.emailHint,
               ),
+              
               Text(widget.params.email),
 
               Pinput(
                 controller: pinController,
                 onCompleted: continueButton,
                 focusNode: FocusNode(),
-
+                enabled: enabledPinput,
                 forceErrorState: hasError,
                 defaultPinTheme: AppPinTheme.defaultPinTheme,
                 focusedPinTheme: AppPinTheme.focusedPinTheme,
@@ -62,7 +62,9 @@ class _EnterOtpViewState extends EnterOtpViewModel {
 
               AppCustomElevatedButton(
                 text: AppStrings.onBoardingButtonContinue,
-                onPressed: () => continueButton(pinController.text),
+                onPressed: isLoading
+                    ? null
+                    : () => continueButton(pinController.text),
               ),
 
               BlocConsumer<CountdownCubit, CountdownState>(

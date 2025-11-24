@@ -1,3 +1,5 @@
+import 'package:flutter_hotel_booking/product/service/firebase/firebase_auth/firebase_auth_service.dart';
+import 'package:flutter_hotel_booking/product/service/firebase/login/firebase_otp_service.dart';
 import 'package:flutter_hotel_booking/product/service/services/sesvice_logger.dart';
 import 'package:flutter_hotel_booking/product/service/services/sesvice_shared_preferences.dart';
 import 'package:flutter_hotel_booking/product/service/services/sesvice_url_launcher.dart';
@@ -42,7 +44,9 @@ void _registerSingletons() {
   locator
     ..registerSingleton<LoggerService>(LoggerService())
     ..registerSingleton<SharedPreferencesService>(SharedPreferencesService())
-    ..registerSingleton<UrlLauncherService>(UrlLauncherService());
+    ..registerSingleton<UrlLauncherService>(UrlLauncherService())
+    ..registerSingleton(FirebaseAuthService())
+    ..registerSingleton(FirebaseOtpService());
 }
 
 /// GetIt instance'ına kolay erişim için extension
@@ -72,4 +76,14 @@ extension ServiceLocator on GetIt {
   ///
   /// Harici URL, telefon, email açma işlemleri için kullanılır.
   UrlLauncherService get urlLauncherService => locator<UrlLauncherService>();
+
+  /// Firebase Auth servisine erişim
+  ///
+  /// Kimlik doğrulama işlemleri için kullanılır.
+  FirebaseAuthService get firebaseAuthService => locator<FirebaseAuthService>();
+
+  /// Firebase OTP servisine erişim
+  ///
+  /// OTP işlemleri için kullanılır.
+  FirebaseOtpService get firebaseOtpService => locator<FirebaseOtpService>();
 }

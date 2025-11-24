@@ -1,15 +1,18 @@
-// ignore_for_file: avoid_redundant_argument_values
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hotel_booking/product/enum/firebase_collections.dart';
 import 'package:gen/gen.dart';
+import 'package:uuid/uuid.dart';
 
 class FirebaseAuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  static const Uuid _uuid = Uuid();
 
-  // 🔥 Auth state stream - AuthBloc bunu dinler
+  String generateTempUserId() {
+    return _uuid.v4();
+  }
+
   Stream<UserModel?> get authStateChanges {
     return _auth.authStateChanges().asyncMap((firebaseUser) async {
       if (firebaseUser == null) return null;
@@ -17,15 +20,14 @@ class FirebaseAuthService {
     });
   }
 
-  // 🔥 Mevcut kullanıcıyı al
   Future<UserModel?> get currentUser async {
     final firebaseUser = _auth.currentUser;
     if (firebaseUser == null) return null;
     return getUserById(firebaseUser.uid);
   }
 
-  /// Kullanıcı kaydı oluşturur
-  Future<UserModel> createUser({
+  ///Yeni Kullanıcı kaydı oluşturur
+  Future<UserModel> authSignUpRequested({
     required String email,
     required String password,
     required String fullName,
@@ -40,7 +42,6 @@ class FirebaseAuthService {
         id: userCredential.user!.uid,
         fullName: fullName,
         email: email,
-        photoUrl: null,
       );
 
       await _firestore
@@ -87,8 +88,6 @@ class FirebaseAuthService {
       final user = UserModel(
         id: userCredential.user!.uid,
         fullName: 'Misafir Kullanıcı',
-        email: null,
-        photoUrl: null,
       );
 
       await _firestore

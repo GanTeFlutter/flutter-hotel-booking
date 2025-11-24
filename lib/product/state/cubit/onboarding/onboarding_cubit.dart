@@ -11,24 +11,20 @@ class OnboardingCubit extends Cubit<int> {
   }
 
   void nextPage() {
-    if (state < 2) {
-      pageController?.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
+    if (pageController?.hasClients ?? false) {
+      final currentPage = state;
+      if (currentPage < 2) {
+        pageController?.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
     }
   }
 
-  void previousPage() {
-    if (state > 0) {
-      pageController?.previousPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  void skip() {
-    pageController?.jumpToPage(2);
+  @override
+  Future<void> close() {
+    pageController = null;
+    return super.close();
   }
 }
