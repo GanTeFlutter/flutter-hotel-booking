@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/otp/enter_otp_view.dart';
-import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
 import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
 
 import 'package:flutter_hotel_booking/product/service/firebase/login/firebase_otp_service.dart';

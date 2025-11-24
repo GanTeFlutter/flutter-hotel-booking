@@ -1,4 +1,4 @@
-import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// SharedPreferences yönetimi için servis sınıfı

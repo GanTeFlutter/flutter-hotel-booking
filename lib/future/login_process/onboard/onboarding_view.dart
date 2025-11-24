@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_template.dart';
-import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
 import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
@@ -85,6 +84,8 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 }
+
+// Onboarding View Pages
 
 final class _OnboardingView1 extends StatelessWidget {
   const _OnboardingView1();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
+import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
 import 'package:gen/gen.dart';
 import 'package:widgets/widgets.dart';
 

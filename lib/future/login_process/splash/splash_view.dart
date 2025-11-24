@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/version/version_comparetor_cubit.dart';
 import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';

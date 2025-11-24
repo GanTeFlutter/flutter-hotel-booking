@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_view_model.dart';
-import 'package:flutter_hotel_booking/product/constant/app_keys.dart';
-import 'package:flutter_hotel_booking/product/constant/app_padding.dart';
-import 'package:flutter_hotel_booking/product/constant/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
+import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
 import 'package:flutter_hotel_booking/product/service/services/service_validator.dart';
 import 'package:gen/gen.dart';
 import 'package:widgets/widgets.dart';
