@@ -113,16 +113,7 @@ class _SignViewState extends SigInViewModel {
                     ),
 
                     if (isLoading)
-                      //TODO: AYIRR
-                      const CircularProgressIndicator(
-                        strokeWidth: 6,
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          Color(0xFF2196F3),
-                        ),
-                        backgroundColor: Color(
-                          0xFFBBDEFB,
-                        ),
-                      )
+                     const AppProgressIndicator()
                     else
                       AppCustomElevatedButton(
                         text: AuthStrings.signIn,

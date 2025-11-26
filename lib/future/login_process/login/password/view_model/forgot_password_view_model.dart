@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/password/forgot_password_view.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
-import 'package:flutter_hotel_booking/product/service/notification/service_notification_helper.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
 import 'package:go_router/go_router.dart';

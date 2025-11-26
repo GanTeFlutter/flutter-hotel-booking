@@ -63,9 +63,7 @@ class _ForgotPasswordViewState extends ForgotPasswordViewModel {
                       ),
                     ),
                     if (state is AuthLoading)
-                      const Center(
-                        child: CircularProgressIndicator(),
-                      )
+                      const Center(child: AppProgressIndicator())
                     else
                       AppCustomElevatedButton(
                         text: AuthStrings.next,

@@ -157,13 +157,7 @@ final class _OnboardingView3 extends StatelessWidget {
                 },
           showIndicatorSpace: false,
           bottomWidget: isLoading
-              ? const CircularProgressIndicator(
-                  strokeWidth: 6,
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    ColorName.primary500,
-                  ),
-                  backgroundColor: ColorName.greyscale200,
-                )
+              ? const AppProgressIndicator()
               : CustomRichText(
                   text1: OnboardingStrings.newAccount,
                   text2: OnboardingStrings.register,

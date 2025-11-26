@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/views/onboarding_strings.dart';
+import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/version/version_comparetor_cubit.dart';
 import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
@@ -27,16 +28,20 @@ class SplashView extends StatelessWidget {
   ) {
     if (state is VersionComparetorError) {
     } else if (state is VersionComparetorForceUpdate) {
-      showForceUpdateDialog(
-        context,
-        'Zorunlu Güncelleme Gerekiyor',
-        'Lütfen uygulamayı güncelleyin. Mevcut sürüm: ${state.currentVersion}, Minimum sürüm: ${state.minVersion}',
+      AppDialogs.showForeUpdateDialog(
+        context: context,
+        onUpdate: () {
+          locator.urlLauncherService.launchUrlInBrowser(
+            // TODO: Update with your app's store URL
+            url:
+                'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=tr',
+          );
+        },
       );
     } else if (state is VersionComparetorSoftUpdate) {
-      showForceUpdateDialog(
-        context,
-        'Güncelleme Mevcut',
-        'Yeni bir sürüm mevcut. Mevcut sürüm: ${state.currentVersion}, En son sürüm: ${state.latestVersion}',
+      AppDialogs.showOptionalUpdateDialog(
+        context: context,
+        onUpdate: () {},
       );
     } else if (state is VersionComparetorUpToDate) {
       context.goNamed(NavigationStrings.onBoardingStep1View);
@@ -63,51 +68,11 @@ class SplashView extends StatelessWidget {
             description: OnboardingStrings.hotelDescription,
           ),
           box(height: 25),
-          const CircularProgressIndicator(
-            color: ColorName.secondary50,
-          ),
-          // AppCustomElevatedButton(
-          //   onPressed: () {
-          //     context.goNamed(AppStrings.routerOnBoardingStep1View);
-          //   },
-          //   text: 'Check Version',
-          // ),
+          const AppProgressIndicator(),
         ],
       ),
     );
   }
 
   SizedBox box({double? height}) => SizedBox(height: height);
-}
-
-Future<void> showForceUpdateDialog(
-  BuildContext context,
-  String titleText,
-  String descriptionText,
-) async {
-  return showDialog(
-    context: context,
-    barrierDismissible: false, // kapatılmasın
-    builder: (BuildContext context) {
-      return AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        title: Text(
-          titleText,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        content: Text(
-          descriptionText,
-        ),
-
-        actions: [
-          ElevatedButton(
-            onPressed: () async {},
-            child: const Text('Güncelle'),
-          ),
-        ],
-      );
-    },
-  );
 }

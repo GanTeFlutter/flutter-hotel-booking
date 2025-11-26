@@ -107,4 +107,43 @@ final class AppDialogs {
       onSecondaryPressed: () {},
     );
   }
+
+  /// Mandatory update dialog (cannot be dismissed)
+  static Future<bool?> showForeUpdateDialog({
+    required BuildContext context,
+    required VoidCallback onUpdate,
+  }) {
+    return DialogHelper.showCustomDialog(
+      context: context,
+      title: 'Update Required',
+      description:
+          'A new version is required to continue using the app. Please update now to continue.',
+      primaryButtonText: 'Update Now',
+      primaryButtonColor: Colors.red.shade700,
+      icon: Icons.system_update_alt,
+      iconColor: Colors.red.shade700,
+      barrierDismissible: false,
+      onPrimaryPressed: onUpdate,
+    );
+  }
+
+  /// Optional update dialog (can be dismissed)
+  static Future<bool?> showOptionalUpdateDialog({
+    required BuildContext context,
+    required VoidCallback onUpdate,
+  }) {
+    return DialogHelper.showCustomDialog(
+      context: context,
+      title: 'Update Available',
+      description:
+          'A new version is available with improvements and bug fixes. Would you like to update now?',
+      primaryButtonText: 'Update',
+      secondaryButtonText: 'Later',
+      primaryButtonColor: Colors.indigo,
+      icon: Icons.system_update,
+      iconColor: Colors.indigo,
+      onPrimaryPressed: onUpdate,
+      onSecondaryPressed: () {},
+    );
+  }
 }
