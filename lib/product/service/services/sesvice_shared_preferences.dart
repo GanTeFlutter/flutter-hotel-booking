@@ -1,4 +1,4 @@
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/key/shared_pref_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// SharedPreferences yönetimi için servis sınıfı
@@ -20,13 +20,13 @@ class SharedPreferencesService {
   ///
   /// Default: false (ilk açılışta)
   bool get isOnboardingCompleted =>
-      _prefs.getBool(AppStrings.spkOnboardCompleted) ?? false;
+      _prefs.getBool(SharedPrefKeys.onboardCompleted) ?? false;
 
   /// Onboarding tamamlanma durumunu günceller
   ///
   /// [isCompleted] - Onboarding tamamlandı mı?
   Future<void> setOnboardingCompleted({required bool isCompleted}) async {
-    await _prefs.setBool(AppStrings.spkOnboardCompleted, isCompleted);
+    await _prefs.setBool(SharedPrefKeys.onboardCompleted, isCompleted);
   }
 
   // ============ HELPER METHODS ============

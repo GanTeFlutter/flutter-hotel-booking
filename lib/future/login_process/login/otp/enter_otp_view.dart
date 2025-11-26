@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/otp/enter_otp_view_model.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+
+import 'package:flutter_hotel_booking/product/constant/strings/views/auth_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/views/onboarding_strings.dart';
 import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/countdown/countdown_cubit.dart';
 import 'package:flutter_hotel_booking/product/theme/pin_theme.dart';
@@ -39,12 +41,12 @@ class _EnterOtpViewState extends EnterOtpViewModel {
             children: [
               SizedBox(height: size.height * 0.05),
               const AppTitleDescriptionText(
-                text: AppStrings.enterOtp,
+                text: AuthStrings.enterOtp,
                 titleColor: ColorName.greyscale4,
                 descriptionColor: ColorName.greyscale4,
-                description: AppStrings.emailHint,
+                description: AuthStrings.emailHint,
               ),
-              
+
               Text(widget.params.email),
 
               Pinput(
@@ -61,7 +63,7 @@ class _EnterOtpViewState extends EnterOtpViewModel {
               ),
 
               AppCustomElevatedButton(
-                text: AppStrings.onBoardingButtonContinue,
+                text: OnboardingStrings.buttonContinue,
                 onPressed: isLoading
                     ? null
                     : () => continueButton(pinController.text),
@@ -85,8 +87,8 @@ class _EnterOtpViewState extends EnterOtpViewModel {
                   }
                   if (state is CountdownFinished) {
                     return CustomRichText(
-                      text1: AppStrings.resendCode,
-                      text2: AppStrings.resendCode2,
+                      text1: AuthStrings.resendCode,
+                      text2: AuthStrings.resendCode2,
                       fontWeight1: FontWeight.w400,
                       fontWeight2: FontWeight.w600,
                       color2: ColorName.greyscale4,

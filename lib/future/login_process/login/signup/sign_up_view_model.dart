@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_view.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+
+import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
 import 'package:flutter_hotel_booking/product/service/firebase/firebase_auth/firebase_auth_service.dart';
 
 import 'package:gen/gen.dart';
@@ -13,6 +14,7 @@ abstract class SignUpViewModel extends State<SignUpView> {
   late final TextEditingController fullNameController;
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
+  final ValueNotifier<bool> obscurePassword = ValueNotifier(true);
 
   @override
   void initState() {
@@ -38,7 +40,7 @@ abstract class SignUpViewModel extends State<SignUpView> {
       final password = passwordController.text;
       final tempUserId = _firebaseAuthService.generateTempUserId();
       await context.pushNamed(
-        AppStrings.routerEnterOtpView,
+        NavigationStrings.enterOtpView,
         extra: OtpParams(
           fullName: fullName,
           tempUserId: tempUserId,

@@ -12,7 +12,9 @@ final class AppKeys {
 
   // Form Keys
   static final signInFormKey = GlobalKey<FormState>();
-  static final signUpFormKey = GlobalKey<FormState>(); 
+  static final signUpFormKey = GlobalKey<FormState>();
+  static final forgotPasswordFormKey = GlobalKey<FormState>();
+  static final createNewPasswordFormKey = GlobalKey<FormState>();
 
   // Helper methods
   static BuildContext? get context => navigatorKey.currentContext;
@@ -20,5 +22,4 @@ final class AppKeys {
   static NavigatorState? get navigator => navigatorKey.currentState;
 
   static OverlayState? get overlay => navigatorKey.currentState?.overlay;
-
 }

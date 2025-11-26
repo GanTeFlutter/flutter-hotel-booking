@@ -7,8 +7,12 @@ final class OnboardingStrings {
   // General
   static const String buttonContinue = 'Continue';
   static const String buttonGetStarted = 'Get Started';
+  static const String buttonSkip = 'Skip'; //henüz eklenmedi
+  static const String newAccount = "Don't have an account?";
+  static const String register = ' Register';
 
-  // Hotel Info
+
+  // Splash
   static const String hotelName = 'Grand Hotel';
   static const String hotelDescription =
       'Find Your Perfect Stay, Anytime, Anywhere';

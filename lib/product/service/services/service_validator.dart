@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/views/auth_strings.dart';
 
 @immutable
 final class AppValidators {
@@ -18,16 +18,16 @@ final class AppValidators {
   /// - String = Hata mesajı
   static String? username(String? value) {
     if (value == null || value.isEmpty) {
-      return AppStrings.validatorUsernameEmpty;
+      return AuthStrings.usernameEmpty;
     }
     if (value.length < 4) {
-      return AppStrings.validatorUsernameMin;
+      return AuthStrings.usernameMin;
     }
     if (value.length > 20) {
-      return AppStrings.validatorUsernameMax;
+      return AuthStrings.usernameMax;
     }
     if (!RegExp(r'^[a-zA-Z0-9_]+$').hasMatch(value)) {
-      return AppStrings.validatorUsernameInvalid;
+      return AuthStrings.usernameInvalid;
     }
     return null;
   }
@@ -44,7 +44,7 @@ final class AppValidators {
   /// - String = Hata mesajı
   static String? email(String? value) {
     if (value == null || value.isEmpty) {
-      return AppStrings.validatorEmailEmpty;
+      return AuthStrings.emailEmpty;
     }
 
     final emailRegex = RegExp(
@@ -52,11 +52,11 @@ final class AppValidators {
     );
 
     if (!emailRegex.hasMatch(value)) {
-      return AppStrings.validatorEmailInvalid;
+      return AuthStrings.emailInvalid;
     }
 
     if (value.contains(' ')) {
-      return AppStrings.validatorEmailSpace;
+      return AuthStrings.emailSpace;
     }
 
     return null;
@@ -74,13 +74,13 @@ final class AppValidators {
   /// - String = Hata mesajı
   static String? password(String? value) {
     if (value == null || value.isEmpty) {
-      return AppStrings.validatorPasswordEmpty;
+      return AuthStrings.passwordEmpty;
     }
     if (value.length < 6) {
-      return AppStrings.validatorPasswordMin;
+      return AuthStrings.passwordMin;
     }
     if (value.length > 20) {
-      return AppStrings.validatorPasswordMax;
+      return AuthStrings.passwordMax;
     }
     return null;
   }

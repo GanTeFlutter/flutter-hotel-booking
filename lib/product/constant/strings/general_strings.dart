@@ -6,7 +6,7 @@ final class GeneralStrings {
 
   // App Info
   static const String appName = 'Hotel Booking';
-  static const String urlWebsite = 'https://akillisletme.com/';
+  static const String akillisletme = 'https://akillisletme.com/';
 
   // Splash Screen
   static const String splashLoading = 'Yükleniyor...';

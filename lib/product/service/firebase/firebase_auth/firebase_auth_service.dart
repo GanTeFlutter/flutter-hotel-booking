@@ -13,6 +13,7 @@ class FirebaseAuthService {
     return _uuid.v4();
   }
 
+  /// Auth state değişikliklerini dinler
   Stream<UserModel?> get authStateChanges {
     return _auth.authStateChanges().asyncMap((firebaseUser) async {
       if (firebaseUser == null) return null;
@@ -20,6 +21,7 @@ class FirebaseAuthService {
     });
   }
 
+  /// Mevcut kullanıcıyı getirir
   Future<UserModel?> get currentUser async {
     final firebaseUser = _auth.currentUser;
     if (firebaseUser == null) return null;
@@ -132,6 +134,55 @@ class FirebaseAuthService {
       'updatedAt': FieldValue.serverTimestamp(),
     });
   }
+
+  Future<void> sifreSifirla(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      if (e.code != 'user-not-found') {
+        throw FirebaseAuthException(
+          code: e.code,
+          message: _handleAuthException(e),
+        );
+      }
+    }
+  }
+
+  /// Şifre sıfırlama/değiştirme
+  /// - Oturum açıksa: Direkt şifreyi günceller
+  /// - Oturum kapalıysa: E-posta ile sıfırlama linki gönderir
+  Future<bool> resetPassword({
+    String? email,
+    String? newPassword,
+  }) async {
+    try {
+      final user = _auth.currentUser;
+
+      if (user != null && newPassword != null) {
+        await user.updatePassword(newPassword);
+        return true;
+      }
+
+      if (user == null && email != null) {
+        await _auth.sendPasswordResetEmail(email: email);
+        return true;
+      }
+
+      throw FirebaseAuthException(
+        code: 'invalid-params',
+        message: user != null ? 'Yeni şifre gerekli.' : 'E-posta gerekli.',
+      );
+    } on FirebaseAuthException catch (e) {
+      // Güvenlik: user-not-found olsa bile başarılı gibi davran
+      if (e.code == 'user-not-found') return true;
+
+      throw FirebaseAuthException(
+        code: e.code,
+        message: _handleAuthException(e),
+      );
+    }
+  }
+
 
   String _handleAuthException(FirebaseAuthException e) {
     switch (e.code) {

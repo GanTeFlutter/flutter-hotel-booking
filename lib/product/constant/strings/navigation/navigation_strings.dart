@@ -4,11 +4,6 @@ import 'package:flutter/material.dart';
 final class NavigationStrings {
   const NavigationStrings._();
 
-  // Main Routes
-  static const String homeView = 'homeView';
-  static const String versionUpdateView = 'versionUpdateView';
-  static const String registerView = 'registerView';
-
   // OnBoarding Routes
   static const String onBoardingStep1View = 'onBoardingStep1View';
   static const String onBoardingStep2View = 'onBoardingStep2View';
@@ -20,4 +15,10 @@ final class NavigationStrings {
   static const String enterOtpView = 'enterOtpView';
   static const String forgotPasswordView = 'forgotPasswordView';
   static const String createNewPasswordView = 'createNewPasswordView';
+
+  static const String versionUpdateView = 'versionUpdateView';
+  static const String registerView = 'registerView';
+
+  // Main Routes
+  static const String homeView = 'homeView';
 }

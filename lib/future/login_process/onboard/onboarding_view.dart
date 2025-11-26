@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_template.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/views/onboarding_strings.dart';
 import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
@@ -85,7 +86,7 @@ class _OnboardingViewState extends State<OnboardingView> {
   }
 }
 
-// Onboarding View Pages
+// Onboard Pages
 
 final class _OnboardingView1 extends StatelessWidget {
   const _OnboardingView1();
@@ -94,9 +95,9 @@ final class _OnboardingView1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return OnboardingViewTemplate(
       backgroundImage: Assets.image.obStep1,
-      title: AppStrings.onBoardingStep1Title,
-      description: AppStrings.onBoardingStep1Description,
-      buttonText: AppStrings.onBoardingButtonContinue,
+      title: OnboardingStrings.step1Title,
+      description: OnboardingStrings.step1Description,
+      buttonText: OnboardingStrings.buttonContinue,
       onButtonPressed: () {
         if (context.mounted) {
           context.read<OnboardingCubit>().nextPage();
@@ -113,9 +114,9 @@ final class _OnboardingView2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return OnboardingViewTemplate(
       backgroundImage: Assets.image.obStep2,
-      title: AppStrings.onBoardingStep2Title,
-      description: AppStrings.onBoardingStep2Description,
-      buttonText: AppStrings.onBoardingButtonContinue,
+      title: OnboardingStrings.step2Title,
+      description: OnboardingStrings.step2Description,
+      buttonText: OnboardingStrings.buttonContinue,
       onButtonPressed: () {
         if (context.mounted) {
           context.read<OnboardingCubit>().nextPage();
@@ -133,7 +134,7 @@ final class _OnboardingView3 extends StatelessWidget {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          context.goNamed(AppStrings.routerHomeView);
+          context.goNamed(NavigationStrings.homeView);
         } else if (state is AuthError) {
           context.showSnackBar(
             'Anonim giriş başarısız: ${state.message}',
@@ -146,9 +147,9 @@ final class _OnboardingView3 extends StatelessWidget {
 
         return OnboardingViewTemplate(
           backgroundImage: Assets.image.obStep3,
-          title: AppStrings.onBoardingStep3Title,
-          description: AppStrings.onBoardingStep3Description,
-          buttonText: AppStrings.onBoardingButtonContinue,
+          title: OnboardingStrings.step3Title,
+          description: OnboardingStrings.step3Description,
+          buttonText: OnboardingStrings.buttonContinue,
           onButtonPressed: isLoading
               ? null
               : () {
@@ -164,8 +165,8 @@ final class _OnboardingView3 extends StatelessWidget {
                   backgroundColor: ColorName.greyscale200,
                 )
               : CustomRichText(
-                  text1: AppStrings.noAccount1,
-                  text2: AppStrings.noAccount2,
+                  text1: OnboardingStrings.newAccount,
+                  text2: OnboardingStrings.register,
                   fontWeight1: FontWeight.w400,
                   fontWeight2: FontWeight.w600,
                   color1: ColorName.greyscale0,
@@ -175,7 +176,7 @@ final class _OnboardingView3 extends StatelessWidget {
                       isCompleted: true,
                     );
                     if (context.mounted) {
-                      context.goNamed(AppStrings.routerSignInView);
+                      context.goNamed(NavigationStrings.signInView);
                     }
                   },
                 ),

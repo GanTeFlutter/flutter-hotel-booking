@@ -13,6 +13,39 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthSignUpRequested>(_authSignUpRequested);
     on<AuthSignOutRequested>(_authSignOutRequested);
     on<AuthAnonymousSignInRequested>(_authAnonymousSignInRequested);
+    on<AuthResetPasswordRequested>(_authResetPasswordRequested);
+    on<AuthForgotPasswordRequested>(_authForgotPasswordRequested);
+  }
+
+  Future<void> _authForgotPasswordRequested(
+    AuthForgotPasswordRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(AuthLoading());
+    try {
+      await locator.firebaseAuthService.resetPassword(
+        email: event.email,
+      );
+      emit(AuthPasswordResetSuccess());
+    } on FirebaseAuthException catch (e) {
+      emit(AuthError(e.message ?? 'Hata'));
+    }
+  }
+
+  Future<void> _authResetPasswordRequested(
+    AuthResetPasswordRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(AuthLoading());
+    try {
+      final resonse = await locator.firebaseAuthService.resetPassword(
+        email: event.email,
+        newPassword: event.newPassword,
+      );
+      emit(AuthPasswordForgotSuccess(passwordIsChanged: resonse));
+    } on FirebaseAuthException catch (e) {
+      emit(AuthError(e.message ?? 'Hata'));
+    }
   }
 
   Future<void> _authAnonymousSignInRequested(
@@ -76,9 +109,5 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } on FirebaseAuthException catch (e) {
       emit(AuthError(e.message ?? 'Hata'));
     }
-  }
-
-  String tempUserId() {
-    return locator.firebaseAuthService.generateTempUserId();
   }
 }

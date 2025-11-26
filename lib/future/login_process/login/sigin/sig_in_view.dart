@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/sigin/sig_in_view_model.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
+
+import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/views/auth_strings.dart';
 import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
 import 'package:flutter_hotel_booking/product/service/services/service_validator.dart';
 import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
@@ -25,9 +27,8 @@ class _SignViewState extends SigInViewModel {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          context.goNamed(
-            AppStrings.routerEnterOtpView,
-            //TODO: BLOC TAŞI
+          context.pushNamed(
+            NavigationStrings.enterOtpView,
             extra: OtpParams(
               email: emailController.text,
               tempUserId: state.user.id,
@@ -54,49 +55,60 @@ class _SignViewState extends SigInViewModel {
                     SizedBox(height: size.height * 0.1),
 
                     const AppTitleDescriptionText(
-                      text: AppStrings.loginTitle,
+                      text: AuthStrings.loginTitle,
                       titleColor: ColorName.greyscale4,
                       descriptionColor: ColorName.greyscale4,
-                      description: AppStrings.loginSubtitle,
+                      description: AuthStrings.loginSubtitle,
                     ),
 
                     AppMultiTextfield(
-                      title: AppStrings.emailLabel,
+                      title: AuthStrings.emailLabel,
                       textField: CustomTextField(
                         controller: emailController,
                         validator: AppValidators.email,
-                        hintText: AppStrings.emailHint,
-                        onChanged: (value) {},
+                        hintText: AuthStrings.emailHint,
                         keyboardType: TextInputType.emailAddress,
                         enabled: !isLoading,
                       ),
                     ),
 
                     AppMultiTextfield(
-                      title: AppStrings.passwordLabel,
-                      textField: CustomTextField(
-                        controller: passwordController,
-                        validator: AppValidators.password,
-                        hintText: AppStrings.passwordHint,
-                        onChanged: (value) {},
-                        keyboardType: TextInputType.visiblePassword,
-                        obscureText: true,
-                        suffixIcon: const Icon(Icons.visibility),
-                        enabled: !isLoading,
+                      title: AuthStrings.passwordLabel,
+                      textField: ValueListenableBuilder<bool>(
+                        valueListenable: obscurePassword,
+                        builder: (context, isObscure, _) {
+                          return CustomTextField(
+                            controller: passwordController,
+                            validator: AppValidators.password,
+                            hintText: AuthStrings.passwordHint,
+                            keyboardType: TextInputType.visiblePassword,
+                            obscureText: isObscure,
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                isObscure
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                              onPressed: () => obscurePassword.value =
+                                  !obscurePassword.value,
+                            ),
+                            enabled: !isLoading,
+                          );
+                        },
                       ),
                     ),
-
+                    
                     IgnorePointer(
                       ignoring: isLoading,
                       child: RememberMeForgotPassword(
                         onRememberMeChanged: (value) {},
                         onForgotPasswordTap: () {
                           context.pushNamed(
-                            AppStrings.routerForgotPasswordView,
+                            NavigationStrings.forgotPasswordView,
                           );
                         },
-                        rememberMeText: AppStrings.rememberMe,
-                        forgotPasswordText: AppStrings.forgotPassword,
+                        rememberMeText: AuthStrings.rememberMe,
+                        forgotPasswordText: AuthStrings.forgotPassword,
                       ),
                     ),
 
@@ -105,32 +117,32 @@ class _SignViewState extends SigInViewModel {
                       const CircularProgressIndicator(
                         strokeWidth: 6,
                         valueColor: AlwaysStoppedAnimation<Color>(
-                          Color(0xFF2196F3), 
+                          Color(0xFF2196F3),
                         ),
                         backgroundColor: Color(
                           0xFFBBDEFB,
-                        ), 
+                        ),
                       )
                     else
                       AppCustomElevatedButton(
-                        text: AppStrings.signIn,
+                        text: AuthStrings.signIn,
                         onPressed: signInButton,
                       ),
 
                     IgnorePointer(
                       ignoring: isLoading,
                       child: CustomRichText(
-                        text1: AppStrings.noAccount1,
-                        text2: AppStrings.noAccount3,
+                        text1: AuthStrings.noAccount1,
+                        text2: AuthStrings.noAccount3,
                         fontWeight2: FontWeight.w900,
                         onTap: () {
-                          context.pushNamed(AppStrings.routerSignUpView);
+                          context.pushNamed(NavigationStrings.signUpView);
                         },
                       ),
                     ),
 
                     const DividerWithText(
-                      text: AppStrings.orSignInWith,
+                      text: AuthStrings.orSignInWith,
                       textColor: ColorName.greyscale2,
                       thickness: 2,
                       horizontalPadding: 50,
@@ -143,11 +155,11 @@ class _SignViewState extends SigInViewModel {
                         width: MediaQuery.of(context).size.width,
                         onGoogleTap: () {},
                         onFacebookTap: () {
-                          context.pushNamed(AppStrings.routerEnterOtpView);
+                          context.pushNamed(NavigationStrings.enterOtpView);
                         },
                         onAppleTap: () {
                           context.pushNamed(
-                            AppStrings.routerCreateNewPasswordView,
+                            NavigationStrings.createNewPasswordView,
                           );
                         },
                       ),
@@ -156,8 +168,8 @@ class _SignViewState extends SigInViewModel {
                     IgnorePointer(
                       ignoring: isLoading,
                       child: CustomRichText(
-                        text1: AppStrings.termsAgreement,
-                        text2: AppStrings.termsAgreement2,
+                        text1: AuthStrings.termsAgreement,
+                        text2: AuthStrings.termsAgreement2,
                         fontWeight1: FontWeight.w400,
                         fontWeight2: FontWeight.w600,
                         color2: ColorName.greyscale4,

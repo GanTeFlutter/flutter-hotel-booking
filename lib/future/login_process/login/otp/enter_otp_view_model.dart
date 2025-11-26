@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/otp/enter_otp_view.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
 import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
-
 import 'package:flutter_hotel_booking/product/service/firebase/login/firebase_otp_service.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
-
 import 'package:flutter_hotel_booking/product/state/cubit/countdown/countdown_cubit.dart';
 import 'package:go_router/go_router.dart';
+import 'package:widgets/widgets.dart';
 
 abstract class EnterOtpViewModel extends State<EnterOtpView> {
   late final FirebaseOtpService _firebaseOtpService;
@@ -18,6 +17,7 @@ abstract class EnterOtpViewModel extends State<EnterOtpView> {
   bool isLoading = false;
   bool codeSent = false;
   bool hasError = false;
+  bool isDialogApproved = false;
 
   bool enabledPinput = true;
 
@@ -48,7 +48,24 @@ abstract class EnterOtpViewModel extends State<EnterOtpView> {
     setState(() => isLoading = false);
   }
 
+  void dialogIsApproved() {
+    AppDialogs.showTermsDialog(
+      context: context,
+      onAgree: () {
+        setState(() {
+          isDialogApproved = true;
+        });
+        continueButton(pinController.text);
+      },
+    );
+  }
+
   Future<void> continueButton(String pin) async {
+    if (!isDialogApproved) {
+      dialogIsApproved();
+      return;
+    }
+
     if (isLoading) return;
 
     if (!codeSent) {
@@ -107,7 +124,7 @@ abstract class EnterOtpViewModel extends State<EnterOtpView> {
         ),
       );
       if (!mounted) return;
-      context.goNamed(AppStrings.routerHomeView);
+      context.goNamed(NavigationStrings.homeView);
     } else {
       if (!mounted) return;
       context.showSnackBar(
@@ -124,7 +141,7 @@ abstract class EnterOtpViewModel extends State<EnterOtpView> {
     );
     if (verifyResult) {
       if (!mounted) return;
-      context.goNamed(AppStrings.routerHomeView);
+      context.goNamed(NavigationStrings.homeView);
     } else {
       if (!mounted) return;
       context.showSnackBar(

@@ -8,6 +8,7 @@ import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
 abstract class SigInViewModel extends State<SignView> {
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
+  final ValueNotifier<bool> obscurePassword = ValueNotifier(true);
 
   @override
   void initState() {
@@ -39,4 +40,6 @@ abstract class SigInViewModel extends State<SignView> {
       }
     }
   }
+
+
 }

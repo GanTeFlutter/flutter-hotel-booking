@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/views/onboarding_strings.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/version/version_comparetor_cubit.dart';
 import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
@@ -39,7 +39,7 @@ class SplashView extends StatelessWidget {
         'Yeni bir sürüm mevcut. Mevcut sürüm: ${state.currentVersion}, En son sürüm: ${state.latestVersion}',
       );
     } else if (state is VersionComparetorUpToDate) {
-      context.goNamed(AppStrings.routerOnBoardingStep1View);
+      context.goNamed(NavigationStrings.onBoardingStep1View);
     }
   }
 
@@ -57,10 +57,10 @@ class SplashView extends StatelessWidget {
           box(height: 10),
 
           const AppTitleDescriptionText(
-            text: AppStrings.onBoardingHotelName,
+            text: OnboardingStrings.hotelName,
             titleColor: ColorName.greyscale0,
             descriptionColor: ColorName.greyscale200,
-            description: AppStrings.onBoardingHotelDescription,
+            description: OnboardingStrings.hotelDescription,
           ),
           box(height: 25),
           const CircularProgressIndicator(

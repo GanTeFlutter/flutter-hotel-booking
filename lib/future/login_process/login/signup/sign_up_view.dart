@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_view_model.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/app_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/general_strings.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
+
+import 'package:flutter_hotel_booking/product/constant/strings/views/auth_strings.dart';
+import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/service/services/service_validator.dart';
 import 'package:gen/gen.dart';
 import 'package:widgets/widgets.dart';
@@ -33,19 +36,18 @@ class _SignUpViewState extends SignUpViewModel {
               spacing: 30,
               children: [
                 SizedBox(height: size.height * 0.05),
-
                 const AppTitleDescriptionText(
-                  text: AppStrings.signUpTitle,
+                  text: AuthStrings.signUpTitle,
                   titleColor: ColorName.greyscale4,
                   descriptionColor: ColorName.greyscale4,
-                  description: AppStrings.emailHint,
+                  description: AuthStrings.emailHint,
                 ),
 
                 AppMultiTextfield(
-                  title: AppStrings.fullName,
+                  title: AuthStrings.fullName,
                   textField: CustomTextField(
                     controller: fullNameController,
-                    hintText: AppStrings.enterYourName,
+                    hintText: AuthStrings.enterYourName,
                     validator: AppValidators.username,
                     onChanged: (value) {},
                     keyboardType: TextInputType.name,
@@ -53,10 +55,10 @@ class _SignUpViewState extends SignUpViewModel {
                 ),
 
                 AppMultiTextfield(
-                  title: AppStrings.emailLabel,
+                  title: AuthStrings.emailLabel,
                   textField: CustomTextField(
                     controller: emailController,
-                    hintText: AppStrings.emailHint,
+                    hintText: AuthStrings.emailHint,
                     validator: AppValidators.email,
                     onChanged: (value) {},
                     keyboardType: TextInputType.emailAddress,
@@ -64,25 +66,36 @@ class _SignUpViewState extends SignUpViewModel {
                 ),
 
                 AppMultiTextfield(
-                  title: AppStrings.passwordLabel,
-                  textField: CustomTextField(
-                    controller: passwordController,
-                    hintText: AppStrings.passwordHint,
-                    validator: AppValidators.password,
-                    onChanged: (value) {},
-                    keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
-                    suffixIcon: const Icon(Icons.visibility),
+                  title: AuthStrings.passwordLabel,
+                  textField: ValueListenableBuilder<bool>(
+                    valueListenable: obscurePassword,
+                    builder: (context, isObscure, _) {
+                      return CustomTextField(
+                        controller: passwordController,
+                        hintText: AuthStrings.passwordHint,
+                        validator: AppValidators.password,
+                        onChanged: (value) {},
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: isObscure,
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            isObscure ? Icons.visibility_off : Icons.visibility,
+                          ),
+                          onPressed: () =>
+                              obscurePassword.value = !obscurePassword.value,
+                        ),
+                      );
+                    },
                   ),
                 ),
 
                 AppCustomElevatedButton(
-                  text: 'Create An Account',
+                  text: AuthStrings.createAccount,
                   onPressed: appCustomElevatedButtonOnPressed,
                 ),
 
                 const DividerWithText(
-                  text: AppStrings.orSignInWith,
+                  text: AuthStrings.orSignInWith,
                   textColor: ColorName.greyscale2,
                   thickness: 2,
                   horizontalPadding: 50,
@@ -97,12 +110,16 @@ class _SignUpViewState extends SignUpViewModel {
                 ),
 
                 CustomRichText(
-                  text1: AppStrings.termsAgreement,
-                  text2: AppStrings.termsAgreement2,
+                  text1: AuthStrings.termsAgreement,
+                  text2: AuthStrings.termsAgreement2,
                   fontWeight1: FontWeight.w400,
                   fontWeight2: FontWeight.w600,
                   color2: ColorName.greyscale4,
-                  onTap: () {},
+                  onTap: () {
+                    locator.urlLauncherService.launchUrlInBrowser(
+                      url: GeneralStrings.akillisletme,
+                    );
+                  },
                 ),
               ],
             ),

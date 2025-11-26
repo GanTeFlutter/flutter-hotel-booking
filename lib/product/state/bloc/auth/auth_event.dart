@@ -37,13 +37,28 @@ class AuthSignUpRequested extends AuthEvent {
 /// Mevcut kullanıcıyı çıkış yaptırmak için tetiklenir.
 class AuthSignOutRequested extends AuthEvent {}
 
-
-
+/// Anonim kullanıcı girişi yapmak için tetiklenir.
 class AuthAnonymousSignInRequested extends AuthEvent {}
 
+///Create New Password için tetiklenir.
+/// Yeni şifre oluşturmak isteyen kullanıcılar için kullanılır.
+class AuthResetPasswordRequested extends AuthEvent {
+  const AuthResetPasswordRequested({
+    this.email,
+    this.newPassword,
+  });
 
+  final String? email;
+  final String? newPassword;
+}
 
+class AuthForgotPasswordRequested extends AuthEvent {
+  const AuthForgotPasswordRequested({
+    this.email,
+  });
 
+  final String? email;
+}
 
 /// Social (Google, Facebook vb.) ile giriş yapmak için tetiklenir.
 ///
