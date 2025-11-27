@@ -30,18 +30,15 @@ class SplashView extends StatelessWidget {
     } else if (state is VersionComparetorForceUpdate) {
       AppDialogs.showForeUpdateDialog(
         context: context,
-        onUpdate: () {
-          locator.urlLauncherService.launchUrlInBrowser(
-            // TODO: Update with your app's store URL
-            url:
-                'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=tr',
-          );
-        },
+        onUpdate: _appUpdate,
       );
     } else if (state is VersionComparetorSoftUpdate) {
       AppDialogs.showOptionalUpdateDialog(
         context: context,
-        onUpdate: () {},
+        onUpdate: _appUpdate,
+        onLater: () {
+          context.goNamed(NavigationStrings.onBoardingStep1View);
+        },
       );
     } else if (state is VersionComparetorUpToDate) {
       context.goNamed(NavigationStrings.onBoardingStep1View);
@@ -51,6 +48,7 @@ class SplashView extends StatelessWidget {
   Widget _buildLoadingContent(BuildContext context) {
     return Center(
       child: Column(
+        spacing: 10,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Assets.image.splashLogo.image(
@@ -59,20 +57,23 @@ class SplashView extends StatelessWidget {
             fit: BoxFit.fill,
             package: 'gen',
           ),
-          box(height: 10),
-
           const AppTitleDescriptionText(
             text: OnboardingStrings.hotelName,
             titleColor: ColorName.greyscale0,
             descriptionColor: ColorName.greyscale200,
             description: OnboardingStrings.hotelDescription,
           ),
-          box(height: 25),
           const AppProgressIndicator(),
         ],
       ),
     );
   }
 
-  SizedBox box({double? height}) => SizedBox(height: height);
+  void _appUpdate() {
+    locator.urlLauncherService.launchUrlInBrowser(
+      // TODO: Update with your app's storURL
+      url:
+          'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=tr',
+    );
+  }
 }

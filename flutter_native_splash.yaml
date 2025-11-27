@@ -1,0 +1,22 @@
+flutter_native_splash:
+  color: "#000000"  
+  android: true
+  ios: true
+  image: assets/grandhotel.png
+  android_gravity: center  
+  ios_content_mode: center
+  fullscreen: true
+  
+  android_12:
+    color: "#000000"
+    image: assets/grandhotel.png
+    icon_background_color: "#000000" 
+  
+  web: false
+
+
+
+  # dart run flutter_native_splash:create --path=flutter_native_splash.yaml
+  # https://developer.android.com/develop/ui/views/launch/splash-screen?hl=tr
+  # 1158x1158 ana resim boyutu  güvenli bölge 432x432
+

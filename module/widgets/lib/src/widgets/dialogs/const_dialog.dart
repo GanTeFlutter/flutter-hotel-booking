@@ -131,6 +131,7 @@ final class AppDialogs {
   static Future<bool?> showOptionalUpdateDialog({
     required BuildContext context,
     required VoidCallback onUpdate,
+    required VoidCallback onLater,
   }) {
     return DialogHelper.showCustomDialog(
       context: context,
@@ -143,7 +144,7 @@ final class AppDialogs {
       icon: Icons.system_update,
       iconColor: Colors.indigo,
       onPrimaryPressed: onUpdate,
-      onSecondaryPressed: () {},
+      onSecondaryPressed: onLater,
     );
   }
 }
