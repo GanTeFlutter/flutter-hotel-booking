@@ -79,7 +79,7 @@ flutter:
     - assets/lottie/
     - assets/color/colors.xml 
     - assets/svg/
-    - assets/icon/
+    - assets/icon/bottom_navigation_bar_icon/
   
   
   

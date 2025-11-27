@@ -7,7 +7,7 @@ import 'package:flutter_hotel_booking/product/constant/strings/views/auth_string
 import 'package:flutter_hotel_booking/product/constant/strings/views/onboarding_strings.dart';
 import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/countdown/countdown_cubit.dart';
-import 'package:flutter_hotel_booking/product/theme/pin_theme.dart';
+import 'package:flutter_hotel_booking/product/theme/theme_companent/pin_theme.dart';
 import 'package:gen/gen.dart';
 import 'package:pinput/pinput.dart';
 import 'package:widgets/widgets.dart';

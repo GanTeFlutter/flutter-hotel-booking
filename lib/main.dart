@@ -18,10 +18,6 @@ class _MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hotel Booking',
       theme: AppLightTheme().themeData,
-      // darkTheme: AppDarkTheme().themeData,
-      // themeMode: context.watch<ThemeCubit>().isDarkMode
-      //     ? ThemeMode.dark
-      //     : ThemeMode.light,
       themeMode: ThemeMode.light,
       routerConfig: router,
     );

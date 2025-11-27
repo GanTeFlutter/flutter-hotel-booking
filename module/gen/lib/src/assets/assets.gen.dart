@@ -25,6 +25,14 @@ class $AssetsColorGen {
   List<String> get values => [colors];
 }
 
+class $AssetsIconGen {
+  const $AssetsIconGen();
+
+  /// Directory path: assets/icon/bottom_navigation_bar_icon
+  $AssetsIconBottomNavigationBarIconGen get bottomNavigationBarIcon =>
+      const $AssetsIconBottomNavigationBarIconGen();
+}
+
 class $AssetsImageGen {
   const $AssetsImageGen();
 
@@ -98,10 +106,64 @@ class $AssetsSvgGen {
   List<SvgGenImage> get values => [dance];
 }
 
+class $AssetsIconBottomNavigationBarIconGen {
+  const $AssetsIconBottomNavigationBarIconGen();
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_chat.png
+  AssetGenImage get bnChat =>
+      const AssetGenImage('assets/icon/bottom_navigation_bar_icon/bn_chat.png');
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_chat_selected.png
+  AssetGenImage get bnChatSelected => const AssetGenImage(
+    'assets/icon/bottom_navigation_bar_icon/bn_chat_selected.png',
+  );
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_document.png
+  AssetGenImage get bnDocument => const AssetGenImage(
+    'assets/icon/bottom_navigation_bar_icon/bn_document.png',
+  );
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_document_selected.png
+  AssetGenImage get bnDocumentSelected => const AssetGenImage(
+    'assets/icon/bottom_navigation_bar_icon/bn_document_selected.png',
+  );
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_home.png
+  AssetGenImage get bnHome =>
+      const AssetGenImage('assets/icon/bottom_navigation_bar_icon/bn_home.png');
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_home_selected.png
+  AssetGenImage get bnHomeSelected => const AssetGenImage(
+    'assets/icon/bottom_navigation_bar_icon/bn_home_selected.png',
+  );
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_user.png
+  AssetGenImage get bnUser =>
+      const AssetGenImage('assets/icon/bottom_navigation_bar_icon/bn_user.png');
+
+  /// File path: assets/icon/bottom_navigation_bar_icon/bn_user_selected.png
+  AssetGenImage get bnUserSelected => const AssetGenImage(
+    'assets/icon/bottom_navigation_bar_icon/bn_user_selected.png',
+  );
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+    bnChat,
+    bnChatSelected,
+    bnDocument,
+    bnDocumentSelected,
+    bnHome,
+    bnHomeSelected,
+    bnUser,
+    bnUserSelected,
+  ];
+}
+
 class Assets {
   const Assets._();
 
   static const $AssetsColorGen color = $AssetsColorGen();
+  static const $AssetsIconGen icon = $AssetsIconGen();
   static const $AssetsImageGen image = $AssetsImageGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
