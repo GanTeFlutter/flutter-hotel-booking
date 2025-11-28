@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 // Light Theme Input Decoration
 InputDecorationTheme get lightInputDecorationTheme =>
@@ -35,27 +34,28 @@ InputDecorationTheme get lightInputDecorationTheme =>
     );
 
 // Dark Theme Input Decoration
-InputDecorationTheme get darkInputDecorationTheme => InputDecorationTheme(
-  hintStyle: GoogleFonts.jost(
+InputDecorationTheme get darkInputDecorationTheme => const InputDecorationTheme(
+  hintStyle: TextStyle(
+    fontFamily: FontFamily.jost,
     fontWeight: FontWeight.w500,
   ),
-  contentPadding: const EdgeInsets.symmetric(
+  contentPadding: EdgeInsets.symmetric(
     vertical: 18,
     horizontal: 20,
   ),
-  border: const OutlineInputBorder(
+  border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(12)),
   ),
-  enabledBorder: const OutlineInputBorder(
+  enabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(12)),
   ),
-  focusedBorder: const OutlineInputBorder(
+  focusedBorder: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(12)),
   ),
-  errorBorder: const OutlineInputBorder(
+  errorBorder: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(12)),
   ),
-  focusedErrorBorder: const OutlineInputBorder(
+  focusedErrorBorder: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(12)),
   ),
   filled: true,
