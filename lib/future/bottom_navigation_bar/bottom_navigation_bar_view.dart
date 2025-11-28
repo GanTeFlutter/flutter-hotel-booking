@@ -1,6 +1,10 @@
 // main_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hotel_booking/future/views/home/home_view.dart';
+import 'package:flutter_hotel_booking/future/views/message/message_view.dart';
+import 'package:flutter_hotel_booking/future/views/my_booking/my_booking_view.dart';
+import 'package:flutter_hotel_booking/future/views/profile/profile_view.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/bottom_nav_bar/bottom_nav_bar_cubit.dart';
 import 'package:gen/gen.dart';
 
@@ -37,8 +41,8 @@ class _MainScreenState extends State<MainScreen> {
               index: currentIndex,
               children: const [
                 HomeView(),
-                SearchView(),
-                FavoritesView(),
+                MyBookingView(),
+                MessageView(),
                 ProfileView(),
               ],
             ),
@@ -64,34 +68,43 @@ class _BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      selectedIndex: currentIndex,
-      onDestinationSelected: onTap,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      indicatorColor: Colors.transparent,
-      destinations: [
-        _buildDestination(
-          icon: Assets.icon.bottomNavigationBarIcon.bnHome,
-          selectedIcon: Assets.icon.bottomNavigationBarIcon.bnHomeSelected,
-          label: 'Home',
-        ),
-        _buildDestination(
-          icon: Assets.icon.bottomNavigationBarIcon.bnDocument,
-          selectedIcon: Assets.icon.bottomNavigationBarIcon.bnDocumentSelected,
-          label: 'My Booking',
-        ),
-        _buildDestination(
-          icon: Assets.icon.bottomNavigationBarIcon.bnChat,
-          selectedIcon: Assets.icon.bottomNavigationBarIcon.bnChatSelected,
-          label: 'Message',
-        ),
-        _buildDestination(
-          icon: Assets.icon.bottomNavigationBarIcon.bnUser,
-          selectedIcon: Assets.icon.bottomNavigationBarIcon.bnUserSelected,
-          label: 'Profil',
-        ),
-      ],
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, -10),
+            color: Colors.black.withAlpha(25),
+            blurRadius: 10,
+          ),
+        ],
+      ),
+      child: NavigationBar(
+        selectedIndex: currentIndex,
+        onDestinationSelected: onTap,
+        destinations: [
+          _buildDestination(
+            icon: Assets.icon.bottomNavigationBarIcon.bnHome,
+            selectedIcon: Assets.icon.bottomNavigationBarIcon.bnHomeSelected,
+            label: 'Home',
+          ),
+          _buildDestination(
+            icon: Assets.icon.bottomNavigationBarIcon.bnDocument,
+            selectedIcon:
+                Assets.icon.bottomNavigationBarIcon.bnDocumentSelected,
+            label: 'My Booking',
+          ),
+          _buildDestination(
+            icon: Assets.icon.bottomNavigationBarIcon.bnChat,
+            selectedIcon: Assets.icon.bottomNavigationBarIcon.bnChatSelected,
+            label: 'Message',
+          ),
+          _buildDestination(
+            icon: Assets.icon.bottomNavigationBarIcon.bnUser,
+            selectedIcon: Assets.icon.bottomNavigationBarIcon.bnUserSelected,
+            label: 'Profil',
+          ),
+        ],
+      ),
     );
   }
 
@@ -104,47 +117,6 @@ class _BottomNavBar extends StatelessWidget {
       icon: icon.image(width: 24, height: 24, package: 'gen'),
       selectedIcon: selectedIcon.image(width: 24, height: 24, package: 'gen'),
       label: label,
-
     );
-  }
-}
-
-// home_view.dart
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Anasayfa'));
-  }
-}
-
-// search_view.dart
-class SearchView extends StatelessWidget {
-  const SearchView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Arama Sayfası'));
-  }
-}
-
-// favorites_view.dart
-class FavoritesView extends StatelessWidget {
-  const FavoritesView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Favoriler Sayfası'));
-  }
-}
-
-// profile_view.dart
-class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Profil Sayfası'));
   }
 }

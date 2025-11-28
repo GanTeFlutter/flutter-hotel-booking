@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
-import 'package:flutter_hotel_booking/product/service/services/sesvice_shared_preferences.dart';
+import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/bloc/auth/auth_bloc.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/countdown/countdown_cubit.dart';
 
@@ -21,7 +21,7 @@ class StateInitialize extends StatelessWidget {
           create: (context) => NotificationBloc(),
         ),
         BlocProvider(
-          create: (context) => ThemeCubit(SharedPreferencesService()),
+          create: (context) => ThemeCubit(locator.spService),
         ),
         BlocProvider(
           create: (context) => VersionComparetorCubit(),

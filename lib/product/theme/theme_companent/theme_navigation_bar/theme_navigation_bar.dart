@@ -1,37 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 
-// Light Theme Navigation Bar
 NavigationBarThemeData get lightNavigationBarThemeData =>
-    const NavigationBarThemeData(
-      elevation: 3,
+    NavigationBarThemeData(
+      indicatorColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+      backgroundColor: Colors.white,
       height: 80,
-      labelTextStyle: WidgetStatePropertyAll(
-        TextStyle(
+
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+            color: ColorName.primary800,
+          );
+        }
+        return const TextStyle(
           fontSize: 12,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      iconTheme: WidgetStatePropertyAll(
-        IconThemeData(
-          size: 24,
-        ),
-      ),
+          fontWeight: FontWeight.w500,
+          color: ColorName.greyscale3,
+        );
+      }),
     );
 
-// Dark Theme Navigation Bar
-NavigationBarThemeData get darkNavigationBarThemeData =>
-    const NavigationBarThemeData(
-      elevation: 3,
-      height: 80,
-      labelTextStyle: WidgetStatePropertyAll(
-        TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      iconTheme: WidgetStatePropertyAll(
-        IconThemeData(
-          size: 24,
-        ),
-      ),
+NavigationBarThemeData get darkNavigationBarThemeData => NavigationBarThemeData(
+  indicatorColor: Colors.transparent,
+  surfaceTintColor: Colors.transparent,
+  backgroundColor: const Color(0xFF1C1B1F),
+  height: 80,
+
+  labelTextStyle: WidgetStateProperty.resolveWith((states) {
+    if (states.contains(WidgetState.selected)) {
+      return const TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w600,
+        color: ColorName.primary800,
+      );
+    }
+    return const TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      color: ColorName.greyscale3,
     );
+  }),
+);
