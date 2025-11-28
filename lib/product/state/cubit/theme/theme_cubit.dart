@@ -1,23 +1,24 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hotel_booking/product/enum/theme_mode.dart';
+import 'package:flutter_hotel_booking/product/service/services/sesvice_shared_preferences.dart';
 
-import 'package:flutter_hotel_booking/product/service/service_locator.dart';
-
-class ThemeCubit extends Cubit<bool> {
-  ThemeCubit() : super(_loadInitialTheme());
-
-  static bool _loadInitialTheme() {
-    return locator.spService.isOnboardingCompleted;
+class ThemeCubit extends Cubit<ThemeMode> {
+  ThemeCubit(this._prefsService) : super(ThemeMode.light) {
+    _loadTheme();
   }
 
-  bool get isDarkMode => state;
+  final SharedPreferencesService _prefsService;
 
-  void toggleTheme() {
-    final newTheme = !state;
-    emit(newTheme);
-    _cacheThemeMode(newTheme);
+  bool get isDarkMode => state == ThemeMode.dark;
+
+  Future<void> _loadTheme() async {
+    final mode = _prefsService.themeMode;
+    emit(mode);
   }
 
-  Future<void> _cacheThemeMode(bool themeMode) async {
-    await locator.spService.setOnboardingCompleted(isCompleted: themeMode);
+  Future<void> toggleTheme() async {
+    final newMode = isDarkMode ? ThemeMode.light : ThemeMode.dark;
+    emit(newMode);
+    await _prefsService.setThemeMode(newMode);
   }
 }

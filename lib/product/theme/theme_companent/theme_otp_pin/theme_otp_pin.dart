@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
-@immutable
 final class AppPinTheme {
   const AppPinTheme._();
 
@@ -26,7 +25,7 @@ final class AppPinTheme {
   static final PinTheme submittedPinTheme = defaultPinTheme.copyWith(
     textStyle: const TextStyle(
       fontSize: 25,
-      color: Colors.grey, // Colors.grey[600] yerine
+      color: Colors.grey,
       fontWeight: FontWeight.w700,
     ),
   );

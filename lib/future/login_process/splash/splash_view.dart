@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/general_strings.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/views/onboarding_strings.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
@@ -71,9 +72,7 @@ class SplashView extends StatelessWidget {
 
   void _appUpdate() {
     locator.urlLauncherService.launchUrlInBrowser(
-      // TODO: Update with your app's storURL
-      url:
-          'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=tr',
+      url: GeneralStrings.appStore,
     );
   }
 }

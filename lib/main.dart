@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/init/app_initialize.dart';
 import 'package:flutter_hotel_booking/product/init/app_state_initialize.dart';
 import 'package:flutter_hotel_booking/product/navigation/app_gorouter.dart';
-import 'package:flutter_hotel_booking/product/theme/app_light_theme.dart';
+import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart';
+import 'package:flutter_hotel_booking/product/theme/theme_mode/theme_mode.dart';
 
 Future<void> main() async {
   await AppInitialize().make();
@@ -17,8 +19,11 @@ class _MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Hotel Booking',
-      theme: AppLightTheme().themeData,
-      themeMode: ThemeMode.light,
+      darkTheme: AppTheme().appDarkTheme,
+      theme: AppTheme().appLightTheme,
+      themeMode: context.watch<ThemeCubit>().isDarkMode
+          ? ThemeMode.dark
+          : ThemeMode.light,
       routerConfig: router,
     );
   }

@@ -7,6 +7,8 @@ final class GeneralStrings {
   // App Info
   static const String appName = 'Hotel Booking';
   static const String akillisletme = 'https://akillisletme.com/';
+  static const String appStore =
+      'https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=tr';
 
   // Splash Screen
   static const String splashLoading = 'Yükleniyor...';

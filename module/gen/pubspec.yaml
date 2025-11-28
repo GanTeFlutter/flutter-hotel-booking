@@ -64,6 +64,12 @@ flutter_gen:
     inputs:
       - assets/color/colors.xml
  
+
+
+
+  fonts:
+    enabled: true  
+
   
   integrations:
     image: true
@@ -84,9 +90,18 @@ flutter:
   
   
   
-  
-  
-  
+  fonts:
+  - family: Jost
+    fonts:
+      - asset: assets/fonts/jost/Jost-VariableFont_wght.ttf
+      - asset: assets/fonts/jost/Jost-Italic-VariableFont_wght.ttf
+        style: italic
+
+  - family: Inter
+    fonts:
+      - asset: assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf
+      - asset: assets/fonts/inter/Inter-Italic-VariableFont_opsz,wght.ttf
+        style: italic   
   
   
 
