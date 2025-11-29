@@ -18,7 +18,7 @@ class _MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Hotel Booking',
+      title: 'Hotels',
       darkTheme: AppTheme().appDarkTheme,
       theme: AppTheme().appLightTheme,
       themeMode: context.watch<ThemeCubit>().isDarkMode

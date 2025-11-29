@@ -16,4 +16,7 @@ class FontFamily {
 
   /// Font family: Jost
   static const String jost = 'Jost';
+
+  /// Font family: PlusJakartaSans
+  static const String plusJakartaSans = 'PlusJakartaSans';
 }

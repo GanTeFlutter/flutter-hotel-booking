@@ -8,14 +8,14 @@ import 'package:flutter_hotel_booking/future/views/profile/profile_view.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/bottom_nav_bar/bottom_nav_bar_cubit.dart';
 import 'package:gen/gen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class BottomNavigationBarView extends StatefulWidget {
+  const BottomNavigationBarView({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<BottomNavigationBarView> createState() => _BottomNavigationBarViewState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
   late final NavigationCubit _cubit;
 
   @override

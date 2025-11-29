@@ -38,7 +38,9 @@ class SplashView extends StatelessWidget {
         context: context,
         onUpdate: _appUpdate,
         onLater: () {
-          context.goNamed(NavigationStrings.onBoardingStep1View);
+          locator.spService.isOnboardingCompleted
+              ? context.goNamed(NavigationStrings.homeView)
+              : context.goNamed(NavigationStrings.onBoardingStep1View);
         },
       );
     } else if (state is VersionComparetorUpToDate) {
