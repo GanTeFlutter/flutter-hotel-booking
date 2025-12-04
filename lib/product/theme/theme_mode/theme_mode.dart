@@ -24,3 +24,16 @@ final class AppTheme {
     navigationBarTheme: lightNavigationBarThemeData,
   );
 }
+
+
+
+
+/**
+ *  AppCustomElevatedButton(
+                    onPressed: () => context.read<ThemeCubit>().toggleTheme(),
+                    text: 'Change Theme',
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                    ),
+                  ),
+ */
