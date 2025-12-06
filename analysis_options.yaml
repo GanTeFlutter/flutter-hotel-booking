@@ -8,6 +8,7 @@ analyzer:
     lines_longer_than_80_chars: ignore
     public_member_api_docs: ignore
     sort_pub_dependencies: ignore
+    specify_nonobvious_property_types: ignore
 
 linter:
   rules:

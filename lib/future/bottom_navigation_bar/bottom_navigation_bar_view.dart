@@ -40,7 +40,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
             body: IndexedStack(
               index: currentIndex,
               children: const [
-                HomeView(),
+                HomeProvider(),
                 MyBookingView(),
                 MessageView(),
                 ProfileView(),

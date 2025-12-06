@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/future/views/home/widget/hotel_model.dart';
+
 import 'package:flutter_hotel_booking/product/widget/project_network_image.dart';
+import 'package:gen/gen.dart';
 
 class HotelCard extends StatelessWidget {
   const HotelCard({
@@ -12,7 +13,7 @@ class HotelCard extends StatelessWidget {
     this.isFavorite = false,
   });
 
-  final HotelModel hotel;
+  final Hotel hotel;
   final VoidCallback? onTap;
   final VoidCallback? onFavoritePressed;
   final double width;
@@ -40,7 +41,7 @@ class HotelCard extends StatelessWidget {
             children: [
               // Arka plan resmi
               Positioned.fill(
-                child: ProjectNetworkImage(url: hotel.imageUrl),
+                child: ProjectNetworkImage(url: hotel.images.first),
               ),
 
               // Favori butonu
@@ -107,7 +108,7 @@ class HotelCard extends StatelessWidget {
                           const SizedBox(width: 2),
                           Expanded(
                             child: Text(
-                              hotel.location,
+                              hotel.location.address,
                               style: const TextStyle(
                                 color: Colors.white70,
                                 fontSize: 14,
@@ -122,7 +123,7 @@ class HotelCard extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            '\$${hotel.pricePerNight.toStringAsFixed(0)}/night',
+                            '${hotel.minPrice} \$',
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 14,
@@ -133,22 +134,12 @@ class HotelCard extends StatelessWidget {
                           const Icon(Icons.star, color: Colors.amber, size: 14),
                           const SizedBox(width: 2),
                           Text(
-                            hotel.rating.toStringAsFixed(1),
+                            hotel.averageRating.toStringAsFixed(2),
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 14,
                             ),
                           ),
-                          if (hotel.reviewCount > 0) ...[
-                            const SizedBox(width: 4),
-                            Text(
-                              '(${hotel.reviewCount})',
-                              style: const TextStyle(
-                                color: Colors.white54,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
                         ],
                       ),
                     ],

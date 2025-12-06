@@ -35,7 +35,7 @@ final class CustomNetworkImage extends StatelessWidget {
       imageUrl: url,
       memCacheHeight: memCache.height,
       memCacheWidth: memCache.width,
-      fit: boxFit,
+      fit:boxFit,
       width: size?.width,
       height: size?.height,
       errorListener: (value) {
