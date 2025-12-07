@@ -60,3 +60,5 @@ ve hangi bildirimin gonderilecegi belirleniyor ayrica bir dinleyici başlatılı
 bu sayade firebase üzerinden versiyon güncellendiği an kullanıcı neredee olursa olsun ona bildirim gönderebiliyoruz.
 
 
+insanlarin grup halinde bulusabilmelri birbirlerini bulabilmelei uygulama uzerinde bulusmadan once konusabilmeleri 
+uygulamada bulusma yerlerine gore veye aktiviteleroe gore guruplandirma yapabalicekleri bir uygualmaaaaaaaa akillisletme.com
