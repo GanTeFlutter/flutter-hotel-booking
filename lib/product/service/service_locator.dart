@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart';
 final GetIt locator = GetIt.instance;
 
 Future<void> setupLocator() async {
-  _registerSingletons();
+   _registerSingletons();
   await _initializeServices();
 }
 
@@ -24,7 +24,7 @@ void _registerSingletons() {
     ..registerSingleton<UrlLauncherService>(UrlLauncherService())
     ..registerSingleton(FirebaseAuthService())
     ..registerSingleton(FirebaseOtpService())
-    ..registerSingleton(HotelService());
+    ..registerSingleton(FirebaseHotelService());
 }
 
 extension ServiceLocator on GetIt {
@@ -38,5 +38,5 @@ extension ServiceLocator on GetIt {
 
   FirebaseOtpService get firebaseOtpService => locator<FirebaseOtpService>();
 
-  HotelService get firebaseHotelService => locator<HotelService>();
+  FirebaseHotelService get firebaseHotelService => locator<FirebaseHotelService>();
 }

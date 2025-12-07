@@ -37,9 +37,11 @@ Map<String, dynamic> _$UserHotelHistoryStateToJson(
   _UserHotelHistoryState instance,
 ) => <String, dynamic>{
   'recentSearches': instance.recentSearches,
-  'recentSearchesStatus': _$HistoryStatusEnumMap[instance.recentSearchesStatus],
+  'recentSearchesStatus':
+      _$HistoryStatusEnumMap[instance.recentSearchesStatus],
   'recentlyViewed': instance.recentlyViewed,
-  'recentlyViewedStatus': _$HistoryStatusEnumMap[instance.recentlyViewedStatus],
+  'recentlyViewedStatus':
+      _$HistoryStatusEnumMap[instance.recentlyViewedStatus],
 };
 
 const _$HistoryStatusEnumMap = {

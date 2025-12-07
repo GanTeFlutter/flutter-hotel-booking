@@ -97,7 +97,7 @@ class _SignViewState extends SigInViewModel {
                         },
                       ),
                     ),
-                    
+
                     IgnorePointer(
                       ignoring: isLoading,
                       child: RememberMeForgotPassword(
@@ -113,7 +113,7 @@ class _SignViewState extends SigInViewModel {
                     ),
 
                     if (isLoading)
-                     const AppProgressIndicator()
+                      const AppProgressIndicator()
                     else
                       AppCustomElevatedButton(
                         text: AuthStrings.signIn,

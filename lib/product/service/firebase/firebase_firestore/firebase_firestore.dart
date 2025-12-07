@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_hotel_booking/product/enum/firebase_collections.dart';
 import 'package:gen/gen.dart';
 
-class HotelService {
+class FirebaseHotelService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   // Tüm otelleri getir

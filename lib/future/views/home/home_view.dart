@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/home/home_bloc_selectors/most_popular_section.dart';
-
+import 'package:flutter_hotel_booking/future/views/home/home_sections/most_popular_section.dart';
+import 'package:flutter_hotel_booking/future/views/home/home_sections/recommended_category_section.dart';
+import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/home_appbar.dart';
-import 'package:flutter_hotel_booking/future/views/home/widget/section_text.dart';
+import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
+import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
 
-class HomeProvider extends StatelessWidget {
-  const HomeProvider({super.key});
+part 'widget/custom_section.dart';
+
+class HomeMultiBlocProvider extends StatelessWidget {
+  const HomeMultiBlocProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => TopPicksCubit()..loadTopPicks(),
-
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TopPicksCubit()..loadTopPicks(),
+        ),
+        BlocProvider(
+          create: (context) => RecommendedCategoryBloc(
+            hotelService: locator.firebaseHotelService,
+          )..add(const RecommendedCategoryEvent.started()),
+        ),
+      ],
       child: const HomeView(),
     );
   }
@@ -32,7 +44,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: RefreshIndicator.adaptive(
         onRefresh: () => context.read<TopPicksCubit>().loadTopPicks(),
-         child: CustomScrollView(
+        child: CustomScrollView(
           slivers: [
             CustomHomeAppBar(
               userName: 'John Doe',
@@ -42,14 +54,26 @@ class _HomeViewState extends State<HomeView> {
             ),
 
             //Most Popular Hotel Section
-            const SliverToBoxAdapter(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SectionText(),
-                  MostPopularSection(),
-                ],
-              ),
+            const SilverSectionBoxAdapter(
+              sectionTitleText: 'Most Popular',
+              children: [
+                MostPopularHotelCard(),
+              ],
+            ),
+
+            const SilverSectionBoxAdapter(
+              sectionTitleText: 'Recommended for you',
+              children: [
+                RecommendedSection(), // 👈 tek widget
+                // hotel listesi (sonra yaparsın)
+              ],
+            ),
+
+            const SilverSectionBoxAdapter(
+              sectionTitleText: 'Most Popular',
+              children: [
+                MostPopularHotelCard(),
+              ],
             ),
           ],
         ),

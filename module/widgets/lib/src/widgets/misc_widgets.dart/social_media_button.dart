@@ -83,12 +83,3 @@ final class SocialLoginButton extends StatelessWidget {
   }
 }
 
-
-/*
-   Assets.image.taslar.image(
-              height: 200,
-              width: 200,
-              package: 'gen',
-            ),
-
-*/

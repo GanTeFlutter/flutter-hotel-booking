@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Hotel {
 
- String get id; String get name; String get description; List<String> get images; HotelLocation get location; double get averageRating; int get totalReviews; int get starRating; double get minPrice; List<Facility> get facilities; bool get isActive; DateTime get createdAt;
+ String get id; String get name; String get description; List<String> get images; HotelLocation get location; double get averageRating; int get totalReviews; int get starRating; double get minPrice; List<Facility> get facilities; bool get isActive; DateTime get createdAt; HotelCategory? get category;
 /// Create a copy of Hotel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $HotelCopyWith<Hotel> get copyWith => _$HotelCopyWithImpl<Hotel>(this as Hotel, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Hotel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.images, images)&&(identical(other.location, location) || other.location == location)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.totalReviews, totalReviews) || other.totalReviews == totalReviews)&&(identical(other.starRating, starRating) || other.starRating == starRating)&&(identical(other.minPrice, minPrice) || other.minPrice == minPrice)&&const DeepCollectionEquality().equals(other.facilities, facilities)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Hotel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.images, images)&&(identical(other.location, location) || other.location == location)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.totalReviews, totalReviews) || other.totalReviews == totalReviews)&&(identical(other.starRating, starRating) || other.starRating == starRating)&&(identical(other.minPrice, minPrice) || other.minPrice == minPrice)&&const DeepCollectionEquality().equals(other.facilities, facilities)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.category, category) || other.category == category));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(images),location,averageRating,totalReviews,starRating,minPrice,const DeepCollectionEquality().hash(facilities),isActive,createdAt);
+int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(images),location,averageRating,totalReviews,starRating,minPrice,const DeepCollectionEquality().hash(facilities),isActive,createdAt,category);
 
 @override
 String toString() {
-  return 'Hotel(id: $id, name: $name, description: $description, images: $images, location: $location, averageRating: $averageRating, totalReviews: $totalReviews, starRating: $starRating, minPrice: $minPrice, facilities: $facilities, isActive: $isActive, createdAt: $createdAt)';
+  return 'Hotel(id: $id, name: $name, description: $description, images: $images, location: $location, averageRating: $averageRating, totalReviews: $totalReviews, starRating: $starRating, minPrice: $minPrice, facilities: $facilities, isActive: $isActive, createdAt: $createdAt, category: $category)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $HotelCopyWith<$Res>  {
   factory $HotelCopyWith(Hotel value, $Res Function(Hotel) _then) = _$HotelCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String description, List<String> images, HotelLocation location, double averageRating, int totalReviews, int starRating, double minPrice, List<Facility> facilities, bool isActive, DateTime createdAt
+ String id, String name, String description, List<String> images, HotelLocation location, double averageRating, int totalReviews, int starRating, double minPrice, List<Facility> facilities, bool isActive, DateTime createdAt, HotelCategory? category
 });
 
 
@@ -65,7 +65,7 @@ class _$HotelCopyWithImpl<$Res>
 
 /// Create a copy of Hotel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? description = null,Object? images = null,Object? location = null,Object? averageRating = null,Object? totalReviews = null,Object? starRating = null,Object? minPrice = null,Object? facilities = null,Object? isActive = null,Object? createdAt = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? description = null,Object? images = null,Object? location = null,Object? averageRating = null,Object? totalReviews = null,Object? starRating = null,Object? minPrice = null,Object? facilities = null,Object? isActive = null,Object? createdAt = null,Object? category = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -79,7 +79,8 @@ as int,minPrice: null == minPrice ? _self.minPrice : minPrice // ignore: cast_nu
 as double,facilities: null == facilities ? _self.facilities : facilities // ignore: cast_nullable_to_non_nullable
 as List<Facility>,isActive: null == isActive ? _self.isActive : isActive // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as DateTime,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as HotelCategory?,
   ));
 }
 /// Create a copy of Hotel
@@ -173,10 +174,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String description,  List<String> images,  HotelLocation location,  double averageRating,  int totalReviews,  int starRating,  double minPrice,  List<Facility> facilities,  bool isActive,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String description,  List<String> images,  HotelLocation location,  double averageRating,  int totalReviews,  int starRating,  double minPrice,  List<Facility> facilities,  bool isActive,  DateTime createdAt,  HotelCategory? category)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Hotel() when $default != null:
-return $default(_that.id,_that.name,_that.description,_that.images,_that.location,_that.averageRating,_that.totalReviews,_that.starRating,_that.minPrice,_that.facilities,_that.isActive,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.description,_that.images,_that.location,_that.averageRating,_that.totalReviews,_that.starRating,_that.minPrice,_that.facilities,_that.isActive,_that.createdAt,_that.category);case _:
   return orElse();
 
 }
@@ -194,10 +195,10 @@ return $default(_that.id,_that.name,_that.description,_that.images,_that.locatio
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String description,  List<String> images,  HotelLocation location,  double averageRating,  int totalReviews,  int starRating,  double minPrice,  List<Facility> facilities,  bool isActive,  DateTime createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String description,  List<String> images,  HotelLocation location,  double averageRating,  int totalReviews,  int starRating,  double minPrice,  List<Facility> facilities,  bool isActive,  DateTime createdAt,  HotelCategory? category)  $default,) {final _that = this;
 switch (_that) {
 case _Hotel():
-return $default(_that.id,_that.name,_that.description,_that.images,_that.location,_that.averageRating,_that.totalReviews,_that.starRating,_that.minPrice,_that.facilities,_that.isActive,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.description,_that.images,_that.location,_that.averageRating,_that.totalReviews,_that.starRating,_that.minPrice,_that.facilities,_that.isActive,_that.createdAt,_that.category);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +215,10 @@ return $default(_that.id,_that.name,_that.description,_that.images,_that.locatio
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String description,  List<String> images,  HotelLocation location,  double averageRating,  int totalReviews,  int starRating,  double minPrice,  List<Facility> facilities,  bool isActive,  DateTime createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String description,  List<String> images,  HotelLocation location,  double averageRating,  int totalReviews,  int starRating,  double minPrice,  List<Facility> facilities,  bool isActive,  DateTime createdAt,  HotelCategory? category)?  $default,) {final _that = this;
 switch (_that) {
 case _Hotel() when $default != null:
-return $default(_that.id,_that.name,_that.description,_that.images,_that.location,_that.averageRating,_that.totalReviews,_that.starRating,_that.minPrice,_that.facilities,_that.isActive,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.description,_that.images,_that.location,_that.averageRating,_that.totalReviews,_that.starRating,_that.minPrice,_that.facilities,_that.isActive,_that.createdAt,_that.category);case _:
   return null;
 
 }
@@ -229,7 +230,7 @@ return $default(_that.id,_that.name,_that.description,_that.images,_that.locatio
 
 @JsonSerializable(explicitToJson: true)
 class _Hotel implements Hotel {
-  const _Hotel({required this.id, required this.name, required this.description, required final  List<String> images, required this.location, required this.averageRating, required this.totalReviews, required this.starRating, required this.minPrice, required final  List<Facility> facilities, required this.isActive, required this.createdAt}): _images = images,_facilities = facilities;
+  const _Hotel({required this.id, required this.name, required this.description, required final  List<String> images, required this.location, required this.averageRating, required this.totalReviews, required this.starRating, required this.minPrice, required final  List<Facility> facilities, required this.isActive, required this.createdAt, required this.category}): _images = images,_facilities = facilities;
   factory _Hotel.fromJson(Map<String, dynamic> json) => _$HotelFromJson(json);
 
 @override final  String id;
@@ -256,6 +257,7 @@ class _Hotel implements Hotel {
 
 @override final  bool isActive;
 @override final  DateTime createdAt;
+@override final  HotelCategory? category;
 
 /// Create a copy of Hotel
 /// with the given fields replaced by the non-null parameter values.
@@ -270,16 +272,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Hotel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._images, _images)&&(identical(other.location, location) || other.location == location)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.totalReviews, totalReviews) || other.totalReviews == totalReviews)&&(identical(other.starRating, starRating) || other.starRating == starRating)&&(identical(other.minPrice, minPrice) || other.minPrice == minPrice)&&const DeepCollectionEquality().equals(other._facilities, _facilities)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Hotel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._images, _images)&&(identical(other.location, location) || other.location == location)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.totalReviews, totalReviews) || other.totalReviews == totalReviews)&&(identical(other.starRating, starRating) || other.starRating == starRating)&&(identical(other.minPrice, minPrice) || other.minPrice == minPrice)&&const DeepCollectionEquality().equals(other._facilities, _facilities)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.category, category) || other.category == category));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(_images),location,averageRating,totalReviews,starRating,minPrice,const DeepCollectionEquality().hash(_facilities),isActive,createdAt);
+int get hashCode => Object.hash(runtimeType,id,name,description,const DeepCollectionEquality().hash(_images),location,averageRating,totalReviews,starRating,minPrice,const DeepCollectionEquality().hash(_facilities),isActive,createdAt,category);
 
 @override
 String toString() {
-  return 'Hotel(id: $id, name: $name, description: $description, images: $images, location: $location, averageRating: $averageRating, totalReviews: $totalReviews, starRating: $starRating, minPrice: $minPrice, facilities: $facilities, isActive: $isActive, createdAt: $createdAt)';
+  return 'Hotel(id: $id, name: $name, description: $description, images: $images, location: $location, averageRating: $averageRating, totalReviews: $totalReviews, starRating: $starRating, minPrice: $minPrice, facilities: $facilities, isActive: $isActive, createdAt: $createdAt, category: $category)';
 }
 
 
@@ -290,7 +292,7 @@ abstract mixin class _$HotelCopyWith<$Res> implements $HotelCopyWith<$Res> {
   factory _$HotelCopyWith(_Hotel value, $Res Function(_Hotel) _then) = __$HotelCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String description, List<String> images, HotelLocation location, double averageRating, int totalReviews, int starRating, double minPrice, List<Facility> facilities, bool isActive, DateTime createdAt
+ String id, String name, String description, List<String> images, HotelLocation location, double averageRating, int totalReviews, int starRating, double minPrice, List<Facility> facilities, bool isActive, DateTime createdAt, HotelCategory? category
 });
 
 
@@ -307,7 +309,7 @@ class __$HotelCopyWithImpl<$Res>
 
 /// Create a copy of Hotel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? description = null,Object? images = null,Object? location = null,Object? averageRating = null,Object? totalReviews = null,Object? starRating = null,Object? minPrice = null,Object? facilities = null,Object? isActive = null,Object? createdAt = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? description = null,Object? images = null,Object? location = null,Object? averageRating = null,Object? totalReviews = null,Object? starRating = null,Object? minPrice = null,Object? facilities = null,Object? isActive = null,Object? createdAt = null,Object? category = freezed,}) {
   return _then(_Hotel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -321,7 +323,8 @@ as int,minPrice: null == minPrice ? _self.minPrice : minPrice // ignore: cast_nu
 as double,facilities: null == facilities ? _self._facilities : facilities // ignore: cast_nullable_to_non_nullable
 as List<Facility>,isActive: null == isActive ? _self.isActive : isActive // ignore: cast_nullable_to_non_nullable
 as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as DateTime,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as HotelCategory?,
   ));
 }
 

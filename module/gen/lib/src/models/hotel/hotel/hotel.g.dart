@@ -21,6 +21,7 @@ _Hotel _$HotelFromJson(Map<String, dynamic> json) => _Hotel(
       .toList(),
   isActive: json['isActive'] as bool,
   createdAt: DateTime.parse(json['createdAt'] as String),
+  category: $enumDecodeNullable(_$HotelCategoryEnumMap, json['category']),
 );
 
 Map<String, dynamic> _$HotelToJson(_Hotel instance) => <String, dynamic>{
@@ -36,4 +37,11 @@ Map<String, dynamic> _$HotelToJson(_Hotel instance) => <String, dynamic>{
   'facilities': instance.facilities.map((e) => e.toJson()).toList(),
   'isActive': instance.isActive,
   'createdAt': instance.createdAt.toIso8601String(),
+  'category': _$HotelCategoryEnumMap[instance.category],
+};
+
+const Map<HotelCategory, String> _$HotelCategoryEnumMap = {
+  HotelCategory.villas: 'villas',
+  HotelCategory.hotels: 'hotels',
+  HotelCategory.apartment: 'apartment',
 };

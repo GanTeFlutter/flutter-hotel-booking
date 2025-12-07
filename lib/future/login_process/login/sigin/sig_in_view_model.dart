@@ -40,6 +40,4 @@ abstract class SigInViewModel extends State<SignView> {
       }
     }
   }
-
-
 }

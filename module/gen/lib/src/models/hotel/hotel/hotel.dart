@@ -6,7 +6,7 @@ part 'hotel.g.dart';
 
 @freezed
 abstract class Hotel with _$Hotel {
-  @JsonSerializable(explicitToJson: true) 
+  @JsonSerializable(explicitToJson: true)
   const factory Hotel({
     required String id,
     required String name,
@@ -20,6 +20,7 @@ abstract class Hotel with _$Hotel {
     required List<Facility> facilities,
     required bool isActive,
     required DateTime createdAt,
+    required HotelCategory? category,
   }) = _Hotel;
 
   factory Hotel.fromJson(Map<String, dynamic> json) => _$HotelFromJson(json);
