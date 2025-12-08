@@ -3,14 +3,18 @@ part of '../home_view.dart';
 final class SilverSectionBoxAdapter extends StatelessWidget {
   const SilverSectionBoxAdapter({
     required this.sectionTitleText,
-    required this.children ,
+    required this.children,
     this.sectionTextButton = 'See All',
+    this.applyPaddingToChildren = true,
+    this.onSeeAllPressed,
     super.key,
   });
 
   final String sectionTitleText;
   final String sectionTextButton;
-  final List<Widget?> children ;
+  final List<Widget?> children;
+  final bool applyPaddingToChildren;
+  final VoidCallback? onSeeAllPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ final class SilverSectionBoxAdapter extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: ProjectPadding.allMedium,
+            padding: ProjectPadding.horizontalMedium,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -31,14 +35,21 @@ final class SilverSectionBoxAdapter extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: onSeeAllPressed,
                   child: Text(sectionTextButton),
                 ),
               ],
             ),
           ),
 
-          ...children.whereType<Widget>(),
+          ...children.whereType<Widget>().map(
+            (child) => applyPaddingToChildren
+                ? Padding(
+                    padding: ProjectPadding.horizontalMedium,
+                    child: child,
+                  )
+                : child,
+          ),
         ],
       ),
     );

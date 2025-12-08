@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/home/widget/hotel_card_shimmer.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/hotel_card_widget.dart';
+import 'package:flutter_hotel_booking/future/views/home/widget/shimmer/hotel_card_shimmer.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_state.dart';
-import 'package:shimmer/shimmer.dart';
 
 final class MostPopularHotelCard extends StatelessWidget {
   const MostPopularHotelCard({super.key});
@@ -64,3 +63,5 @@ final class MostPopularHotelCard extends StatelessWidget {
     );
   }
 }
+
+

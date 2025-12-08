@@ -5,7 +5,7 @@ import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommen
 import 'package:flutter_hotel_booking/future/views/home/widget/cattgory/category_chip.dart';
 import 'package:gen/gen.dart';
 
-class CategoryChips extends StatelessWidget {
+final class CategoryChips extends StatelessWidget {
   const CategoryChips({required this.selectedCategory, super.key});
 
   final HotelCategory? selectedCategory;
@@ -15,6 +15,7 @@ class CategoryChips extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
+        spacing: 10,
         children: [
           CategoryChip(
             label: 'All',
@@ -25,14 +26,11 @@ class CategoryChips extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           ...HotelCategory.values.map(
-            (category) => Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: CategoryChip(
-                label: category.label,
-                isSelected: selectedCategory == category,
-                onTap: () => context.read<RecommendedCategoryBloc>().add(
-                  RecommendedCategoryEvent.changeCategory(category: category),
-                ),
+            (category) => CategoryChip(
+              label: category.label,
+              isSelected: selectedCategory == category,
+              onTap: () => context.read<RecommendedCategoryBloc>().add(
+                RecommendedCategoryEvent.changeCategory(category: category),
               ),
             ),
           ),

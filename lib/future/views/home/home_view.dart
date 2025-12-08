@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/home/home_sections/most_popular_section.dart';
-import 'package:flutter_hotel_booking/future/views/home/home_sections/recommended_category_section.dart';
 import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/home/widget/home_appbar.dart';
+import 'package:flutter_hotel_booking/future/views/home/widget/home_appbar/home_appbar.dart';
+import 'package:flutter_hotel_booking/future/views/home/widget/home_sections/most_popular_section.dart';
+import 'package:flutter_hotel_booking/future/views/home/widget/home_sections/recommended_category_section.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
@@ -60,19 +60,13 @@ class _HomeViewState extends State<HomeView> {
                 MostPopularHotelCard(),
               ],
             ),
+           
 
             const SilverSectionBoxAdapter(
               sectionTitleText: 'Recommended for you',
               children: [
-                RecommendedSection(), // 👈 tek widget
+                RecommendedSection(),
                 // hotel listesi (sonra yaparsın)
-              ],
-            ),
-
-            const SilverSectionBoxAdapter(
-              sectionTitleText: 'Most Popular',
-              children: [
-                MostPopularHotelCard(),
               ],
             ),
           ],
