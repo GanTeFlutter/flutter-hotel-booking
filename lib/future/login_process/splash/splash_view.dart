@@ -44,7 +44,9 @@ class SplashView extends StatelessWidget {
         },
       );
     } else if (state is VersionComparetorUpToDate) {
-      context.goNamed(NavigationStrings.onBoardingStep1View);
+      locator.spService.isOnboardingCompleted
+          ? context.goNamed(NavigationStrings.homeView)
+          : context.goNamed(NavigationStrings.onBoardingStep1View);
     }
   }
 

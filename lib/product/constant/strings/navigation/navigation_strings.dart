@@ -19,6 +19,11 @@ final class NavigationStrings {
   static const String versionUpdateView = 'versionUpdateView';
   static const String registerView = 'registerView';
 
+  //Map Route
+  static const String hotelMapView = 'hotelMapView';
+
+
+
   // Main Routes
   static const String homeView = 'homeView';
 }

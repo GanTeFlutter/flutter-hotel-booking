@@ -30,9 +30,9 @@ _TopPicksState _$TopPicksStateFromJson(
 Map<String, dynamic> _$TopPicksStateToJson(_TopPicksState instance) =>
     <String, dynamic>{
       'mostPopular': instance.mostPopular.map((e) => e.toJson()).toList(),
-      'mostPopularStatus': _$TopPicksStatusEnumMap[instance.mostPopularStatus],
+      'mostPopularStatus': _$TopPicksStatusEnumMap[instance.mostPopularStatus]!,
       'bestToday': instance.bestToday.map((e) => e.toJson()).toList(),
-      'bestTodayStatus': _$TopPicksStatusEnumMap[instance.bestTodayStatus],
+      'bestTodayStatus': _$TopPicksStatusEnumMap[instance.bestTodayStatus]!,
     };
 
 const _$TopPicksStatusEnumMap = {

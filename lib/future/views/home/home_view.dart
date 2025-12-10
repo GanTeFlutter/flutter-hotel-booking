@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/home/widget/home_appbar/home_appbar.dart';
-import 'package:flutter_hotel_booking/future/views/home/widget/home_sections/most_popular_section.dart';
-import 'package:flutter_hotel_booking/future/views/home/widget/home_sections/recommended_category_section.dart';
+import 'package:flutter_hotel_booking/future/views/home/widget/index.dart';
+import 'package:flutter_hotel_booking/future/views/map/map_view.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
+import 'package:flutter_hotel_booking/product/constant/design/app_shadow.dart';
+import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
+import 'package:gen/gen.dart';
+import 'package:go_router/go_router.dart';
 
 part 'widget/custom_section.dart';
 
@@ -43,7 +46,12 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator.adaptive(
-        onRefresh: () => context.read<TopPicksCubit>().loadTopPicks(),
+        onRefresh: () async {
+          context.read<RecommendedCategoryBloc>().add(
+            const RecommendedCategoryEvent.started(),
+          );
+          await context.read<TopPicksCubit>().loadTopPicks();
+        },
         child: CustomScrollView(
           slivers: [
             CustomHomeAppBar(
@@ -53,21 +61,51 @@ class _HomeViewState extends State<HomeView> {
               onSearchPressed: () {},
             ),
 
-            //Most Popular Hotel Section
-            const SilverSectionBoxAdapter(
+            // Most Popular Hotel Section
+            SilverSectionBoxAdapter(
               sectionTitleText: 'Most Popular',
-              children: [
+              children: const [
                 MostPopularHotelCard(),
               ],
+              onSeeAllPressed: () {},
             ),
-           
 
-            const SilverSectionBoxAdapter(
+            SilverSectionBoxAdapter(
               sectionTitleText: 'Recommended for you',
-              children: [
+              children: const [
                 RecommendedSection(),
                 // hotel listesi (sonra yaparsın)
               ],
+              onSeeAllPressed: () {},
+            ),
+
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: GestureDetector(
+                  onTap: () {
+                    context.pushNamed(NavigationStrings.hotelMapView);
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: MediaQuery.sizeOf(context).height * 0.2,
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/maps.jpg'),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                width: double.infinity,
+                height: MediaQuery.sizeOf(context).height * 0.1,
+              ),
             ),
           ],
         ),

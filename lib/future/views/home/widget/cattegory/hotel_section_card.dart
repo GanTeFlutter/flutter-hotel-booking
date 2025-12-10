@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_booking/product/constant/design/app_shadow.dart';
 import 'package:flutter_hotel_booking/product/widget/project_network_image.dart';
 import 'package:gen/gen.dart';
 
@@ -70,31 +71,31 @@ class _HotelSectionCardState extends State<HotelSectionCard> {
         : [],
   );
 
-  // ========== Image ==========
-  Widget _buildImage() {
-    return Hero(
-      tag: widget.hotel.id,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.08),
-              blurRadius: 16,
-              offset: const Offset(0, 6),
-            ),
-          ],
+Widget _buildImage() {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(16),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withValues(alpha: 0.08),
+          blurRadius: 16,
+          offset: const Offset(0, 6),
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: ProjectNetworkImage(
-            url: widget.hotel.images.first,
-          ),
+      ],
+    ),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Hero(
+        tag: 'hotel_section_${widget.hotel.id}',
+        child: SizedBox(
+          width: 100,
+          height: 100,
+          child: ProjectNetworkImage(url: widget.hotel.images.first),
         ),
       ),
-    );
-  }
-
+    ),
+  );
+}
   // ========== Content ==========
   Widget _buildContent() {
     return Expanded(
@@ -111,15 +112,9 @@ class _HotelSectionCardState extends State<HotelSectionCard> {
     return Text(
       widget.hotel.name,
       style: Theme.of(context).textTheme.titleMedium!.copyWith(
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
         fontSize: 17,
-        shadows: [
-          Shadow(
-            color: Colors.black.withValues(alpha: 0.15),
-            offset: const Offset(0, 1),
-            blurRadius: 2,
-          ),
-        ],
+        shadows: AppShadows.light3,
       ),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
@@ -156,11 +151,14 @@ class _HotelSectionCardState extends State<HotelSectionCard> {
               color: ColorName.primary800,
               fontWeight: FontWeight.w500,
               fontSize: 19,
+              shadows: AppShadows.light2,
             ),
           ),
           TextSpan(
             text: ' /night',
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              shadows: AppShadows.light2,
+            ),
           ),
         ],
       ),
@@ -181,6 +179,7 @@ class _HotelSectionCardState extends State<HotelSectionCard> {
             widget.hotel.averageRating.toStringAsFixed(1),
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               fontWeight: FontWeight.w500,
+              shadows: AppShadows.light2,
             ),
           ),
         ],
