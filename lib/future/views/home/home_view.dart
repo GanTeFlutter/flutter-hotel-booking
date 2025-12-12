@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
+import 'package:flutter_hotel_booking/future/views/home/widget/home_sections/best_popular_section.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/index.dart';
-import 'package:flutter_hotel_booking/future/views/map/map_view.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_shadow.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
@@ -61,7 +61,6 @@ class _HomeViewState extends State<HomeView> {
               onSearchPressed: () {},
             ),
 
-            // Most Popular Hotel Section
             SilverSectionBoxAdapter(
               sectionTitleText: 'Most Popular',
               children: const [
@@ -101,11 +100,14 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.1,
-              ),
+
+            SilverSectionBoxAdapter(
+              sectionTitleText: 'Best Today 🔥',
+              children: const [
+                BestTodayCard(),
+                SizedBox(height: 10),
+              ],
+              onSeeAllPressed: () {},
             ),
           ],
         ),

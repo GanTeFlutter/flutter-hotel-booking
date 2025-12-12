@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/cart_detail/cart_detail_view.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/hotel_card_widget.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/shimmer/hotel_card_shimmer.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
@@ -55,19 +54,7 @@ final class MostPopularHotelCard extends StatelessWidget {
                   ),
                   child: HotelCard(
                     hotel: hotel,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (context) {
-                            return HotelDetailView(
-                              hotel: hotel,
-                              heroTag: 'hotel_card_${hotel.id}',
-                            );
-                          },
-                        ),
-                      );
-                    },
+                    onTap: () {},
                   ),
                 );
               },

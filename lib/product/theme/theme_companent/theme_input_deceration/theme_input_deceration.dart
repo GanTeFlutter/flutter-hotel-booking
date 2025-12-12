@@ -7,9 +7,10 @@ InputDecorationTheme get lightInputDecorationTheme =>
       hintStyle: TextStyle(
         fontFamily: FontFamily.jost,
         fontWeight: FontWeight.w500,
+        color: ColorName.greyscale2,
       ),
-      prefixIconColor: ColorName.greyscale4,
-      suffixIconColor: ColorName.greyscale4,
+      prefixIconColor: ColorName.greyscale2,
+      suffixIconColor: ColorName.greyscale2,
       contentPadding: EdgeInsets.symmetric(
         vertical: 18,
         horizontal: 20,

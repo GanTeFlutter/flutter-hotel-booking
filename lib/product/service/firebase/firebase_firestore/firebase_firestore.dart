@@ -14,14 +14,39 @@ class FirebaseHotelService {
     return snapshot.docs.map((doc) => Hotel.fromJson(doc.data())).toList();
   }
 
-  Future<List<LatLng>> getAllHotelLocations() async {
+  Future<List<MapMarkerModel>> getAllHotelLocations() async {
     final result = await _firestore
         .collection(FirestoreCollection.hotels.name)
         .get();
 
     return result.docs.map((doc) {
       final hotel = Hotel.fromJson(doc.data());
-      return LatLng(hotel.location.lat, hotel.location.lng);
+
+      return MapMarkerModel(
+        positions: [
+          LatLng(
+            hotel.location.lat,
+            hotel.location.lng,
+          ),
+        ],
+        title: hotel.name,
+        description: hotel.description,
+        imageUrl: hotel.images.first,
+      );
     }).toList();
   }
+}
+
+class MapMarkerModel {
+  MapMarkerModel({
+    required this.positions,
+    required this.title,
+    required this.description,
+    required this.imageUrl,
+  });
+
+  final List<LatLng> positions;
+  final String title;
+  final String description;
+  final String imageUrl;
 }

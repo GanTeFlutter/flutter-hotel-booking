@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:ui' as ui;
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/map_const.dart';
 import 'package:flutter_hotel_booking/product/service/firebase/firebase_firestore/firebase_firestore.dart';
@@ -12,13 +16,16 @@ class MapCubit extends Cubit<MapState> {
   MapCubit(this._serviceLocation, this._serviceHotel)
     : super(const MapState.initial());
 
-  GoogleMapController? _controller;
   final ServiceLocation _serviceLocation;
   final FirebaseHotelService _serviceHotel;
 
-  void setController(GoogleMapController ctrl) {
-    _controller = ctrl;
+  GoogleMapController? _controller;
+
+  set controller(GoogleMapController value) {
+    _controller = value;
   }
+
+  GoogleMapController? get controller => _controller;
 
   void addMarker(LatLng position, String description) {
     final current = state;
@@ -40,17 +47,28 @@ class MapCubit extends Cubit<MapState> {
   }
 
   Future<void> loadHotelMarkers() async {
-    final locations = await _serviceHotel.getAllHotelLocations();
-    final markers = locations.map((location) {
-      return Marker(
-        markerId: MarkerId(location.toString()),
-        position: location,
+    final markerModels = await _serviceHotel.getAllHotelLocations();
+
+    final markers = <Marker>{};
+
+    for (final item in markerModels) {
+      final icon = await getCircularMarkerFromCache(item.imageUrl);
+
+      markers.add(
+        Marker(
+          markerId: MarkerId(item.title),
+          position: item.positions.first,
+          icon: icon,
+          infoWindow: InfoWindow(
+            title: item.title,
+            snippet: item.description,
+          ),
+        ),
       );
-    }).toSet();
+    }
 
     final current = state;
     if (current is _Loaded) {
-      // Mevcut mapType'ı koru
       emit(current.copyWith(markers: markers));
     } else {
       emit(MapState.loaded(markers: markers));
@@ -93,4 +111,58 @@ class MapCubit extends Cubit<MapState> {
       ),
     );
   }
+}
+
+Future<BitmapDescriptor> getCircularMarkerFromCache(String imageUrl) async {
+  try {
+    final imageProvider = CachedNetworkImageProvider(imageUrl);
+    final imageStream = imageProvider.resolve(ImageConfiguration.empty);
+    final completer = Completer<ui.Image>();
+    imageStream.addListener(
+      ImageStreamListener((info, _) => completer.complete(info.image)),
+    );
+    final image = await completer.future;
+    const size = 50.0;
+    const border = 3.0;
+    final recorder = ui.PictureRecorder();
+    final canvas = Canvas(recorder)
+      ..drawCircle(
+        const Offset(size / 2, size / 2),
+        size / 2,
+        Paint()..color = Colors.white,
+      )
+      ..clipPath(
+        Path()..addOval(
+          Rect.fromCircle(
+            center: const Offset(size / 2, size / 2),
+            radius: (size / 2) - border,
+          ),
+        ),
+      );
+
+    paintImage(
+      canvas: canvas,
+      rect: const Rect.fromLTWH(
+        border,
+        border,
+        size - border * 2,
+        size - border * 2,
+      ),
+      image: image,
+      fit: BoxFit.cover,
+    );
+
+    final img = await recorder.endRecording().toImage(
+      size.toInt(),
+      size.toInt(),
+    );
+    final data = await img.toByteData(format: ui.ImageByteFormat.png);
+
+    if (data != null) {
+      return BitmapDescriptor.bytes(data.buffer.asUint8List());
+    }
+  } on Exception catch (e) {
+    debugPrint('Circular marker oluşturulamadı: $e');
+  }
+  return BitmapDescriptor.defaultMarker;
 }

@@ -39,13 +39,9 @@ class HotelCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           child: Stack(
             children: [
-             
-             Positioned.fill(
-  child: Hero(
-    tag: 'hotel_card_${hotel.id}',
-    child: ProjectNetworkImage(url: hotel.images.first),
-  ),
-),
+              Positioned.fill(
+                child: ProjectNetworkImage(url: hotel.images.first),
+              ),
               // Favori butonu
               Positioned(
                 right: 8,

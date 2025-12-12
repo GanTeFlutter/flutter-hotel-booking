@@ -1,7 +1,6 @@
 // recommended_section.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/cart_detail/cart_detail_view.dart';
 import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/cattegory/category_chips.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/cattegory/hotel_section_card.dart';
@@ -47,17 +46,7 @@ class RecommendedSection extends StatelessWidget {
                 itemBuilder: (_, index) => HotelSectionCard(
                   hotel: hotels[index],
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (context) {
-                          return HotelDetailView(
-                            hotel: hotels[index],
-                            heroTag: 'hotel_section_${hotels[index].id}',
-                          );
-                        },
-                      ),
-                    );
+               
                   },
                 ),
               ),

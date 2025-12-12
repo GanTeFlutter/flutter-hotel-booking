@@ -16,9 +16,14 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.primary800,
-      body: BlocListener<VersionComparetorCubit, VersionComparetorState>(
+      body: BlocConsumer<VersionComparetorCubit, VersionComparetorState>(
         listener: _handleVersionControlState,
-        child: _buildLoadingContent(context),
+        builder: (context, state) {
+          if (state is VersionComparetorError) {
+            return _buildErrorContent(context);
+          }
+          return _buildLoadingContent(context);
+        },
       ),
     );
   }
@@ -27,8 +32,7 @@ class SplashView extends StatelessWidget {
     BuildContext context,
     VersionComparetorState state,
   ) {
-    if (state is VersionComparetorError) {
-    } else if (state is VersionComparetorForceUpdate) {
+    if (state is VersionComparetorForceUpdate) {
       AppDialogs.showForeUpdateDialog(
         context: context,
         onUpdate: _appUpdate,
@@ -69,6 +73,39 @@ class SplashView extends StatelessWidget {
             description: OnboardingStrings.hotelDescription,
           ),
           const AppProgressIndicator(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildErrorContent(BuildContext context) {
+    return RefreshIndicator(
+      onRefresh: () => context.read<VersionComparetorCubit>().retry(),
+      child: CustomScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        slivers: [
+          SliverFillRemaining(
+            child: Center(
+              child: Column(
+                spacing: 16,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Assets.image.splashLogo.image(
+                    width: 90,
+                    height: 125,
+                    fit: BoxFit.fill,
+                    package: 'gen',
+                  ),
+                  const AppTitleDescriptionText(
+                    text: OnboardingStrings.hotelName,
+                    titleColor: ColorName.greyscale0,
+                    descriptionColor: ColorName.greyscale200,
+                    description: OnboardingStrings.hotelDescription,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

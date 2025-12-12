@@ -39,7 +39,7 @@ final class HotelMapView extends StatelessWidget {
                   orElse: () => MapType.normal,
                 ),
                 onMapCreated: (ctrl) {
-                  context.read<MapCubit>().setController(ctrl);
+                  context.read<MapCubit>().controller = ctrl;
                 },
                 onLongPress: (position) {
                   context.read<MapCubit>().addMarker(position, 'Custom Marker');

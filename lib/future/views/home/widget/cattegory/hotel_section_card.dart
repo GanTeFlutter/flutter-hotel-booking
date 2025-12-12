@@ -71,31 +71,29 @@ class _HotelSectionCardState extends State<HotelSectionCard> {
         : [],
   );
 
-Widget _buildImage() {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(16),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withValues(alpha: 0.08),
-          blurRadius: 16,
-          offset: const Offset(0, 6),
-        ),
-      ],
-    ),
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: Hero(
-        tag: 'hotel_section_${widget.hotel.id}',
+  Widget _buildImage() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.08),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
         child: SizedBox(
           width: 100,
           height: 100,
           child: ProjectNetworkImage(url: widget.hotel.images.first),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
+
   // ========== Content ==========
   Widget _buildContent() {
     return Expanded(
