@@ -11,6 +11,14 @@ class MapConstants {
     bearing: 30,
     tilt: 50,
   );
+
+  static const CameraPosition initialCameraPosTurkey = CameraPosition(
+    target: LatLng(39.9334, 32.8597),
+    zoom: 5,
+    bearing: 4,
+    tilt: 50,
+  );
+
   static CameraPosition cameraFrom(LatLng target) {
     return CameraPosition(target: target, zoom: 17, bearing: 30, tilt: 50);
   }

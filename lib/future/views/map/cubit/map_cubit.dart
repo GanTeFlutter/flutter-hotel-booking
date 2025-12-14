@@ -7,10 +7,12 @@ import 'package:flutter_hotel_booking/product/constant/strings/map_const.dart';
 import 'package:flutter_hotel_booking/product/service/firebase/firebase_firestore/firebase_firestore.dart';
 import 'package:flutter_hotel_booking/product/service/services/service_map.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gen/gen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 part 'map_state.dart';
 part 'map_cubit.freezed.dart';
+part 'helper/map_helper.dart';
 
 class MapCubit extends Cubit<MapState> {
   MapCubit(this._serviceLocation, this._serviceHotel)
@@ -27,7 +29,7 @@ class MapCubit extends Cubit<MapState> {
 
   GoogleMapController? get controller => _controller;
 
-  void addMarker(LatLng position, String description) {
+  void addCustomMarker(LatLng position, String description) {
     final current = state;
     if (current is _Loaded) {
       final newMarker = Marker(
@@ -111,58 +113,4 @@ class MapCubit extends Cubit<MapState> {
       ),
     );
   }
-}
-
-Future<BitmapDescriptor> getCircularMarkerFromCache(String imageUrl) async {
-  try {
-    final imageProvider = CachedNetworkImageProvider(imageUrl);
-    final imageStream = imageProvider.resolve(ImageConfiguration.empty);
-    final completer = Completer<ui.Image>();
-    imageStream.addListener(
-      ImageStreamListener((info, _) => completer.complete(info.image)),
-    );
-    final image = await completer.future;
-    const size = 50.0;
-    const border = 3.0;
-    final recorder = ui.PictureRecorder();
-    final canvas = Canvas(recorder)
-      ..drawCircle(
-        const Offset(size / 2, size / 2),
-        size / 2,
-        Paint()..color = Colors.white,
-      )
-      ..clipPath(
-        Path()..addOval(
-          Rect.fromCircle(
-            center: const Offset(size / 2, size / 2),
-            radius: (size / 2) - border,
-          ),
-        ),
-      );
-
-    paintImage(
-      canvas: canvas,
-      rect: const Rect.fromLTWH(
-        border,
-        border,
-        size - border * 2,
-        size - border * 2,
-      ),
-      image: image,
-      fit: BoxFit.cover,
-    );
-
-    final img = await recorder.endRecording().toImage(
-      size.toInt(),
-      size.toInt(),
-    );
-    final data = await img.toByteData(format: ui.ImageByteFormat.png);
-
-    if (data != null) {
-      return BitmapDescriptor.bytes(data.buffer.asUint8List());
-    }
-  } on Exception catch (e) {
-    debugPrint('Circular marker oluşturulamadı: $e');
-  }
-  return BitmapDescriptor.defaultMarker;
 }

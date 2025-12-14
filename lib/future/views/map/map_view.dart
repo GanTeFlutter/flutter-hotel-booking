@@ -3,16 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/map/cubit/map_cubit.dart';
 import 'package:flutter_hotel_booking/future/views/map/widget/map_appbar.dart';
 import 'package:flutter_hotel_booking/future/views/map/widget/map_button.dart';
+import 'package:flutter_hotel_booking/future/views/map/widget/map_hotel_description_card.dart';
 import 'package:flutter_hotel_booking/future/views/map/widget/map_right_side_buttons.dart';
 import 'package:flutter_hotel_booking/future/views/map/widget/map_type_selector_button.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/map_const.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:widgets/widgets.dart';
 
-final class HotelMapView extends StatelessWidget {
-  const HotelMapView({super.key});
+final class MapView extends StatelessWidget {
+  const MapView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: const MapAppBar(),
@@ -28,7 +31,7 @@ final class HotelMapView extends StatelessWidget {
 
                 initialCameraPosition: state.maybeMap(
                   loaded: (s) => s.cameraPosition,
-                  orElse: () => MapConstants.initialCamera,
+                  orElse: () => MapConstants.initialCameraPosTurkey,
                 ),
                 markers: state.maybeMap(
                   loaded: (s) => s.markers,
@@ -41,14 +44,17 @@ final class HotelMapView extends StatelessWidget {
                 onMapCreated: (ctrl) {
                   context.read<MapCubit>().controller = ctrl;
                 },
-                onLongPress: (position) {
-                  context.read<MapCubit>().addMarker(position, 'Custom Marker');
-                },
+                // onLongPress: (position) {
+                //   context.read<MapCubit>().addCustomMarker(
+                //     position,
+                //     'Custom Marker',
+                //   );
+                // },
               );
             },
           ),
 
-          // CustomTextField(),
+          const CustomTextField(),
           RightSideButtons(
             children: [
               const MapTypeSelectorButton(),
@@ -66,6 +72,13 @@ final class HotelMapView extends StatelessWidget {
                 onPressed: () => context.read<MapCubit>().gotoTurkeyMap(),
               ),
             ],
+          ),
+
+          Positioned(
+            bottom: 10,
+            left: 0,
+            right: 0,
+            child: MapDescriptionCard(size: size.height * 0.19),
           ),
         ],
       ),

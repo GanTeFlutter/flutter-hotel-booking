@@ -4,6 +4,7 @@ include: package:very_good_analysis/analysis_options.yaml
 
 analyzer:
   errors:
+    deprecated_member_use: ignore
     invalid_annotation_target: ignore
     lines_longer_than_80_chars: ignore
     public_member_api_docs: ignore

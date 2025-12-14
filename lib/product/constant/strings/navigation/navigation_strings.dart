@@ -20,7 +20,7 @@ final class NavigationStrings {
   static const String registerView = 'registerView';
 
   //Map Route
-  static const String hotelMapView = 'hotelMapView';
+  static const String mapView = 'mapView';
 
 
 

@@ -10,6 +10,7 @@ class MapState with _$MapState {
     @Default(MapType.normal) MapType mapType,
     @Default(false) bool buttonActive,
     @Default(MapConstants.initialCamera) CameraPosition cameraPosition,
+    Hotel? selectedHotel,
   }) = _Loaded;
 
   const factory MapState.error({required String message}) = _Error;

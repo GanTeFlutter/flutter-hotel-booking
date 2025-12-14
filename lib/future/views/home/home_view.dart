@@ -1,8 +1,11 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/home_sections/best_popular_section.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/index.dart';
+import 'package:flutter_hotel_booking/future/views/map/map_view.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_shadow.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
@@ -83,7 +86,12 @@ class _HomeViewState extends State<HomeView> {
                 padding: const EdgeInsets.all(15),
                 child: GestureDetector(
                   onTap: () {
-                    context.pushNamed(NavigationStrings.hotelMapView);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MapView(),
+                      ),
+                    );
                   },
                   child: Container(
                     width: double.infinity,
