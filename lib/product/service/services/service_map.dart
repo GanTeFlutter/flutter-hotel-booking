@@ -15,7 +15,7 @@ class ServiceLocation {
         'Konum izni kalıcı olarak reddedildi. Ayarlardan açın.',
       );
     }
-
+    
     final serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       throw LocationException('Konum servisi kapalı. Lütfen açın.');

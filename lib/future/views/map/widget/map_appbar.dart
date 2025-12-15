@@ -40,7 +40,7 @@ class _CircleButton extends StatelessWidget {
 
   const _CircleButton({
     required this.icon,
-    required this.onPressed, // Buton boyutu
+    required this.onPressed, 
   });
   final IconData icon;
   final VoidCallback onPressed;

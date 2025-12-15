@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/map/cubit/map_cubit.dart';
+import 'package:flutter_hotel_booking/future/views/map/state/map_cubit.dart';
 import 'package:flutter_hotel_booking/product/service/firebase/firebase_firestore/firebase_firestore.dart';
 import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';

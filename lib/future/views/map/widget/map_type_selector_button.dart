@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/map/cubit/map_cubit.dart';
+import 'package:flutter_hotel_booking/future/views/map/state/map_cubit.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 final class MapTypeSelectorButton extends StatelessWidget {

@@ -6,11 +6,15 @@ class MapState with _$MapState {
   const factory MapState.loading() = _Loading;
 
   const factory MapState.loaded({
+    //Harita üzerindeki Noktalar
     required Set<Marker> markers,
     @Default(MapType.normal) MapType mapType,
     @Default(false) bool buttonActive,
     @Default(MapConstants.initialCamera) CameraPosition cameraPosition,
-    Hotel? selectedHotel,
+    @Default(false) bool trafficEnabled,
+    @Default(MinMaxZoomPreference.unbounded)MinMaxZoomPreference zoomPreference,
+    LatLngBounds? cityBounds,
+    
   }) = _Loaded;
 
   const factory MapState.error({required String message}) = _Error;

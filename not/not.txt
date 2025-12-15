@@ -1,0 +1,13 @@
+
+                onCameraMoveStarted: () {
+                  //Kamera hareketi başladığında
+                },
+                onCameraMove: (position) {
+                  //Kamera hareket ederken (sürekli tetiklenir)
+                },
+                onCameraIdle: () {
+                  //Kamera hareketi durduğunda
+                },
+                onTap: (position) {
+                  //Haritaya dokunulduğunda
+                },

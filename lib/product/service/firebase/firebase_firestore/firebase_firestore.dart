@@ -39,6 +39,7 @@ class FirebaseHotelService {
 
 class MapMarkerModel {
   MapMarkerModel({
+    
     required this.positions,
     required this.title,
     required this.description,

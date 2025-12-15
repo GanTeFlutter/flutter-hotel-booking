@@ -95,7 +95,7 @@
 // );
 
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/future/views/home/home_view.dart';
+import 'package:flutter_hotel_booking/future/views/test_view.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
 import 'package:go_router/go_router.dart';
 
@@ -105,8 +105,9 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomeMultiBlocProvider();
+        return const TestView();
       },
     ),
   ],
 );
+//  return const HomeMultiBlocProvider();

@@ -22,4 +22,10 @@ class MapConstants {
   static CameraPosition cameraFrom(LatLng target) {
     return CameraPosition(target: target, zoom: 17, bearing: 30, tilt: 50);
   }
+
+  static final istanbulBounds = LatLngBounds(
+    southwest: const LatLng(40.8054, 28.0552),
+    northeast: const LatLng(41.3222, 29.4619),
+  );
+  
 }
