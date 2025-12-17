@@ -27,5 +27,5 @@ class MapConstants {
     southwest: const LatLng(40.8054, 28.0552),
     northeast: const LatLng(41.3222, 29.4619),
   );
-  
+    static const MinMaxZoomPreference mapunbounded = MinMaxZoomPreference(10, 18);
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/maps/map_const.dart';
 import 'package:flutter_hotel_booking/product/service/firebase/firebase_firestore/firebase_firestore.dart';
+import 'package:flutter_hotel_booking/product/service/services/service_json_init.dart';
 import 'package:flutter_hotel_booking/product/service/services/service_map.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,12 +16,14 @@ part 'map_cubit.freezed.dart';
 part 'helper/map_helper.dart';
 
 class MapCubit extends Cubit<MapState> {
-  MapCubit(this._serviceLocation, this._serviceHotel)
-    : super(const MapState.initial());
+  MapCubit(this._serviceLocation, this._serviceHotel, this._serviceCit)
+    : super(const MapState.initial()) {
+    _initializeCityBounds();
+  }
 
   final ServiceLocation _serviceLocation;
   final FirebaseHotelService _serviceHotel;
-
+  late final CityServiceJson _serviceCit;
   GoogleMapController? _controller;
 
   set controller(GoogleMapController value) {
@@ -93,9 +96,58 @@ class MapCubit extends Cubit<MapState> {
     }
   }
 
+  Future<void> _initializeCityBounds() async {
+    try {
+      final city = await _serviceCit.getCityFromLocation();
 
+      if (city != null) {
+        emit(
+          MapState.loaded(
+            markers: {},
+            cityBounds: city.bounds,
+            cameraPosition: CameraPosition(
+              target: city.center,
+              zoom: city.defaultZoom.toDouble(),
+            ),
+          ),
+        );
+      } else {
+        emit(
+          MapState.loaded(
+            markers: {},
+            cityBounds: MapConstants.istanbulBounds,
+            cameraPosition: MapConstants.initialCameraPosTurkey,
+          ),
+        );
+      }
+    } on Exception catch (_) {
+      emit(
+        MapState.loaded(
+          markers: {},
+          cityBounds: MapConstants.istanbulBounds,
+          cameraPosition: MapConstants.initialCameraPosTurkey,
+        ),
+      );
+    }
+  }
 
-  
- 
+  Future<void> updateCityBoundsFromCurrentLocation() async {
+    final current = state;
+    if (current is! _Loaded) return;
 
+    try {
+      final city = await _serviceCit.getCityFromLocation();
+
+      if (city != null) {
+        // Kamerayı yeni şehir sınırlarına taşı
+        await controller?.animateCamera(
+          CameraUpdate.newLatLngBounds(city.bounds, 50),
+        );
+
+        emit(current.copyWith(cityBounds: city.bounds));
+      }
+    } on Exception catch (e) {
+      debugPrint('Şehir sınırları güncellenirken hata: $e');
+    }
+  }
 }

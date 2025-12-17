@@ -15,14 +15,30 @@ final class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: const MapAppBar(),
       body: Stack(
         children: [
           BlocConsumer<MapCubit, MapState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              state.maybeMap(
+                initial: (_) {},
+                loading: (_) {},
+                loaded: (value) {
+                  if (value.cityBounds != null) {
+                  } else {}
+
+                  if (value.markers.isNotEmpty) {}
+
+                  if (value.trafficEnabled) {}
+
+                  if (value.mapType != MapType.normal) {}
+                },
+                error: (value) {},
+                orElse: () {},
+              );
+            },
             builder: (context, state) {
               return GoogleMap(
                 padding: const EdgeInsets.only(bottom: 5, left: 5),
@@ -54,7 +70,10 @@ final class MapView extends StatelessWidget {
                         ),
                   orElse: () => CameraTargetBounds(MapConstants.istanbulBounds),
                 ),
-                minMaxZoomPreference: const MinMaxZoomPreference(10, 18),
+                minMaxZoomPreference: state.maybeMap(
+                  loaded: (s) => s.zoomPreference,
+                  orElse: () => MapConstants.mapunbounded,
+                ),
               );
             },
           ),
@@ -74,13 +93,6 @@ final class MapView extends StatelessWidget {
               const CustomTrafficButton(),
             ],
           ),
-
-          // Positioned(
-          //   bottom: 10,
-          //   left: 0,
-          //   right: 0,
-          //   child: MapDescriptionCard(size: size.height * 0.19),
-          // ),
         ],
       ),
     );

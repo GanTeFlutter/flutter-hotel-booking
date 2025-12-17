@@ -31,6 +31,7 @@ class ServiceLocation {
       ),
     );
   }
+
 }
 
 class LocationException implements Exception {

@@ -5,7 +5,7 @@ import 'package:gen/gen.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
-class CityService {
+class CityServiceJson {
   List<CityConfig>? _cities;
 
   /// sadece bir kez yüklenir (cache)
@@ -45,6 +45,18 @@ class CityService {
       (city) => city.name.toLowerCase() == cityName?.toLowerCase(),
       orElse: () => cityList.first,
     );
+  }
+
+  Future<List<Placemark>> getCityFromLocation2() async {
+    final position = await Geolocator.getCurrentPosition();
+
+    final placemarks = await placemarkFromCoordinates(
+      position.latitude,
+      position.longitude,
+    );
+    if (placemarks.isEmpty) return const <Placemark>[];
+
+    return placemarks;
   }
 
   Future<CityConfig?> getCityById(String id) async {

@@ -6,15 +6,21 @@ class MapState with _$MapState {
   const factory MapState.loading() = _Loading;
 
   const factory MapState.loaded({
-    //Harita üzerindeki Noktalar
+    // Harita üzerindeki Noktalar
     required Set<Marker> markers,
+    // Harita Türü (Normal, Uydu, Arazi vb.)
     @Default(MapType.normal) MapType mapType,
+    // Butonun Aktiflik Durumu
     @Default(false) bool buttonActive,
+    // Kamera Pozisyonu
     @Default(MapConstants.initialCamera) CameraPosition cameraPosition,
+    // Trafik Bilgisinin Gösterilip Gösterilmeyeceği
     @Default(false) bool trafficEnabled,
-    @Default(MinMaxZoomPreference.unbounded)MinMaxZoomPreference zoomPreference,
+    // Yakınlaştırma Tercihleri
+    @Default(MinMaxZoomPreference.unbounded)
+    MinMaxZoomPreference zoomPreference,
+    // Şehir Sınırları
     LatLngBounds? cityBounds,
-    
   }) = _Loaded;
 
   const factory MapState.error({required String message}) = _Error;

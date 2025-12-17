@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hotel_booking/product/service/services/service_json_init.dart';
 import 'package:flutter_hotel_booking/product/service/services/service_map.dart';
-import 'package:gen/gen.dart';
+
+import 'package:geocoding/geocoding.dart';
 
 class TestView extends StatefulWidget {
   const TestView({super.key});
@@ -11,22 +11,38 @@ class TestView extends StatefulWidget {
 }
 
 class _TestViewState extends State<TestView> {
-  late final ServiceLocation _serviceLocation;
-  late final CityService _cityService;
-  CityConfig? city;
+  ServiceLocation serviceLocation = ServiceLocation();
+  double? latitude;
+  double? longitude;
+  List<Placemark>? placemarks;
+  bool loading = false;
+  String? error;
 
   @override
   void initState() {
     super.initState();
-    _serviceLocation = ServiceLocation();
-    _cityService = CityService();
   }
 
-  Future<void> test() async {
-    await _serviceLocation.requestPermission();
-    final result = await _cityService.getCityFromLocation();
+  Future<void> test2() async {
     setState(() {
-      city = result;
+      loading = true;
+    });
+
+    try {
+      final position = await serviceLocation.getMyLocation();
+      latitude = position.latitude;
+      longitude = position.longitude;
+
+      placemarks = await placemarkFromCoordinates(
+        position.latitude,
+        position.longitude,
+      );
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+    }
+
+    setState(() {
+      loading = false;
     });
   }
 
@@ -34,51 +50,68 @@ class _TestViewState extends State<TestView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TestView'),
+        title: const Text('Placemark Test'),
         actions: [
           IconButton(
+            icon: const Icon(Icons.refresh),
             onPressed: () {
               setState(() {
-                city = null;
+                latitude = null;
+                longitude = null;
+                placemarks = null;
+                error = null;
               });
             },
-            icon: const Icon(Icons.refresh),
           ),
         ],
       ),
-      body: Center(
-        child: city == null ? _emptyState() : _cityInfo(city!),
-      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: test,
-        child: const Icon(Icons.play_arrow),
+        onPressed: test2,
+        child: const Icon(Icons.my_location),
+      ),
+      body: Center(
+        child: loading
+            ? const CircularProgressIndicator()
+            : error != null
+            ? Text('Hata: $error')
+            : placemarks == null
+            ? const Text('Butona bas')
+            : _placemarkView(placemarks!.first),
       ),
     );
   }
 
-  Widget _emptyState() {
-    return const Text('Henüz şehir seçilmedi');
-  }
+  Widget _placemarkView(Placemark p) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
 
-  Widget _cityInfo(CityConfig city) {
-    return Column(
-      spacing: 5,
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _row('Şehir', city.name),
-        _row('Plaka', city.plateCode),
-        _row('Bölge', city.region),
-        _row('Lat', city.center.latitude.toStringAsFixed(6)),
-        _row('Lng', city.center.longitude.toStringAsFixed(6)),
-        _row('Min', city.minZoom.toString()),
-        _row('Max', city.maxZoom.toString()),
-        _row('Default', city.defaultZoom.toString()),
-      ],
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        spacing: 10,
+        children: [
+          _row('Latitude', latitude?.toStringAsFixed(6)),
+          _row('Longitude', longitude?.toStringAsFixed(6)),
+          const Divider(),
+
+          _row('Name', p.name),
+          _row('Street', p.street),
+          _row('Locality', p.locality),
+          _row('SubLocality', p.subLocality),
+          _row('AdministrativeArea', p.administrativeArea),
+          _row('Country', p.country),
+          _row('PostalCode', p.postalCode),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: test2,
+            child: const Text('GetPosition'),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _row(String label, String value) {
+  Widget _row(String label, String? value) {
+    if (value == null || value.isEmpty) return const SizedBox.shrink();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: Text('$label: $value'),
