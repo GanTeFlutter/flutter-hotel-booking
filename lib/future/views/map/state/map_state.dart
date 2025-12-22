@@ -17,7 +17,7 @@ class MapState with _$MapState {
     // Trafik Bilgisinin Gösterilip Gösterilmeyeceği
     @Default(false) bool trafficEnabled,
     // Yakınlaştırma Tercihleri
-    @Default(MinMaxZoomPreference.unbounded)
+    @Default(MapConstants.mapBounded)
     MinMaxZoomPreference zoomPreference,
     // Şehir Sınırları
     LatLngBounds? cityBounds,

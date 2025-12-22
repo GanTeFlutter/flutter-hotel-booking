@@ -88,7 +88,11 @@ class _HotelSectionCardState extends State<HotelSectionCard> {
         child: SizedBox(
           width: 100,
           height: 100,
-          child: ProjectNetworkImage(url: widget.hotel.images.first),
+
+          child: ProjectNetworkImage(
+            boxFit: BoxFit.cover,
+            url: widget.hotel.images.first,
+          ),
         ),
       ),
     );

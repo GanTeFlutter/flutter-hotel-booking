@@ -12,6 +12,7 @@ import 'package:flutter_hotel_booking/product/state/cubit/countdown/countdown_cu
 
 import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart';
 import 'package:flutter_hotel_booking/product/state/cubit/version/version_comparetor_cubit.dart';
+import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
 
 class StateInitialize extends StatelessWidget {
   const StateInitialize({required this.child, super.key});
@@ -35,6 +36,9 @@ class StateInitialize extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => TopPicksCubit(),
         ),
 
         BlocProvider(

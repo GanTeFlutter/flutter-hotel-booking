@@ -5,9 +5,26 @@ Future<BitmapDescriptor> getCircularMarkerFromCache(String imageUrl) async {
     final imageProvider = CachedNetworkImageProvider(imageUrl);
     final imageStream = imageProvider.resolve(ImageConfiguration.empty);
     final completer = Completer<ui.Image>();
-    imageStream.addListener(
-      ImageStreamListener((info, _) => completer.complete(info.image)),
+
+    // Listener'ı bir kere kullan ve sonra kaldır
+    late ImageStreamListener listener;
+    listener = ImageStreamListener(
+      (info, _) {
+        if (!completer.isCompleted) {
+          completer.complete(info.image);
+        }
+        imageStream.removeListener(listener);
+      },
+      onError: (exception, stackTrace) {
+        if (!completer.isCompleted) {
+          completer.completeError(exception, stackTrace);
+        }
+        imageStream.removeListener(listener);
+      },
     );
+
+    imageStream.addListener(listener);
+
     final image = await completer.future;
     const size = 50.0;
     const border = 3.0;
@@ -53,6 +70,3 @@ Future<BitmapDescriptor> getCircularMarkerFromCache(String imageUrl) async {
   }
   return BitmapDescriptor.defaultMarker;
 }
-
-
-

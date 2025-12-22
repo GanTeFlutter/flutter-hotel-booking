@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hotel_booking/future/views/cart_detail/cart_detail_view.dart';
 
 import 'package:flutter_hotel_booking/future/views/home/widget/shimmer/hotel_card_shimmer.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_shadow.dart';
@@ -32,7 +33,17 @@ final class BestTodayCard extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   final hotel = state.bestToday[index];
-                  return BestTodayHotelCard(hotel: hotel);
+                  return BestTodayHotelCard(
+                    hotel: hotel,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (context) => CardDetailView(hotel: hotel),
+                        ),
+                      );
+                    },
+                  );
                 },
                 itemCount: state.bestToday.length,
               ),
@@ -54,9 +65,14 @@ final class BestTodayCard extends StatelessWidget {
 }
 
 class BestTodayHotelCard extends StatefulWidget {
-  const BestTodayHotelCard({required this.hotel, super.key});
+  const BestTodayHotelCard({
+    required this.hotel,
+    required this.onTap,
+    super.key,
+  });
 
   final Hotel hotel;
+  final VoidCallback onTap;
 
   @override
   State<BestTodayHotelCard> createState() => _BestTodayHotelCardState();
@@ -73,7 +89,7 @@ class _BestTodayHotelCardState extends State<BestTodayHotelCard> {
       onTapDown: (_) => setState(() => _isPressed = true),
       onTapUp: (_) => setState(() => _isPressed = false),
       onTapCancel: () => setState(() => _isPressed = false),
-      onTap: () {},
+      onTap: widget.onTap,
       child: AnimatedScale(
         scale: _isPressed ? 0.95 : 1.0,
         duration: const Duration(milliseconds: 150),
@@ -115,7 +131,10 @@ class _BestTodayHotelCardState extends State<BestTodayHotelCard> {
                   child: SizedBox(
                     width: 100,
                     height: 100,
-                    child: ProjectNetworkImage(url: widget.hotel.images.first),
+                    child: ProjectNetworkImage(
+                      boxFit: BoxFit.cover,
+                      url: widget.hotel.images.first,
+                    ),
                   ),
                 ),
               ),

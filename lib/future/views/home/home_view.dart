@@ -1,4 +1,3 @@
-import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,11 +7,9 @@ import 'package:flutter_hotel_booking/future/views/home/widget/index.dart';
 import 'package:flutter_hotel_booking/future/views/map/map_view.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_padding.dart';
 import 'package:flutter_hotel_booking/product/constant/design/app_shadow.dart';
-import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
 import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
 import 'package:gen/gen.dart';
-import 'package:go_router/go_router.dart';
 
 part 'widget/custom_section.dart';
 
@@ -76,8 +73,7 @@ class _HomeViewState extends State<HomeView> {
               sectionTitleText: 'Recommended for you',
               children: const [
                 RecommendedSection(),
-                // hotel listesi (sonra yaparsın)
-              ],
+                     ],
               onSeeAllPressed: () {},
             ),
 
@@ -88,7 +84,7 @@ class _HomeViewState extends State<HomeView> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<void>(
                         builder: (context) => const MapView(),
                       ),
                     );

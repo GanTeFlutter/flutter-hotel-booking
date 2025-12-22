@@ -8,6 +8,7 @@ import 'package:flutter_hotel_booking/future/views/map/widget/map_button.dart';
 import 'package:flutter_hotel_booking/future/views/map/widget/map_right_side_buttons.dart';
 import 'package:flutter_hotel_booking/future/views/map/widget/map_type_selector_button.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/maps/map_const.dart';
+import 'package:flutter_hotel_booking/product/extension/show_snackbar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 final class MapView extends StatelessWidget {
@@ -31,7 +32,9 @@ final class MapView extends StatelessWidget {
 
                   if (value.markers.isNotEmpty) {}
 
-                  if (value.trafficEnabled) {}
+                  if (value.trafficEnabled) {
+                    context.showSnackBar('Traffic enabled');
+                  }
 
                   if (value.mapType != MapType.normal) {}
                 },
@@ -72,7 +75,7 @@ final class MapView extends StatelessWidget {
                 ),
                 minMaxZoomPreference: state.maybeMap(
                   loaded: (s) => s.zoomPreference,
-                  orElse: () => MapConstants.mapunbounded,
+                  orElse: () => MapConstants.mapBounded,
                 ),
               );
             },
