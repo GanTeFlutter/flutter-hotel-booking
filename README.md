@@ -2,7 +2,11 @@
 
 Modern ve kullanıcı dostu bir otel rezervasyon uygulaması. Firebase backend altyapısı, harita entegrasyonu ve gelişmiş state management ile geliştirilmiştir.
 
+Firebase Function ile mail doğrulama ekledim stabil çalışıyor ancak bir çok view model da bunların alınması lazım...
+
+
 ## 📱 Uygulama Önizlemesi
+[Instagram'da gör](https://www.instagram.com/p/DSlamoYjPSf/?img_index=1)
 
 [Instagram'da İzle](https://www.instagram.com/p/DSYR6cdDP1l/)
 
@@ -10,18 +14,9 @@ Modern ve kullanıcı dostu bir otel rezervasyon uygulaması. Firebase backend a
 
 - 🔐 **Firebase Authentication** - Email/şifre ve misafir girişi
 - 🗺️ **Google Maps Entegrasyonu** - Otel konumları ve navigasyon
-- 🔔 **Push Bildirimleri** - Firebase Cloud Messaging
-- 📊 **Analytics** - Kullanıcı davranış analizi
 - 💾 **Offline Destek** - Hydrated BLoC ile state persistence
-- 🎨 **Modern UI** - Material Design 3 ve özel animasyonlar
 - 📍 **Konum Servisleri** - Otomatik konum tespiti ve geocoding
-- 🌍 **Çoklu Dil Desteği** - i18n hazır yapı
 
-## 🏗️ Mimari
-
-Proje, modüler ve ölçeklenebilir bir mimari ile yapılandırılmıştır:
-
-```
 flutter_hotel_booking/
 ├── lib/
 │   ├── feature/          # Özellik bazlı modüller
@@ -29,11 +24,9 @@ flutter_hotel_booking/
 │   └── main.dart
 └── module/
     ├── gen/              # Asset & Model generator
-    ├── common/           # Ortak utilities
     └── widgets/          # Yeniden kullanılabilir widget'lar
-```
 
-## 📦 Kullanılan Paketler
+
 
 ### State Management
 - **flutter_bloc** (^9.1.1) - BLoC pattern ile state yönetimi
@@ -94,91 +87,6 @@ flutter_hotel_booking/
 - **flutter_launcher_icons** (^0.14.4) - App icon generator
 - **flutter_native_splash** (^2.4.7) - Splash screen generator
 
-## 🚀 Kurulum
-
-### Gereksinimler
-- Flutter SDK (>=3.9.2)
-- Dart SDK (>=3.9.2)
-- Firebase projesi
-- Google Maps API key
-
-### Adımlar
-
-1. **Projeyi klonlayın**
-```bash
-git clone https://github.com/yourusername/flutter_hotel_booking.git
-cd flutter_hotel_booking
-```
-
-2. **Bağımlılıkları yükleyin**
-```bash
-flutter pub get
-cd module/gen && flutter pub get
-cd ../common && flutter pub get
-cd ../widgets && flutter pub get
-cd ../..
-```
-
-3. **Firebase yapılandırması**
-- Firebase Console'dan `google-services.json` (Android) ve `GoogleService-Info.plist` (iOS) dosyalarını indirin
-- İlgili klasörlere yerleştirin
-
-4. **Environment variables**
-```bash
-# module/gen/lib/.env dosyası oluşturun
-GOOGLE_MAPS_API_KEY=your_api_key_here
-```
-
-5. **Code generation**
-```bash
-flutter pub run build_runner build --delete-conflicting-outputs
-```
-
-6. **Uygulamayı çalıştırın**
-```bash
-flutter run
-```
-
-## 🛠️ Geliştirme
-
-### Code Generation
-```bash
-# Watch mode (otomatik regenerate)
-flutter pub run build_runner watch --delete-conflicting-outputs
-
-# One-time build
-flutter pub run build_runner build --delete-conflicting-outputs
-```
-
-### App Icon Güncelleme
-```bash
-flutter pub run flutter_launcher_icons
-```
-
-### Splash Screen Güncelleme
-```bash
-flutter pub run flutter_native_splash:create
-```
-
-## 📱 Platform Desteği
-
-- ✅ Android
-- ✅ iOS
-
-## 🧪 Test
-
-```bash
-flutter test
-```
-
-## 📝 Versiyon Geçmişi
-
-### v1.0.8+9 (Mevcut)
-- Firebase entegrasyonu
-- Google Maps desteği
-- Push bildirimleri
-- Offline çalışma
-- Misafir girişi
 
 ## 🎓 Öğrenilenler
 
