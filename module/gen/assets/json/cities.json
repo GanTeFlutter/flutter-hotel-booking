@@ -1,0 +1,1865 @@
+[
+    {
+        "id": "01",
+        "plateCode": "01",
+        "name": "Adana",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 36.5915,
+                "lng": 34.7498
+            },
+            "northeast": {
+                "lat": 37.7679,
+                "lng": 36.1744
+            }
+        },
+        "center": {
+            "lat": 37.0000,
+            "lng": 35.3213
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "02",
+        "plateCode": "02",
+        "name": "Adıyaman",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.4167,
+                "lng": 37.5278
+            },
+            "northeast": {
+                "lat": 38.2833,
+                "lng": 38.8500
+            }
+        },
+        "center": {
+            "lat": 37.7648,
+            "lng": 38.2786
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "03",
+        "plateCode": "03",
+        "name": "Afyonkarahisar",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 37.9667,
+                "lng": 29.8833
+            },
+            "northeast": {
+                "lat": 39.0833,
+                "lng": 31.3333
+            }
+        },
+        "center": {
+            "lat": 38.7507,
+            "lng": 30.5567
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "04",
+        "plateCode": "04",
+        "name": "Ağrı",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.1667,
+                "lng": 42.4167
+            },
+            "northeast": {
+                "lat": 40.0833,
+                "lng": 44.3333
+            }
+        },
+        "center": {
+            "lat": 39.7191,
+            "lng": 43.0567
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "05",
+        "plateCode": "05",
+        "name": "Amasya",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.3333,
+                "lng": 35.1667
+            },
+            "northeast": {
+                "lat": 40.8333,
+                "lng": 36.2500
+            }
+        },
+        "center": {
+            "lat": 40.6499,
+            "lng": 35.8333
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "06",
+        "plateCode": "06",
+        "name": "Ankara",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.4333,
+                "lng": 31.8333
+            },
+            "northeast": {
+                "lat": 40.6167,
+                "lng": 33.9167
+            }
+        },
+        "center": {
+            "lat": 39.9334,
+            "lng": 32.8597
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "07",
+        "plateCode": "07",
+        "name": "Antalya",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 36.0833,
+                "lng": 29.6667
+            },
+            "northeast": {
+                "lat": 37.4167,
+                "lng": 32.5833
+            }
+        },
+        "center": {
+            "lat": 36.8969,
+            "lng": 30.7133
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "08",
+        "plateCode": "08",
+        "name": "Artvin",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.8333,
+                "lng": 41.1667
+            },
+            "northeast": {
+                "lat": 41.5833,
+                "lng": 42.9167
+            }
+        },
+        "center": {
+            "lat": 41.1828,
+            "lng": 41.8183
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "09",
+        "plateCode": "09",
+        "name": "Aydın",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 37.4167,
+                "lng": 27.3333
+            },
+            "northeast": {
+                "lat": 38.2500,
+                "lng": 28.7500
+            }
+        },
+        "center": {
+            "lat": 37.8560,
+            "lng": 27.8416
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "10",
+        "plateCode": "10",
+        "name": "Balıkesir",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 39.3333,
+                "lng": 26.9167
+            },
+            "northeast": {
+                "lat": 40.4167,
+                "lng": 28.9167
+            }
+        },
+        "center": {
+            "lat": 39.6484,
+            "lng": 27.8826
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "11",
+        "plateCode": "11",
+        "name": "Bilecik",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 39.9167,
+                "lng": 29.5833
+            },
+            "northeast": {
+                "lat": 40.3333,
+                "lng": 30.3333
+            }
+        },
+        "center": {
+            "lat": 40.1569,
+            "lng": 29.9831
+        },
+        "minZoom": 10,
+        "maxZoom": 18,
+        "defaultZoom": 11
+    },
+    {
+        "id": "12",
+        "plateCode": "12",
+        "name": "Bingöl",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.5833,
+                "lng": 40.2500
+            },
+            "northeast": {
+                "lat": 39.3333,
+                "lng": 41.1667
+            }
+        },
+        "center": {
+            "lat": 38.8854,
+            "lng": 40.4986
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "13",
+        "plateCode": "13",
+        "name": "Bitlis",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.1667,
+                "lng": 41.8333
+            },
+            "northeast": {
+                "lat": 38.9167,
+                "lng": 42.9167
+            }
+        },
+        "center": {
+            "lat": 38.4004,
+            "lng": 42.1083
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "14",
+        "plateCode": "14",
+        "name": "Bolu",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.4167,
+                "lng": 30.7500
+            },
+            "northeast": {
+                "lat": 40.9167,
+                "lng": 32.2500
+            }
+        },
+        "center": {
+            "lat": 40.7339,
+            "lng": 31.6061
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "15",
+        "plateCode": "15",
+        "name": "Burdur",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 36.8333,
+                "lng": 29.5833
+            },
+            "northeast": {
+                "lat": 37.8333,
+                "lng": 30.7500
+            }
+        },
+        "center": {
+            "lat": 37.4613,
+            "lng": 30.0665
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "16",
+        "plateCode": "16",
+        "name": "Bursa",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 39.8333,
+                "lng": 28.5833
+            },
+            "northeast": {
+                "lat": 40.4167,
+                "lng": 29.9167
+            }
+        },
+        "center": {
+            "lat": 40.1826,
+            "lng": 29.0665
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "17",
+        "plateCode": "17",
+        "name": "Çanakkale",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 39.7500,
+                "lng": 25.6667
+            },
+            "northeast": {
+                "lat": 40.5833,
+                "lng": 27.5000
+            }
+        },
+        "center": {
+            "lat": 40.1553,
+            "lng": 26.4142
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "18",
+        "plateCode": "18",
+        "name": "Çankırı",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 40.3333,
+                "lng": 32.5833
+            },
+            "northeast": {
+                "lat": 40.9167,
+                "lng": 33.9167
+            }
+        },
+        "center": {
+            "lat": 40.6013,
+            "lng": 33.6134
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "19",
+        "plateCode": "19",
+        "name": "Çorum",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.0833,
+                "lng": 34.0833
+            },
+            "northeast": {
+                "lat": 40.8333,
+                "lng": 35.2500
+            }
+        },
+        "center": {
+            "lat": 40.5506,
+            "lng": 34.9556
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "20",
+        "plateCode": "20",
+        "name": "Denizli",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 37.2500,
+                "lng": 28.3333
+            },
+            "northeast": {
+                "lat": 38.2500,
+                "lng": 29.8333
+            }
+        },
+        "center": {
+            "lat": 37.7765,
+            "lng": 29.0864
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "21",
+        "plateCode": "21",
+        "name": "Diyarbakır",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.7500,
+                "lng": 39.8333
+            },
+            "northeast": {
+                "lat": 38.6667,
+                "lng": 41.0833
+            }
+        },
+        "center": {
+            "lat": 37.9144,
+            "lng": 40.2306
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "22",
+        "plateCode": "22",
+        "name": "Edirne",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 40.5833,
+                "lng": 26.0000
+            },
+            "northeast": {
+                "lat": 41.7500,
+                "lng": 27.0833
+            }
+        },
+        "center": {
+            "lat": 40.9033,
+            "lng": 26.5597
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "23",
+        "plateCode": "23",
+        "name": "Elazığ",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.2500,
+                "lng": 38.9167
+            },
+            "northeast": {
+                "lat": 39.1667,
+                "lng": 40.0833
+            }
+        },
+        "center": {
+            "lat": 38.6748,
+            "lng": 39.2226
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "24",
+        "plateCode": "24",
+        "name": "Erzincan",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.2500,
+                "lng": 38.6667
+            },
+            "northeast": {
+                "lat": 40.1667,
+                "lng": 40.0833
+            }
+        },
+        "center": {
+            "lat": 39.7500,
+            "lng": 39.4917
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "25",
+        "plateCode": "25",
+        "name": "Erzurum",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.5833,
+                "lng": 40.5833
+            },
+            "northeast": {
+                "lat": 40.7500,
+                "lng": 42.6667
+            }
+        },
+        "center": {
+            "lat": 39.9043,
+            "lng": 41.2678
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "26",
+        "plateCode": "26",
+        "name": "Eskişehir",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.2500,
+                "lng": 30.2500
+            },
+            "northeast": {
+                "lat": 40.0833,
+                "lng": 31.9167
+            }
+        },
+        "center": {
+            "lat": 39.7767,
+            "lng": 30.5206
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "27",
+        "plateCode": "27",
+        "name": "Gaziantep",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 36.6333,
+                "lng": 36.7500
+            },
+            "northeast": {
+                "lat": 37.4167,
+                "lng": 37.9167
+            }
+        },
+        "center": {
+            "lat": 37.0662,
+            "lng": 37.3833
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "28",
+        "plateCode": "28",
+        "name": "Giresun",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.3333,
+                "lng": 38.0000
+            },
+            "northeast": {
+                "lat": 40.9167,
+                "lng": 39.0833
+            }
+        },
+        "center": {
+            "lat": 40.9128,
+            "lng": 38.3895
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "29",
+        "plateCode": "29",
+        "name": "Gümüşhane",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.0833,
+                "lng": 38.9167
+            },
+            "northeast": {
+                "lat": 40.6667,
+                "lng": 39.9167
+            }
+        },
+        "center": {
+            "lat": 40.4386,
+            "lng": 39.4819
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "30",
+        "plateCode": "30",
+        "name": "Hakkâri",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.0833,
+                "lng": 43.5833
+            },
+            "northeast": {
+                "lat": 37.9167,
+                "lng": 44.5833
+            }
+        },
+        "center": {
+            "lat": 37.5744,
+            "lng": 43.7408
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "31",
+        "plateCode": "31",
+        "name": "Hatay",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 35.8333,
+                "lng": 35.7500
+            },
+            "northeast": {
+                "lat": 36.6667,
+                "lng": 36.6667
+            }
+        },
+        "center": {
+            "lat": 36.4018,
+            "lng": 36.3498
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "32",
+        "plateCode": "32",
+        "name": "Isparta",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 37.5000,
+                "lng": 30.2500
+            },
+            "northeast": {
+                "lat": 38.2500,
+                "lng": 31.4167
+            }
+        },
+        "center": {
+            "lat": 37.7648,
+            "lng": 30.5566
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "33",
+        "plateCode": "33",
+        "name": "Mersin",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 36.0000,
+                "lng": 33.0000
+            },
+            "northeast": {
+                "lat": 37.0833,
+                "lng": 34.9167
+            }
+        },
+        "center": {
+            "lat": 36.8121,
+            "lng": 34.6415
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "34",
+        "plateCode": "34",
+        "name": "İstanbul",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 40.8054,
+                "lng": 28.0552
+            },
+            "northeast": {
+                "lat": 41.3222,
+                "lng": 29.4619
+            }
+        },
+        "center": {
+            "lat": 41.0082,
+            "lng": 28.9784
+        },
+        "minZoom": 10,
+        "maxZoom": 18,
+        "defaultZoom": 11
+    },
+    {
+        "id": "35",
+        "plateCode": "35",
+        "name": "İzmir",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 38.0000,
+                "lng": 26.3333
+            },
+            "northeast": {
+                "lat": 38.9167,
+                "lng": 28.2500
+            }
+        },
+        "center": {
+            "lat": 38.4192,
+            "lng": 27.1287
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "36",
+        "plateCode": "36",
+        "name": "Kars",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 40.0000,
+                "lng": 42.5000
+            },
+            "northeast": {
+                "lat": 40.9167,
+                "lng": 43.7500
+            }
+        },
+        "center": {
+            "lat": 40.6167,
+            "lng": 43.0975
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "37",
+        "plateCode": "37",
+        "name": "Kastamonu",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 41.0833,
+                "lng": 33.0833
+            },
+            "northeast": {
+                "lat": 41.9167,
+                "lng": 34.5833
+            }
+        },
+        "center": {
+            "lat": 41.3887,
+            "lng": 33.7827
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "38",
+        "plateCode": "38",
+        "name": "Kayseri",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.3333,
+                "lng": 35.0833
+            },
+            "northeast": {
+                "lat": 39.0833,
+                "lng": 36.7500
+            }
+        },
+        "center": {
+            "lat": 38.7312,
+            "lng": 35.4787
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "39",
+        "plateCode": "39",
+        "name": "Kırklareli",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 41.3333,
+                "lng": 27.0833
+            },
+            "northeast": {
+                "lat": 41.9167,
+                "lng": 28.0833
+            }
+        },
+        "center": {
+            "lat": 41.7333,
+            "lng": 27.2167
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "40",
+        "plateCode": "40",
+        "name": "Kırşehir",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.9167,
+                "lng": 33.5833
+            },
+            "northeast": {
+                "lat": 39.5833,
+                "lng": 34.5833
+            }
+        },
+        "center": {
+            "lat": 39.1425,
+            "lng": 34.1709
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "41",
+        "plateCode": "41",
+        "name": "Kocaeli",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 40.5833,
+                "lng": 29.4167
+            },
+            "northeast": {
+                "lat": 40.9167,
+                "lng": 30.3333
+            }
+        },
+        "center": {
+            "lat": 40.8533,
+            "lng": 29.8815
+        },
+        "minZoom": 10,
+        "maxZoom": 18,
+        "defaultZoom": 11
+    },
+    {
+        "id": "42",
+        "plateCode": "42",
+        "name": "Konya",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 36.8333,
+                "lng": 31.6667
+            },
+            "northeast": {
+                "lat": 38.5833,
+                "lng": 33.9167
+            }
+        },
+        "center": {
+            "lat": 37.8746,
+            "lng": 32.4932
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "43",
+        "plateCode": "43",
+        "name": "Kütahya",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 38.9167,
+                "lng": 29.0833
+            },
+            "northeast": {
+                "lat": 39.7500,
+                "lng": 30.3333
+            }
+        },
+        "center": {
+            "lat": 39.4242,
+            "lng": 29.9833
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "44",
+        "plateCode": "44",
+        "name": "Malatya",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.9167,
+                "lng": 37.6667
+            },
+            "northeast": {
+                "lat": 38.7500,
+                "lng": 38.9167
+            }
+        },
+        "center": {
+            "lat": 38.3552,
+            "lng": 38.3095
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "45",
+        "plateCode": "45",
+        "name": "Manisa",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 38.4167,
+                "lng": 27.3333
+            },
+            "northeast": {
+                "lat": 39.2500,
+                "lng": 28.5833
+            }
+        },
+        "center": {
+            "lat": 38.6191,
+            "lng": 27.4289
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "46",
+        "plateCode": "46",
+        "name": "Kahramanmaraş",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 37.2500,
+                "lng": 36.4167
+            },
+            "northeast": {
+                "lat": 38.2500,
+                "lng": 37.8333
+            }
+        },
+        "center": {
+            "lat": 37.5858,
+            "lng": 36.9371
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "47",
+        "plateCode": "47",
+        "name": "Mardin",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.0833,
+                "lng": 40.4167
+            },
+            "northeast": {
+                "lat": 37.7500,
+                "lng": 41.9167
+            }
+        },
+        "center": {
+            "lat": 37.3212,
+            "lng": 40.7245
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "48",
+        "plateCode": "48",
+        "name": "Muğla",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 36.5833,
+                "lng": 27.9167
+            },
+            "northeast": {
+                "lat": 37.5833,
+                "lng": 29.2500
+            }
+        },
+        "center": {
+            "lat": 37.2153,
+            "lng": 28.3636
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "49",
+        "plateCode": "49",
+        "name": "Muş",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.5833,
+                "lng": 41.2500
+            },
+            "northeast": {
+                "lat": 39.3333,
+                "lng": 42.4167
+            }
+        },
+        "center": {
+            "lat": 38.9462,
+            "lng": 41.7539
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "50",
+        "plateCode": "50",
+        "name": "Nevşehir",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.4167,
+                "lng": 34.3333
+            },
+            "northeast": {
+                "lat": 38.9167,
+                "lng": 35.0833
+            }
+        },
+        "center": {
+            "lat": 38.6939,
+            "lng": 34.6857
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "51",
+        "plateCode": "51",
+        "name": "Niğde",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.5833,
+                "lng": 34.2500
+            },
+            "northeast": {
+                "lat": 38.2500,
+                "lng": 35.2500
+            }
+        },
+        "center": {
+            "lat": 37.9667,
+            "lng": 34.6794
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "52",
+        "plateCode": "52",
+        "name": "Ordu",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.5833,
+                "lng": 36.9167
+            },
+            "northeast": {
+                "lat": 41.0833,
+                "lng": 38.0833
+            }
+        },
+        "center": {
+            "lat": 40.9839,
+            "lng": 37.8764
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "53",
+        "plateCode": "53",
+        "name": "Rize",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.5000,
+                "lng": 40.3333
+            },
+            "northeast": {
+                "lat": 41.0833,
+                "lng": 41.4167
+            }
+        },
+        "center": {
+            "lat": 41.0201,
+            "lng": 40.5234
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "54",
+        "plateCode": "54",
+        "name": "Sakarya",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 40.4167,
+                "lng": 29.9167
+            },
+            "northeast": {
+                "lat": 41.0000,
+                "lng": 30.9167
+            }
+        },
+        "center": {
+            "lat": 40.7569,
+            "lng": 30.3783
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "55",
+        "plateCode": "55",
+        "name": "Samsun",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.9167,
+                "lng": 35.0833
+            },
+            "northeast": {
+                "lat": 41.5833,
+                "lng": 37.0833
+            }
+        },
+        "center": {
+            "lat": 41.2867,
+            "lng": 36.3300
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "56",
+        "plateCode": "56",
+        "name": "Siirt",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.5833,
+                "lng": 41.5833
+            },
+            "northeast": {
+                "lat": 38.2500,
+                "lng": 42.5000
+            }
+        },
+        "center": {
+            "lat": 37.9333,
+            "lng": 41.9500
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "57",
+        "plateCode": "57",
+        "name": "Sinop",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 41.5833,
+                "lng": 34.2500
+            },
+            "northeast": {
+                "lat": 42.0833,
+                "lng": 35.4167
+            }
+        },
+        "center": {
+            "lat": 42.0231,
+            "lng": 35.1531
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "58",
+        "plateCode": "58",
+        "name": "Sivas",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.9167,
+                "lng": 35.9167
+            },
+            "northeast": {
+                "lat": 40.0833,
+                "lng": 38.2500
+            }
+        },
+        "center": {
+            "lat": 39.7477,
+            "lng": 37.0179
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "59",
+        "plateCode": "59",
+        "name": "Tekirdağ",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 40.5833,
+                "lng": 26.6667
+            },
+            "northeast": {
+                "lat": 41.5000,
+                "lng": 28.0833
+            }
+        },
+        "center": {
+            "lat": 40.9833,
+            "lng": 27.5167
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "60",
+        "plateCode": "60",
+        "name": "Tokat",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 39.9167,
+                "lng": 35.8333
+            },
+            "northeast": {
+                "lat": 40.5833,
+                "lng": 37.5000
+            }
+        },
+        "center": {
+            "lat": 40.3167,
+            "lng": 36.5500
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "61",
+        "plateCode": "61",
+        "name": "Trabzon",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.5833,
+                "lng": 38.9167
+            },
+            "northeast": {
+                "lat": 41.1667,
+                "lng": 40.4167
+            }
+        },
+        "center": {
+            "lat": 41.0015,
+            "lng": 39.7178
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "62",
+        "plateCode": "62",
+        "name": "Tunceli",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.8333,
+                "lng": 38.9167
+            },
+            "northeast": {
+                "lat": 39.5000,
+                "lng": 40.0833
+            }
+        },
+        "center": {
+            "lat": 39.1079,
+            "lng": 39.5401
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "63",
+        "plateCode": "63",
+        "name": "Şanlıurfa",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 36.7500,
+                "lng": 38.4167
+            },
+            "northeast": {
+                "lat": 37.7500,
+                "lng": 39.9167
+            }
+        },
+        "center": {
+            "lat": 37.1591,
+            "lng": 38.7969
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "64",
+        "plateCode": "64",
+        "name": "Uşak",
+        "region": "Ege",
+        "bounds": {
+            "southwest": {
+                "lat": 38.3333,
+                "lng": 28.9167
+            },
+            "northeast": {
+                "lat": 38.9167,
+                "lng": 29.8333
+            }
+        },
+        "center": {
+            "lat": 38.6823,
+            "lng": 29.4082
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "65",
+        "plateCode": "65",
+        "name": "Van",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.0833,
+                "lng": 42.5833
+            },
+            "northeast": {
+                "lat": 39.0833,
+                "lng": 44.0833
+            }
+        },
+        "center": {
+            "lat": 38.4891,
+            "lng": 43.4089
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "66",
+        "plateCode": "66",
+        "name": "Yozgat",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.2500,
+                "lng": 34.5000
+            },
+            "northeast": {
+                "lat": 40.0833,
+                "lng": 35.9167
+            }
+        },
+        "center": {
+            "lat": 39.8181,
+            "lng": 34.8147
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "67",
+        "plateCode": "67",
+        "name": "Zonguldak",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 41.1667,
+                "lng": 31.4167
+            },
+            "northeast": {
+                "lat": 41.6667,
+                "lng": 32.3333
+            }
+        },
+        "center": {
+            "lat": 41.4564,
+            "lng": 31.7987
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "68",
+        "plateCode": "68",
+        "name": "Aksaray",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 38.1667,
+                "lng": 33.5833
+            },
+            "northeast": {
+                "lat": 38.7500,
+                "lng": 34.5833
+            }
+        },
+        "center": {
+            "lat": 38.3687,
+            "lng": 34.0370
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "69",
+        "plateCode": "69",
+        "name": "Bayburt",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.0833,
+                "lng": 39.9167
+            },
+            "northeast": {
+                "lat": 40.4167,
+                "lng": 40.5000
+            }
+        },
+        "center": {
+            "lat": 40.2552,
+            "lng": 40.2249
+        },
+        "minZoom": 10,
+        "maxZoom": 18,
+        "defaultZoom": 11
+    },
+    {
+        "id": "70",
+        "plateCode": "70",
+        "name": "Karaman",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 36.8333,
+                "lng": 32.5833
+            },
+            "northeast": {
+                "lat": 37.5833,
+                "lng": 33.6667
+            }
+        },
+        "center": {
+            "lat": 37.1759,
+            "lng": 33.2287
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "71",
+        "plateCode": "71",
+        "name": "Kırıkkale",
+        "region": "İç Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.5833,
+                "lng": 33.2500
+            },
+            "northeast": {
+                "lat": 40.0833,
+                "lng": 34.2500
+            }
+        },
+        "center": {
+            "lat": 39.8468,
+            "lng": 33.5153
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "72",
+        "plateCode": "72",
+        "name": "Batman",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.7500,
+                "lng": 40.9167
+            },
+            "northeast": {
+                "lat": 38.3333,
+                "lng": 41.7500
+            }
+        },
+        "center": {
+            "lat": 37.8812,
+            "lng": 41.1351
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "73",
+        "plateCode": "73",
+        "name": "Şırnak",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 37.0833,
+                "lng": 41.9167
+            },
+            "northeast": {
+                "lat": 37.9167,
+                "lng": 43.0833
+            }
+        },
+        "center": {
+            "lat": 37.5164,
+            "lng": 42.4611
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "74",
+        "plateCode": "74",
+        "name": "Bartın",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 41.3333,
+                "lng": 32.1667
+            },
+            "northeast": {
+                "lat": 41.8333,
+                "lng": 32.9167
+            }
+        },
+        "center": {
+            "lat": 41.5811,
+            "lng": 32.4610
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "75",
+        "plateCode": "75",
+        "name": "Ardahan",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 40.7500,
+                "lng": 42.4167
+            },
+            "northeast": {
+                "lat": 41.2500,
+                "lng": 43.3333
+            }
+        },
+        "center": {
+            "lat": 41.1105,
+            "lng": 42.7022
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "76",
+        "plateCode": "76",
+        "name": "Iğdır",
+        "region": "Doğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 39.8333,
+                "lng": 43.7500
+            },
+            "northeast": {
+                "lat": 40.1667,
+                "lng": 44.5000
+            }
+        },
+        "center": {
+            "lat": 39.9237,
+            "lng": 44.0450
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "77",
+        "plateCode": "77",
+        "name": "Yalova",
+        "region": "Marmara",
+        "bounds": {
+            "southwest": {
+                "lat": 40.5000,
+                "lng": 28.9167
+            },
+            "northeast": {
+                "lat": 40.7500,
+                "lng": 29.4167
+            }
+        },
+        "center": {
+            "lat": 40.6500,
+            "lng": 29.2667
+        },
+        "minZoom": 10,
+        "maxZoom": 18,
+        "defaultZoom": 11
+    },
+    {
+        "id": "78",
+        "plateCode": "78",
+        "name": "Karabük",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.8333,
+                "lng": 32.3333
+            },
+            "northeast": {
+                "lat": 41.3333,
+                "lng": 33.0833
+            }
+        },
+        "center": {
+            "lat": 41.2061,
+            "lng": 32.6204
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "79",
+        "plateCode": "79",
+        "name": "Kilis",
+        "region": "Güneydoğu Anadolu",
+        "bounds": {
+            "southwest": {
+                "lat": 36.7500,
+                "lng": 36.9167
+            },
+            "northeast": {
+                "lat": 37.1667,
+                "lng": 37.3333
+            }
+        },
+        "center": {
+            "lat": 36.7184,
+            "lng": 37.1212
+        },
+        "minZoom": 10,
+        "maxZoom": 18,
+        "defaultZoom": 11
+    },
+    {
+        "id": "80",
+        "plateCode": "80",
+        "name": "Osmaniye",
+        "region": "Akdeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 36.9167,
+                "lng": 35.8333
+            },
+            "northeast": {
+                "lat": 37.4167,
+                "lng": 36.5000
+            }
+        },
+        "center": {
+            "lat": 37.0742,
+            "lng": 36.2478
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    },
+    {
+        "id": "81",
+        "plateCode": "81",
+        "name": "Düzce",
+        "region": "Karadeniz",
+        "bounds": {
+            "southwest": {
+                "lat": 40.6667,
+                "lng": 30.8333
+            },
+            "northeast": {
+                "lat": 41.0833,
+                "lng": 31.5833
+            }
+        },
+        "center": {
+            "lat": 40.8438,
+            "lng": 31.1565
+        },
+        "minZoom": 9,
+        "maxZoom": 18,
+        "defaultZoom": 10
+    }
+]
