@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
+import 'package:flutter_hotel_booking/future/views/home/state/recommended_category_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/cattegory/category_chip.dart';
 import 'package:gen/gen.dart';
 

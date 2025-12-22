@@ -12,7 +12,8 @@ class BottomNavigationBarView extends StatefulWidget {
   const BottomNavigationBarView({super.key});
 
   @override
-  State<BottomNavigationBarView> createState() => _BottomNavigationBarViewState();
+  State<BottomNavigationBarView> createState() =>
+      _BottomNavigationBarViewState();
 }
 
 class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
@@ -40,7 +41,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
             body: IndexedStack(
               index: currentIndex,
               children: const [
-                HomeMultiBlocProvider(),
+                HomeView(),
                 MyBookingView(),
                 MessageView(),
                 ProfileView(),

@@ -7,8 +7,6 @@ import 'package:flutter_hotel_booking/future/login_process/login/sigin/sig_in_vi
 import 'package:flutter_hotel_booking/future/login_process/login/signup/sign_up_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/onboard/onboarding_view.dart';
 import 'package:flutter_hotel_booking/future/login_process/splash/splash_view.dart';
-import 'package:flutter_hotel_booking/future/views/cart_detail/cart_detail_view.dart';
-import 'package:flutter_hotel_booking/future/views/home/home_view.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/key/app_keys.dart';
 import 'package:flutter_hotel_booking/product/constant/strings/navigation/navigation_strings.dart';
 import 'package:flutter_hotel_booking/product/init/app_listiner_initialize.dart';
@@ -81,23 +79,7 @@ final GoRouter router = GoRouter(
             return const BottomNavigationBarView();
           },
           routes: [
-            GoRoute(
-              path: '/${NavigationStrings.mapView}',
-              name: NavigationStrings.mapView,
-              builder: (BuildContext context, GoRouterState state) {
-                return const HomeMultiBlocProvider();
-              },
-              routes: [
-                GoRoute(
-                  path: '/detailView',
-                  name: 'detailView',
-                  builder: (BuildContext context, GoRouterState state) {
-                    final hotel = state.extra! as Hotel;
-                    return CardDetailView(hotel: hotel);
-                  },
-                ),
-              ],
-            ),
+          
           ],
         ),
       ],

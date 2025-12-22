@@ -40,7 +40,7 @@ Map<String, dynamic> _$HotelToJson(_Hotel instance) => <String, dynamic>{
   'category': _$HotelCategoryEnumMap[instance.category],
 };
 
-const Map<HotelCategory, String> _$HotelCategoryEnumMap = {
+const _$HotelCategoryEnumMap = {
   HotelCategory.villas: 'villas',
   HotelCategory.hotels: 'hotels',
   HotelCategory.apartment: 'apartment',

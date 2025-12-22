@@ -73,8 +73,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthError(e.message ?? 'Hata'));
     }
   }
-
-  //burdan otp ye gitmisse zaten id si var
+ 
   Future<void> _authSignInRequested(
     AuthSignInRequested event,
     Emitter<AuthState> emit,
@@ -91,16 +90,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  //bu yeni kullanici oldugu icin id yok
-  //firestoreda kod olusturup kaydedebilcegimiz bir id yok
-  //o yuzden temp id uretiyoruz
   Future<void> _authSignUpRequested(
     AuthSignUpRequested event,
     Emitter<AuthState> emit,
   ) async {
     emit(AuthLoading());
     try {
-      final user = await locator.firebaseAuthService.authSignUpRequested(
+      final user = await locator.firebaseAuthService.signUpWithEmail(
         email: event.email,
         password: event.password,
         fullName: event.fullName,

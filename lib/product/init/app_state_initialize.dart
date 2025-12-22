@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hotel_booking/future/views/home/state/recommended_category_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/map/state/map_cubit.dart';
 import 'package:flutter_hotel_booking/product/service/firebase/firebase_firestore/firebase_firestore.dart';
 import 'package:flutter_hotel_booking/product/service/notification/bloc/notification_bloc.dart';
@@ -14,7 +15,7 @@ import 'package:flutter_hotel_booking/product/state/cubit/theme/theme_cubit.dart
 import 'package:flutter_hotel_booking/product/state/cubit/version/version_comparetor_cubit.dart';
 import 'package:flutter_hotel_booking/product/state/hotels/top_picks/top_picks_cubit.dart';
 
-class StateInitialize extends StatelessWidget {
+final class StateInitialize extends StatelessWidget {
   const StateInitialize({required this.child, super.key});
   final Widget child;
 
@@ -47,6 +48,15 @@ class StateInitialize extends StatelessWidget {
             locator<FirebaseHotelService>(),
             CityServiceJson(),
           ),
+        ),
+
+        BlocProvider(
+          create: (context) => TopPicksCubit()..loadTopPicks(),
+        ),
+        BlocProvider(
+          create: (context) => RecommendedCategoryBloc(
+            hotelService: locator<FirebaseHotelService>(),
+          )..add(const RecommendedCategoryEvent.started()),
         ),
       ],
       child: child,

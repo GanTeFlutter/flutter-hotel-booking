@@ -257,23 +257,29 @@ String toString() {
 
 
 class _Loaded implements MapState {
-  const _Loaded({required final  Set<Marker> markers, this.mapType = MapType.normal, this.buttonActive = false, this.cameraPosition = MapConstants.initialCamera, this.trafficEnabled = false, this.zoomPreference = MinMaxZoomPreference.unbounded, this.cityBounds}): _markers = markers;
+  const _Loaded({required final  Set<Marker> markers, this.mapType = MapType.normal, this.buttonActive = false, this.cameraPosition = MapConstants.initialCamera, this.trafficEnabled = false, this.zoomPreference = MapConstants.mapBounded, this.cityBounds}): _markers = markers;
   
 
-//Harita üzerindeki Noktalar
+// Harita üzerindeki Noktalar
  final  Set<Marker> _markers;
-//Harita üzerindeki Noktalar
+// Harita üzerindeki Noktalar
  Set<Marker> get markers {
   if (_markers is EqualUnmodifiableSetView) return _markers;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableSetView(_markers);
 }
 
+// Harita Türü (Normal, Uydu, Arazi vb.)
 @JsonKey() final  MapType mapType;
+// Butonun Aktiflik Durumu
 @JsonKey() final  bool buttonActive;
+// Kamera Pozisyonu
 @JsonKey() final  CameraPosition cameraPosition;
+// Trafik Bilgisinin Gösterilip Gösterilmeyeceği
 @JsonKey() final  bool trafficEnabled;
+// Yakınlaştırma Tercihleri
 @JsonKey() final  MinMaxZoomPreference zoomPreference;
+// Şehir Sınırları
  final  LatLngBounds? cityBounds;
 
 /// Create a copy of MapState

@@ -73,6 +73,16 @@ class $AssetsImageGen {
   ];
 }
 
+class $AssetsJsonGen {
+  const $AssetsJsonGen();
+
+  /// File path: assets/json/cities.json
+  String get cities => 'assets/json/cities.json';
+
+  /// List of all assets
+  List<String> get values => [cities];
+}
+
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
@@ -165,6 +175,7 @@ class Assets {
   static const $AssetsColorGen color = $AssetsColorGen();
   static const $AssetsIconGen icon = $AssetsIconGen();
   static const $AssetsImageGen image = $AssetsImageGen();
+  static const $AssetsJsonGen json = $AssetsJsonGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
 }

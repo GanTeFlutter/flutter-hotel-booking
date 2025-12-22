@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/cart_detail/cart_detail_view.dart';
-import 'package:flutter_hotel_booking/future/views/home/home_state/bloc/recommended_category_bloc.dart';
+import 'package:flutter_hotel_booking/future/views/home/state/recommended_category_bloc.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/cattegory/category_chips.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/cattegory/hotel_section_card.dart';
 import 'package:flutter_hotel_booking/future/views/home/widget/shimmer/recommended_shimmer.dart';
@@ -16,7 +16,6 @@ class RecommendedSection extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => const SizedBox.shrink(),
-
           loading: () => Column(
             children: [
               const CategoryChipsShimmer(),
@@ -30,7 +29,6 @@ class RecommendedSection extends StatelessWidget {
               ),
             ],
           ),
-
           loaded: (hotels, selectedCategory) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

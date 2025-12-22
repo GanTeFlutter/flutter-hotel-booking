@@ -11,6 +11,13 @@ _UserModel _$UserModelFromJson(Map<String, dynamic> json) => _UserModel(
   fullName: json['fullName'] as String?,
   email: json['email'] as String?,
   photoUrl: json['photoUrl'] as String?,
+  nickname: json['nickname'] as String?,
+  favoriteHotels:
+      (json['favoriteHotels'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const [],
+  isGuest: json['isGuest'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$UserModelToJson(_UserModel instance) =>
@@ -19,4 +26,7 @@ Map<String, dynamic> _$UserModelToJson(_UserModel instance) =>
       'fullName': instance.fullName,
       'email': instance.email,
       'photoUrl': instance.photoUrl,
+      'nickname': instance.nickname,
+      'favoriteHotels': instance.favoriteHotels,
+      'isGuest': instance.isGuest,
     };

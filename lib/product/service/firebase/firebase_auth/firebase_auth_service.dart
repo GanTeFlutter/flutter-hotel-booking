@@ -4,16 +4,16 @@ import 'package:flutter_hotel_booking/product/enum/firebase_collections.dart';
 import 'package:gen/gen.dart';
 import 'package:uuid/uuid.dart';
 
+// Firebase Authentication Servisi - Tüm kimlik doğrulama ve kullanıcı yönetimi işlemlerini yönetir
 class FirebaseAuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   static const Uuid _uuid = Uuid();
 
-  String generateTempUserId() {
-    return _uuid.v4();
-  }
+  // Geçici benzersiz kullanıcı ID'si oluşturur
+  String generateTempUserId() => _uuid.v4();
 
-  /// Auth state değişikliklerini dinler
+  // Auth state değişikliklerini dinler
   Stream<UserModel?> get authStateChanges {
     return _auth.authStateChanges().asyncMap((firebaseUser) async {
       if (firebaseUser == null) return null;
@@ -21,15 +21,39 @@ class FirebaseAuthService {
     });
   }
 
-  /// Mevcut kullanıcıyı getirir
+  // Mevcut kullanıcıyı getirir
   Future<UserModel?> get currentUser async {
     final firebaseUser = _auth.currentUser;
     if (firebaseUser == null) return null;
     return getUserById(firebaseUser.uid);
   }
 
-  ///Yeni Kullanıcı kaydı oluşturur
-  Future<UserModel> authSignUpRequested({
+  // Firestore'dan kullanıcı bilgilerini çeker
+  Future<UserModel> getUserById(String uid) async {
+    try {
+      final doc = await _firestore
+          .collection(FirestoreCollection.users.name)
+          .doc(uid)
+          .get();
+
+      if (!doc.exists) {
+        throw FirebaseAuthException(
+          code: 'user-not-found',
+          message: 'Kullanıcı bulunamadı',
+        );
+      }
+      return UserModel.fromJson({...doc.data()!, 'id': doc.id});
+    } catch (e) {
+      if (e is FirebaseAuthException) rethrow;
+      throw FirebaseAuthException(
+        code: 'firestore-error',
+        message: 'Kullanıcı bilgileri alınamadı',
+      );
+    }
+  }
+
+  // Email ve şifre ile yeni kullanıcı kaydı oluşturur
+  Future<UserModel> signUpWithEmail({
     required String email,
     required String password,
     required String fullName,
@@ -63,7 +87,7 @@ class FirebaseAuthService {
     }
   }
 
-  /// Email ile giriş
+  // Email ve şifre ile giriş yapar
   Future<UserModel> signInWithEmail({
     required String email,
     required String password,
@@ -82,7 +106,7 @@ class FirebaseAuthService {
     }
   }
 
-  /// Misafir girişi
+  // Misafir olarak giriş yapar
   Future<UserModel> signInAnonymously() async {
     try {
       final userCredential = await _auth.signInAnonymously();
@@ -90,6 +114,7 @@ class FirebaseAuthService {
       final user = UserModel(
         id: userCredential.user!.uid,
         fullName: 'Misafir Kullanıcı',
+        isGuest: true,
       );
 
       await _firestore
@@ -110,35 +135,84 @@ class FirebaseAuthService {
     }
   }
 
-  /// Çıkış
+  // Kullanıcı çıkışı yapar
   Future<void> signOut() async {
-    await _auth.signOut();
-  }
-
-  /// Firestore'dan kullanıcı bilgilerini çek
-  Future<UserModel> getUserById(String uid) async {
-    final doc = await _firestore
-        .collection(FirestoreCollection.users.name)
-        .doc(uid)
-        .get();
-    if (!doc.exists) {
-      throw Exception('Kullanıcı bulunamadı');
+    try {
+      await _auth.signOut();
+    } on FirebaseAuthException catch (e) {
+      throw FirebaseAuthException(
+        code: e.code,
+        message: _handleAuthException(e),
+      );
     }
-    return UserModel.fromJson({...doc.data()!, 'id': doc.id});
   }
 
-  /// Profil güncelle
+  // Misafir hesabı normal hesaba dönüştürür
+  Future<UserModel> convertGuestToRegular({
+    required String email,
+    required String password,
+    required String fullName,
+  }) async {
+    try {
+      final currentUser = _auth.currentUser;
+
+      if (currentUser == null || !currentUser.isAnonymous) {
+        throw FirebaseAuthException(
+          code: 'invalid-guest-session',
+          message: 'Geçerli bir misafir oturum bulunamadı',
+        );
+      }
+
+      final credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+
+      final userCredential = await currentUser.linkWithCredential(credential);
+
+      await _firestore
+          .collection(FirestoreCollection.users.name)
+          .doc(currentUser.uid)
+          .set({
+            'fullName': fullName,
+            'email': email,
+            'isGuest': false,
+            'updatedAt': FieldValue.serverTimestamp(),
+          }, SetOptions(merge: true));
+
+      return await getUserById(userCredential.user!.uid);
+    } on FirebaseAuthException catch (e) {
+      throw FirebaseAuthException(
+        code: e.code,
+        message: _handleAuthException(e),
+      );
+    }
+  }
+
+  // Kullanıcı profil bilgilerini günceller
   Future<void> updateProfile(UserModel user) async {
-    await _firestore.collection('users').doc(user.id).update({
-      ...user.toJson(),
-      'updatedAt': FieldValue.serverTimestamp(),
-    });
+    try {
+      await _firestore
+          .collection(FirestoreCollection.users.name)
+          .doc(user.id)
+          .update({
+            ...user.toJson(),
+            'updatedAt': FieldValue.serverTimestamp(),
+          });
+    } on Exception catch (e) {
+      throw FirebaseAuthException(
+        code: 'update-failed',
+        message: 'Profil güncellenemedi',
+      );
+    }
   }
 
-  Future<void> sifreSifirla(String email) async {
+  // Şifre sıfırlama e-postası gönderir
+  Future<void> sendPasswordResetEmail(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
+      // Güvenlik: Kullanıcının var olup olmadığını açığa çıkarma
       if (e.code != 'user-not-found') {
         throw FirebaseAuthException(
           code: e.code,
@@ -148,9 +222,7 @@ class FirebaseAuthService {
     }
   }
 
-  /// Şifre sıfırlama/değiştirme
-  /// - Oturum açıksa: Direkt şifreyi günceller
-  /// - Oturum kapalıysa: E-posta ile sıfırlama linki gönderir
+  // Şifreyi sıfırlar veya değiştirir (oturum durumuna göre)
   Future<bool> resetPassword({
     String? email,
     String? newPassword,
@@ -158,11 +230,13 @@ class FirebaseAuthService {
     try {
       final user = _auth.currentUser;
 
+      // Kullanıcı giriş yapmış ve şifre değiştirmek istiyor
       if (user != null && newPassword != null) {
         await user.updatePassword(newPassword);
         return true;
       }
 
+      // Kullanıcı giriş yapmamış, sıfırlama e-postası gönder
       if (user == null && email != null) {
         await _auth.sendPasswordResetEmail(email: email);
         return true;
@@ -173,7 +247,7 @@ class FirebaseAuthService {
         message: user != null ? 'Yeni şifre gerekli.' : 'E-posta gerekli.',
       );
     } on FirebaseAuthException catch (e) {
-      // Güvenlik: user-not-found olsa bile başarılı gibi davran
+      // Güvenlik: Kullanıcının var olup olmadığını açığa çıkarma
       if (e.code == 'user-not-found') return true;
 
       throw FirebaseAuthException(
@@ -183,7 +257,35 @@ class FirebaseAuthService {
     }
   }
 
+  // Kullanıcı hesabını ve tüm verilerini siler
+  Future<void> deleteAccount() async {
+    try {
+      final user = _auth.currentUser;
 
+      if (user == null) {
+        throw FirebaseAuthException(
+          code: 'no-user',
+          message: 'Kullanıcı oturumu bulunamadı',
+        );
+      }
+
+      // Firestore'dan kullanıcı verilerini sil
+      await _firestore
+          .collection(FirestoreCollection.users.name)
+          .doc(user.uid)
+          .delete();
+
+      // Firebase Auth hesabını sil
+      await user.delete();
+    } on FirebaseAuthException catch (e) {
+      throw FirebaseAuthException(
+        code: e.code,
+        message: _handleAuthException(e),
+      );
+    }
+  }
+
+  // Firebase Auth hatalarını kullanıcı dostu mesajlara çevirir
   String _handleAuthException(FirebaseAuthException e) {
     switch (e.code) {
       case 'weak-password':
@@ -198,6 +300,20 @@ class FirebaseAuthService {
         return 'Hatalı şifre.';
       case 'network-request-failed':
         return 'İnternet bağlantınızı kontrol edin.';
+      case 'requires-recent-login':
+        return 'Bu işlem için yeniden giriş yapmanız gerekiyor.';
+      case 'credential-already-in-use':
+        return 'Bu email adresi başka bir hesapta kullanılıyor.';
+      case 'invalid-guest-session':
+        return 'Geçerli bir misafir oturum bulunamadı.';
+      case 'firestore-error':
+        return 'Veritabanı hatası oluştu.';
+      case 'update-failed':
+        return 'Profil güncellenemedi.';
+      case 'no-user':
+        return 'Kullanıcı oturumu bulunamadı.';
+      case 'invalid-params':
+        return e.message ?? 'Geçersiz parametreler.';
       default:
         return e.message ?? 'Bir hata oluştu';
     }

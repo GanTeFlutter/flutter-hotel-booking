@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hotel_booking/product/service/service_locator.dart';
 
 class MyBookingView extends StatefulWidget {
   const MyBookingView({super.key});
@@ -18,7 +19,11 @@ class _MyBookingViewState extends State<MyBookingView> {
           spacing: 10,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                final currentUser =
+                    await locator.firebaseAuthService.currentUser;
+                debugPrint('--$currentUser');
+              },
               child: const Text('MyBookingView'),
             ),
             ElevatedButton(

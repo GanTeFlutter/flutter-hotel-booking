@@ -46,7 +46,6 @@ abstract class SignUpViewModel extends State<SignUpView> {
           tempUserId: tempUserId,
           email: email,
           password: password,
-          //verify icin
           isSignUp: true,
         ),
       );

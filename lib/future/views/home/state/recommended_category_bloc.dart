@@ -24,10 +24,8 @@ class RecommendedCategoryBloc
     Emitter<RecommendedCategoryState> emit,
   ) async {
     emit(const RecommendedCategoryState.loading());
-
     try {
       _allHotels = await _hotelService.getHotels();
-
       emit(
         RecommendedCategoryState.loaded(
           hotels: _allHotels,
@@ -42,15 +40,17 @@ class RecommendedCategoryBloc
     _ChangeCategory event,
     Emitter<RecommendedCategoryState> emit,
   ) {
-    final filteredHotels = event.category == null
-        ? _allHotels
-        : _allHotels.where((h) => h.category == event.category).toList();
-
-    emit(
-      RecommendedCategoryState.loaded(
-        hotels: filteredHotels,
-        selectedCategory: event.category,
-      ),
-    );
+    final currentState = state;
+    if (currentState is _Loaded) {
+      final filteredHotels = event.category == null
+          ? _allHotels
+          : _allHotels.where((h) => h.category == event.category).toList();
+      emit(
+        currentState.copyWith(
+          hotels: filteredHotels,
+          selectedCategory: event.category,
+        ),
+      );
+    }
   }
 }
