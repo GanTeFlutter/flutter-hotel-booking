@@ -6,7 +6,7 @@ class MapConstants {
   static const LatLng anpitkabir = LatLng(39.9255, 32.8372);
 
   static const CameraPosition initialCamera = CameraPosition(
-    target: anpitkabir,
+    target: anitkabir,
     zoom: 17,
     bearing: 30,
     tilt: 50,
