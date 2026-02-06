@@ -4,8 +4,6 @@ Modern ve kullanıcı dostu bir otel rezervasyon uygulaması. Firebase backend a
 
 Firebase Function ile mail doğrulama ekledim stabil çalışıyor ancak bir çok kod view model da bunların alınması lazım...
 
-proje sonlandırıyorum buradaki hatalar kötü kodlamalar projede inanılmaz karşıklığa neden oldu hatalardan ders alıp yeni projeye........
-
 
 ## 📱 Uygulama Önizlemesi
 [Instagram'da gör](https://www.instagram.com/p/DSlamoYjPSf/?img_index=1)
